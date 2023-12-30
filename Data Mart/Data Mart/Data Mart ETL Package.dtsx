@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Data Mart ETL Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{A30E97D5-A1DE-467D-B622-D9BAD4139442}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{1E1494A0-7EDC-466B-BCA7-ED5B168658B0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,19 +31,6 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Contêiner do Loop For"
-      DTS:CreationName="STOCK:FORLOOP"
-      DTS:Description="Contêiner do Loop For"
-      DTS:DTSID="{36C2307D-E1CA-4B72-8AFD-46BC3451FAFD}"
-      DTS:EvalExpression=""
-      DTS:ExecutableType="STOCK:FORLOOP"
-      DTS:LocaleID="-1"
-      DTS:MaxConcurrent="1"
-      DTS:ObjectName="Contêiner do Loop For">
-      <DTS:Variables />
-      <DTS:Executables />
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Create DataMart Database"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -89,6 +76,17 @@
       <DTS:Variables />
       <DTS:Executables />
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container 1"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{3E4BFBC2-FF88-452C-9895-8697C6062BDB}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container 1">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -100,13 +98,13 @@
       DTS:ObjectName="Constraint"
       DTS:To="Package\Foreach Loop Container" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restrição]"
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{F452C2BD-0AFB-432E-A319-08C684674B7A}"
+      DTS:DTSID="{2683E5A7-5EFC-4059-B504-3C4612479127}"
       DTS:From="Package\Create Staging Area Database"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="Restrição"
-      DTS:To="Package\Contêiner do Loop For" />
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Foreach Loop Container 1" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -120,13 +118,6 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="207,55"
-          Size="207,98"
-          Id="Package\Contêiner do Loop For"
-          TopLeft="272.857143437984,213.352940989459" />
         <NodeLayout
           Size="203,42"
           Id="Package\Create DataMart Database"
@@ -135,28 +126,6 @@
           Size="220,42"
           Id="Package\Create Staging Area Database"
           TopLeft="265,101" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restrição]"
-          TopLeft="375.728571718992,142.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,70.7529409894586"
-              Start="0,0"
-              End="0,63.2529409894586">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,63.2529409894586" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -190,6 +159,47 @@
                     Point3="-23,38.5" />
                   <mssgle:LineSegment
                     End="-23,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,55"
+          Size="205,98"
+          Id="Package\Foreach Loop Container 1"
+          TopLeft="255,211" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="375,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,68"
+              Start="0,0"
+              End="-17.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="-4,34" />
+                  <mssgle:LineSegment
+                    End="-13.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,34"
+                    Point2="-17.5,34"
+                    Point3="-17.5,38" />
+                  <mssgle:LineSegment
+                    End="-17.5,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
