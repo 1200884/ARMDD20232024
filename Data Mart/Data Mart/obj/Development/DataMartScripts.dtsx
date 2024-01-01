@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/30/2023 5:44:06 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{7D5CD770-0D55-4D42-B9B8-FDFDA2CDDBC3}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{8DA64C65-CFE4-4B42-AFA9-F6F8E0E6EB7C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,7 +68,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="../../ARMDDSCRIPTSTP&#xA;" />
+              Folder="C:\Users\jgasp\OneDrive\Desktop\ARMDDSCRIPTSTP" />
             <FEFEProperty
               FileSpec="*.sql" />
             <FEFEProperty
@@ -102,8 +102,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{49DCD0D1-410F-4D3E-A6A5-090666A76289}"
-          DTS:ObjectName="{49DCD0D1-410F-4D3E-A6A5-090666A76289}"
+          DTS:DTSID="{3C86AD5C-5DF8-49A8-9035-1FA8F948B498}"
+          DTS:ObjectName="{3C86AD5C-5DF8-49A8-9035-1FA8F948B498}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::DMScriptFilename" />
       </DTS:ForEachVariableMappings>
