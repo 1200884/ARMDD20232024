@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Data Mart ETL Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{0FC21C23-FCC6-4592-8E2D-149320401FB3}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{073B56F6-3207-4CCA-9E4B-5CB75F8D9FC8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -264,6 +264,10 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="193,42"
+          Id="Package\Create Data Mart Tables"
+          TopLeft="589,220" />
+        <NodeLayout
           Size="203,42"
           Id="Package\Create DataMart Database"
           TopLeft="588,102" />
@@ -275,6 +279,48 @@
           Size="207,42"
           Id="Package\Create Staging Area Tables"
           TopLeft="260,204" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Load Bikes and Bikes"
+          TopLeft="270,306" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Load Business Dimensions"
+          TopLeft="374,409" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Load DimDate"
+          TopLeft="600,332" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Load FactCurrencyRates"
+          TopLeft="252,525" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Load FactSales"
+          TopLeft="532,522" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="687.5,144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="375,143">
@@ -309,36 +355,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="193,42"
-          Id="Package\Create Data Mart Tables"
-          TopLeft="589,220" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="687.5,144">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,76"
-              Start="0,0"
-              End="0,68.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,68.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Load Bikes and Bikes"
-          TopLeft="270,306" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="361.25,246">
@@ -361,10 +377,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="146,42"
-          Id="Package\Load DimDate"
-          TopLeft="600,332" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="685.5,262">
@@ -399,10 +411,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="203,42"
-          Id="Package\Load Business Dimensions"
-          TopLeft="374,409" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="359,348">
@@ -471,14 +479,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="193,42"
-          Id="Package\Load FactCurrencyRates"
-          TopLeft="252,525" />
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Load FactSales"
-          TopLeft="532,522" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="443,451">

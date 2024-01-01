@@ -8,4 +8,4 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'StateProvinces')
 		[ModifiedDate] [date] NOT NULL
 	)
 ELSE 
-	TRUNCATE StateProvinces
+	TRUNCATE TABLE StateProvinces
