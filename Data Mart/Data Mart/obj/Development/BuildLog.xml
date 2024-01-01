@@ -2,13 +2,48 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Data Mart</Name>
-    <LastWriteTime>2023-12-29T22:23:58.2388228Z</LastWriteTime>
+    <LastWriteTime>2024-01-01T19:42:48.6212738Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Data Mart ETL Package.dtsx</Name>
-      <LastWriteTime>2023-12-29T22:23:58.2258237Z</LastWriteTime>
+      <LastWriteTime>2023-12-30T22:38:53.8482991Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>StagingAreaScripts.dtsx</Name>
+      <LastWriteTime>2023-12-30T22:38:53.8551665Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DataMartScripts.dtsx</Name>
+      <LastWriteTime>2024-01-01T19:42:48.5213624Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Load FactSales.dtsx</Name>
+      <LastWriteTime>2023-12-30T22:38:53.8551665Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Load FactCurrencyRates.dtsx</Name>
+      <LastWriteTime>2023-12-30T22:38:53.8537774Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Load BusinessDimensions.dtsx</Name>
+      <LastWriteTime>2023-12-30T22:38:53.8508819Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Load DataFromBikesBikes.dtsx</Name>
+      <LastWriteTime>2023-12-30T22:38:53.8527749Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Load DimDate.dtsx</Name>
+      <LastWriteTime>2023-12-30T22:38:53.8537774Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
