@@ -16,7 +16,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesOrderHeaders')
 		[Freight] [money] NOT NULL,
 		[TotalDue] [money] NOT NULL,
 		[CreatedDate] [date] NOT NULL,
-		[ModifiedDate] [date] NOT NULL,
+		[ModifiedDate] [date] NOT NULL
 	)
 ELSE
 	TRUNCATE TABLE SalesOrderHeaders

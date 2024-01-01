@@ -1,5 +1,5 @@
-IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesPersons')
-	CREATE TABLE [dbo].[SalesPersons](
+IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesPersonsDQP')
+	CREATE TABLE [dbo].[SalesPersonsDQP](
 		[BusinessEntityID] [int] NOT NULL,
 		[SalesQuota] [money] NULL,
 		[Bonus] [money] NOT NULL,
@@ -7,7 +7,8 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesPersons')
 		[SalesYTD] [money] NOT NULL,
 		[SalesLastYear] [money] NOT NULL,
 		[CreatedDate] [date] NOT NULL,
-		[ModifiedDate] [date] NOT NULL
+		[ModifiedDate] [date] NOT NULL,
+        DQP nvarchar(100)
 	)
 ELSE
-	TRUNCATE TABLE SalesPersons
+	TRUNCATE TABLE SalesPersonsDQP

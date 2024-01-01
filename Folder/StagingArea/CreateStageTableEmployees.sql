@@ -12,7 +12,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'Employees')
 		[VacationHours] [smallint] NOT NULL,
 		[SickLeaveHours] [smallint] NOT NULL,
 		[CreatedDate] [date] NOT NULL,
-		[ModifiedDate] [date] NOT NULL,
+		[ModifiedDate] [date] NOT NULL
 	)
 ELSE
 	TRUNCATE TABLE Employees 

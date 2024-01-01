@@ -1,5 +1,5 @@
-IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesTerritories')
-	CREATE TABLE [dbo].[SalesTerritories](
+IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesTerritoriesDQP')
+	CREATE TABLE [dbo].[SalesTerritoriesDQP](
 		[TerritoryID] [int] NOT NULL,
 		[Name] [nvarchar](50) NOT NULL,
 		[CountryRegionCode] [nvarchar](3) NOT NULL,
@@ -7,7 +7,8 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesTerritories')
 		[SalesYTD] [money] NOT NULL,
 		[SalesLastYear] [money] NOT NULL,
 		[CreatedDate] [date] NOT NULL,
-		[ModifiedDate] [date] NOT NULL
+		[ModifiedDate] [date] NOT NULL,
+        DQP nvarchar(100)
 	)
 ELSE
-	TRUNCATE TABLE SalesTerritories
+	TRUNCATE TABLE SalesTerritoriesDQP

@@ -7,7 +7,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'CurrencyRates')
 		[AverageRate] [money] NOT NULL,
 		[EndOfDayRate] [money] NOT NULL,
 		[CreatedDate] [date] NOT NULL,
-		[ModifiedDate] [date] NOT NULL,
-)
+		[ModifiedDate] [date] NOT NULL
+	)
 ELSE
 	TRUNCATE TABLE CurrencyRates

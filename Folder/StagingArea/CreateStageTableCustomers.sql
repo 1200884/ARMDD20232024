@@ -3,7 +3,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'Customers')
 		[CustomerID] [int] NOT NULL,
 		[PersonID] [int] NULL,
 		[CreatedDate] [date] NULL,
-		[ModifiedDate] [date] NULL,
+		[ModifiedDate] [date] NULL
 	)
 ELSE
 	TRUNCATE TABLE Customers

@@ -5,7 +5,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'ShipMethods')
 		[ShipBase] [money] NOT NULL,
 		[ShipRate] [money] NOT NULL,
 		[CreatedDate] [date] NOT NULL,
-		[ModifiedDate] [date] NOT NULL,
+		[ModifiedDate] [date] NOT NULL
 	)
 ELSE
 	TRUNCATE TABLE ShipMethods

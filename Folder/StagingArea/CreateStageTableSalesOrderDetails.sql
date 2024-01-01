@@ -8,7 +8,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesOrderDetails')
 		[UnitPriceDiscount] [money] NOT NULL,
 		[LineTotal] [numeric](38, 6) NOT NULL,
 		[CreatedDate] [date] NOT NULL,
-		[ModifiedDate] [date] NOT NULL,
+		[ModifiedDate] [date] NOT NULL
 	)
 ELSE
 	TRUNCATE TABLE SalesOrderDetails

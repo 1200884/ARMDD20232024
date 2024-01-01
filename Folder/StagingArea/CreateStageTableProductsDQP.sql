@@ -1,5 +1,5 @@
-IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'Products')
-	CREATE TABLE [dbo].[Products](
+IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'ProductsDQP')
+	CREATE TABLE [dbo].[ProductsDQP](
 		[ProductNumber] [nvarchar](25) NOT NULL,
 		[Name] [nvarchar](50) NULL,
 		[FinishedGoodsFlag] [bit] NULL,
@@ -20,7 +20,8 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'Products')
 		[SellStartDate] [date] NULL,
 		[SellEndDate] [date] NULL,
 		[CreatedDate] [date] NULL,
-		[ModifiedDate] [date] NULL
+		[ModifiedDate] [date] NULL,
+        DQP nvarchar(100)
 	)
 ELSE
-	TRUNCATE TABLE Products
+	TRUNCATE TABLE ProductsDQP
