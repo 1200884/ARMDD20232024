@@ -5,6 +5,6 @@ BEGIN
 		[FinishedGoodsFlagDescription] [nvarchar](10) NOT NULL
 	) ON [PRIMARY]
 	INSERT [dbo].[FinishedGoodsFlagDescription_Lookup] ([FinishedGoodsFlag], [FinishedGoodsFlagDescription]) VALUES (NULL, N'Unknown')
-	INSERT [dbo].[FinishedGoodsFlagDescription_Lookup] ([FinishedGoodsFlag], [FinishedGoodsFlagDescription]) VALUES (N'1', N'Yes')
-	INSERT [dbo].[FinishedGoodsFlagDescription_Lookup] ([FinishedGoodsFlag], [FinishedGoodsFlagDescription]) VALUES (N'0', N'No')
+	INSERT [dbo].[FinishedGoodsFlagDescription_Lookup] ([FinishedGoodsFlag], [FinishedGoodsFlagDescription]) VALUES (1, N'Yes')
+	INSERT [dbo].[FinishedGoodsFlagDescription_Lookup] ([FinishedGoodsFlag], [FinishedGoodsFlagDescription]) VALUES (0, N'No')
 END
