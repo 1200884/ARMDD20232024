@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{C2701D89-7DD7-432E-910C-3D1E774C622C}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{325DA731-C658-444D-8579-B30D14421200}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7589,39 +7589,39 @@
               startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\AddressFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output14]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CountryRegionsTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CountryRegionsFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output13]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output12]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderPersonsTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesPersonsFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output11]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output10]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CustomersTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CustomersFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output9]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output15]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output8]"
               endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsTo.Inputs[OLE DB Destination Input]"
@@ -7629,39 +7629,39 @@
               startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output6]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output5]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CustomersTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CustomersFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output4]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output3]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderPersonsTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesPersonsFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output2]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output1]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CountryRegionsTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CountryRegionsFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output7]"
-              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesTo.Inputs[OLE DB Destination Input]"
+              endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesTo.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesFrom.Outputs[OLE DB Source Output]" />
+              startId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesFrom.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output16]"
               endId="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\UnitMeasuresTo.Inputs[OLE DB Destination Input]"
@@ -7687,7 +7687,7 @@
         <NodeLayout
           Size="400,42"
           Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area"
-          TopLeft="445,154" />
+          TopLeft="426,162" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -7697,154 +7697,144 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="140,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsFrom"
-          TopLeft="155,191" />
-        <NodeLayout
-          Size="210,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesFrom"
-          TopLeft="745,197" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsTo"
-          TopLeft="793,442" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CountryRegionsFrom"
-          TopLeft="335,38" />
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CustomersFrom"
-          TopLeft="907,39" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesFrom"
-          TopLeft="571,357" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesFrom"
-          TopLeft="341,196" />
-        <NodeLayout
-          Size="140,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesTo"
-          TopLeft="534,108" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsTo"
-          TopLeft="988,276" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesTo"
-          TopLeft="577,437" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesPersonsFrom"
-          TopLeft="357,358" />
-        <NodeLayout
           Size="193,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesTo"
-          TopLeft="759,269" />
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsFrom"
-          TopLeft="985,196" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesTo"
-          TopLeft="706,107" />
-        <NodeLayout
-          Size="188,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderPersonsTo"
-          TopLeft="347,434" />
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\AddressTo"
-          TopLeft="163,106" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesFrom"
-          TopLeft="533,40" />
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsTo"
-          TopLeft="154,268" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesFrom"
-          TopLeft="1099,37" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsFrom"
-          TopLeft="569,196" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesFrom"
-          TopLeft="705,38" />
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersFrom"
+          TopLeft="965,17" />
         <NodeLayout
           Size="171,42"
           Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\UnitMeasuresTo"
-          TopLeft="483,620" />
+          TopLeft="909,416" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsFrom"
+          TopLeft="429,164" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsFrom"
+          TopLeft="470,336" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CountryRegionsFrom"
+          TopLeft="220,15" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CustomersFrom"
+          TopLeft="779,13" />
         <NodeLayout
           Size="171,42"
           Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsTo"
-          TopLeft="564,268" />
+          TopLeft="424,236" />
         <NodeLayout
-          Size="193,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersFrom"
-          TopLeft="125,362" />
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CountryRegionsTo"
-          TopLeft="334,106" />
-        <NodeLayout
-          Size="141,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CustomersTo"
-          TopLeft="909,108" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesTo"
-          TopLeft="341,271" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersTo"
-          TopLeft="137,433" />
+          Size="140,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesTo"
+          TopLeft="425,83" />
         <NodeLayout
           Size="171,42"
           Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesTo"
-          TopLeft="999,444" />
+          TopLeft="674,421" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesTo"
+          TopLeft="611,236" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersTo"
+          TopLeft="977,88" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsTo"
+          TopLeft="52,239" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesPersonsFrom"
+          TopLeft="32,335" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesTo"
+          TopLeft="214,238" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesFrom"
+          TopLeft="680,332" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsTo"
+          TopLeft="840,239" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsFrom"
+          TopLeft="53,162" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\AddressTo"
+          TopLeft="56,83" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesTo"
+          TopLeft="594,84" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesFrom"
+          TopLeft="605,165" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesFrom"
+          TopLeft="424,15" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesFrom"
+          TopLeft="1030,162" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesTo"
+          TopLeft="252,414" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesFrom"
+          TopLeft="593,15" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesFrom"
+          TopLeft="214,163" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\UnitMeasuresFrom"
+          TopLeft="898,336" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderPersonsTo"
+          TopLeft="22,411" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsTo"
+          TopLeft="468,419" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CountryRegionsTo"
+          TopLeft="219,83" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CustomersTo"
+          TopLeft="781,82" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsFrom"
+          TopLeft="837,159" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesFrom"
+          TopLeft="246,334" />
         <NodeLayout
           Size="140,42"
           Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\AddressFrom"
-          TopLeft="156,37" />
+          TopLeft="49,14" />
         <NodeLayout
           Size="141,42"
           Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesTo"
-          TopLeft="1103,107" />
+          TopLeft="1034,232" />
         <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output4]"
-          TopLeft="224.5,404">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29"
-              Start="0,0"
-              End="0,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output5]"
-          TopLeft="1076.5,238">
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output16]"
+          TopLeft="992.5,378">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7865,19 +7855,151 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output6]"
-          TopLeft="852.75,239">
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output7]"
+          TopLeft="306.25,205">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30"
+              EndConnector="0,33"
               Start="0,0"
-              End="0,22.5">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.5" />
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output1]"
+          TopLeft="305,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output2]"
+          TopLeft="497.5,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output3]"
+          TopLeft="676,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output4]"
+          TopLeft="1105.75,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output5]"
+          TopLeft="853.5,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output6]"
+          TopLeft="119.5,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7888,7 +8010,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output8]"
-          TopLeft="649,238">
+          TopLeft="509,206">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7910,261 +8032,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output15]"
-          TopLeft="433.25,238">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33"
-              Start="0,0"
-              End="0,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output9]"
-          TopLeft="221.5,233">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35"
-              Start="0,0"
-              End="0,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output10]"
-          TopLeft="981.5,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output11]"
-          TopLeft="1174.75,79">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28"
-              Start="0,0"
-              End="0,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output12]"
-          TopLeft="788,80">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output13]"
-          TopLeft="606.5,82">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output14]"
-          TopLeft="420,80">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output]"
-          TopLeft="226.5,79">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output2]"
-          TopLeft="661.75,399">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output3]"
-          TopLeft="440,400">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsFrom"
-          TopLeft="795,359" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesFrom"
-          TopLeft="1005,355" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\UnitMeasuresFrom"
-          TopLeft="472,540" />
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output1]"
-          TopLeft="877.5,401">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41"
-              Start="0,0"
-              End="0,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output7]"
-          TopLeft="1088.25,397">
+          TopLeft="763.25,374">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8185,8 +8053,30 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output16]"
-          TopLeft="566.5,582">
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output9]"
+          TopLeft="708.75,207">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output10]"
+          TopLeft="928.5,201">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8206,11 +8096,121 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output11]"
+          TopLeft="1064.5,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output12]"
+          TopLeft="115,377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output13]"
+          TopLeft="336.75,376">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output14]"
+          TopLeft="552.5,378">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area.Paths[OLE DB Source Output]"
+          TopLeft="119.5,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsFrom">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersFrom">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8223,7 +8223,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesFrom">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\UnitMeasuresTo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8236,7 +8236,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsTo">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsFrom">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsFrom">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8275,20 +8288,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesFrom">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesFrom">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsTo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8314,33 +8314,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsTo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesTo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesPersonsFrom">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesTo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8366,59 +8340,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsFrom">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesTo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderPersonsTo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\AddressTo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesFrom">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersTo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8444,6 +8366,123 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesPersonsFrom">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesTo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesFrom">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsTo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\PersonsFrom">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\AddressTo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrencyRatesTo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductSubcategoriesFrom">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\CurrenciesFrom">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesFrom">
     <Properties>
       <Property>
@@ -8457,7 +8496,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsFrom">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesTo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8483,7 +8522,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\UnitMeasuresTo">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesFrom">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8496,7 +8535,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductsTo">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\UnitMeasuresFrom">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8509,7 +8548,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersFrom">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderPersonsTo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsTo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8548,7 +8600,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ProductCategoriesTo">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderDetailsFrom">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8561,20 +8613,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesOrderHeadersTo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesTo">
+    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\SalesTerritoriesFrom">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8601,45 +8640,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\EmployeesTo">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\ShipMethodsFrom">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\StateProvincesFrom">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transfer Data From Bikes and Bikes to Bikes and Bikes Staging Area\UnitMeasuresFrom">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
