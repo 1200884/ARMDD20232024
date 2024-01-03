@@ -15,7 +15,8 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'DimDate')
 		[DayOfWeek] [nvarchar](10) NOT NULL,
 		[Weekend] [nvarchar](3) NOT NULL,
 		[LastDayOfMonth] [nvarchar](3) NOT NULL,
-		[Trimester] [int] NOT NULL
+		[Trimester] [int] NOT NULL,
+		[Season] [nvarchar] (6) NOT NULL
 		CONSTRAINT [PK_DimDate] PRIMARY KEY CLUSTERED 
 	(
 		[DateKey] ASC

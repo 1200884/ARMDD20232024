@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{E05E583B-6E56-4CA5-824F-A04F1A7B0D25}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{1D58B7D6-2B94-4C99-86BE-16345E4A0378}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,7 +68,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Users\tiago\Desktop\ARMDD\ARMDDSCRIPTSTP" />
+              Folder="C:\ARMDD\ARMDDSCRIPTSTP" />
             <FEFEProperty
               FileSpec="*.sql" />
             <FEFEProperty
@@ -102,8 +102,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{AC4F04A3-180F-4D8A-BA19-B1EE3C66EF34}"
-          DTS:ObjectName="{AC4F04A3-180F-4D8A-BA19-B1EE3C66EF34}"
+          DTS:DTSID="{15928E83-93B1-45ED-8021-78763B76AA9A}"
+          DTS:ObjectName="{15928E83-93B1-45ED-8021-78763B76AA9A}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::DMScriptFilename" />
       </DTS:ForEachVariableMappings>

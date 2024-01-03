@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{DBC9500F-3BD8-489A-B264-40EC3A6AEAB8}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{1138703E-DE50-492B-9BC5-C07D0DE260F6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,7 +44,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\jgasp\source\repos\ARMDD\DimDate.csv">
+          DTS:ConnectionString="C:\ARMDD\DimDate.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -2274,8 +2274,7 @@
                           name="DateKey" />
                         <externalMetadataColumn
                           refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[FullDate]"
-                          dataType="wstr"
-                          length="50"
+                          dataType="dbTimeStamp"
                           name="FullDate" />
                         <externalMetadataColumn
                           refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
@@ -2393,25 +2392,25 @@
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
-<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
-<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Load DimDate\Load DimDate"
-          TopLeft="66.6285718360727,102.517646802771" />
-        <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\Load DimDate\Is DimDate Empty?"
           TopLeft="58.0571432463977,18.9176469167211" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Load DimDate\Load DimDate"
+          TopLeft="66.6285718360727,102.517646802771" />
         <EdgeLayout
           Id="Package\Load DimDate.PrecedenceConstraints[Restrição]"
           TopLeft="140.942857541235,60.5176469167211">
@@ -2439,77 +2438,26 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="269.6,199.2"
-          Size="269.6,242.4"
+          PanelSize="270,199"
+          Size="270,242"
           Id="Package\Load DimDate"
           TopLeft="125.000000266092,146.058823401386" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Load DimDate\Load DimDate">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="119.2,41.6"
-          Id="Package\Load DimDate\Load DimDate\DimDate"
-          TopLeft="199.285714709941,207.99999981768" />
-        <NodeLayout
-          Size="140.8,41.6"
-          Id="Package\Load DimDate\Load DimDate\CSV DimDate"
-          TopLeft="191.428571836072,67.2941175880735" />
-        <EdgeLayout
-          Id="Package\Load DimDate\Load DimDate.Paths[Flat File Source Output]"
-          TopLeft="260.357143273007,108.894117588074">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,99.1058822296068"
-              Start="0,0"
-              End="0,91.6058822296068">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,91.6058822296068" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load DimDate\Load DimDate\DimDate">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Load DimDate\Is DimDate Empty?">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="119.2,41.6"
-          Id="Package\Load DimDate\Is DimDate Empty?\DimDate"
-          TopLeft="274.999995902181,116.999998256564" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Load DimDate\Is DimDate Empty?\Row Count"
           TopLeft="252.999996230006,236.999996468425" />
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Load DimDate\Is DimDate Empty?\DimDate"
+          TopLeft="274.999995902181,116.999998256564" />
         <EdgeLayout
           Id="Package\Load DimDate\Is DimDate Empty?.Paths[OLE DB Source Output]"
           TopLeft="334.599995902181,158.599998256564">
@@ -2541,7 +2489,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2549,6 +2499,57 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Load DimDate\Is DimDate Empty?\DimDate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load DimDate\Load DimDate">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Load DimDate\Load DimDate\DimDate"
+          TopLeft="199.285714709941,207.99999981768" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Load DimDate\Load DimDate\CSV DimDate"
+          TopLeft="191.428571836072,67.2941175880735" />
+        <EdgeLayout
+          Id="Package\Load DimDate\Load DimDate.Paths[Flat File Source Output]"
+          TopLeft="260.357143273007,108.894117588074">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,99.1058822296068"
+              Start="0,0"
+              End="0,91.6058822296068">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.6058822296068" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimDate\Load DimDate\DimDate">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
