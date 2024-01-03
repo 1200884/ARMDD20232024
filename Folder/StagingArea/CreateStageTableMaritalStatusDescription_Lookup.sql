@@ -1,7 +1,7 @@
 IF NOT EXISTS(SELECT name FROM sys.tables WHERE name = 'MaritalStatusDescription_Lookup')
 BEGIN
 	CREATE TABLE [dbo].[MaritalStatusDescription_Lookup](
-		[MaritalStatus] [char](1) NULL,
+		[MaritalStatus] [nchar](1) NULL,
 		[MaritalStatusDescription] [nvarchar](10) NOT NULL
 	) ON [PRIMARY]
 	INSERT [dbo].[MaritalStatusDescription_Lookup] ([MaritalStatus], [MaritalStatusDescription]) VALUES (NULL, N'Unknown')
