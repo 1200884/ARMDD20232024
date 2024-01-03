@@ -11,9 +11,1993 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionGUID="{F7C9CCFE-48EB-4805-8DB7-171D4DE80397}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{5244491D-9747-4904-93F9-D5DBE1DFC1BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E721397D-7811-4B4E-A0A6-D80B87738D21}"
+      DTS:ObjectName="(local).BikesAndBikes_DataMart">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=(local);Initial Catalog=BikesAndBikes_DataMart;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E721397D-7811-4B4E-A0A6-D80B87738D21}(local).BikesAndBikes_DataMart;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CSV DimDate]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7B3F1158-1EA3-4519-B920-DD01AF15CA8A}"
+      DTS:ObjectName="CSV DimDate">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::PackagePath] + "\\DimDate.csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2070"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\jgasp\source\repos\ARMDD\DimDate.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PK_Date"
+              DTS:DTSID="{C906E311-61B8-46D7-A952-2B16983B3FE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date_Name"
+              DTS:DTSID="{FBBBEB0D-C216-48B0-AD5C-E15D6BE4D32A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year"
+              DTS:DTSID="{54D4112A-6352-4AD2-A4B7-DD2A45B24919}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year_Name"
+              DTS:DTSID="{D63CB7CE-98F6-4F9E-A5B9-A63A6F239D9A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Half_Year"
+              DTS:DTSID="{57764A08-8705-43E4-8CE3-2ED59953DB81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Half_Year_Name"
+              DTS:DTSID="{E883B981-892C-485C-AD3A-174779E1ED2A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quarter"
+              DTS:DTSID="{1CE089C2-2993-4DAD-92F7-DEF25756A6FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quarter_Name"
+              DTS:DTSID="{9B773373-F053-42CB-8349-F6E17FF40A32}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Trimester"
+              DTS:DTSID="{298AF69E-AEB1-4B9B-85A5-8D1A43BA9705}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Trimester_Name"
+              DTS:DTSID="{DFCF80E9-EEF9-462B-ABAB-097C5F8842D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month"
+              DTS:DTSID="{4A286B4E-D187-49C3-BBF8-558794A924CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Name"
+              DTS:DTSID="{9FC0A5EB-7106-495E-80C1-B0651918EE01}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days"
+              DTS:DTSID="{C26CB062-1176-4DC0-9802-58A86BD83ED2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Name"
+              DTS:DTSID="{D884B65B-300D-4E4A-81A2-7189CAC237B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Week"
+              DTS:DTSID="{739F4DC5-5B81-4C24-AE71-A099821E3D87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Week_Name"
+              DTS:DTSID="{CE7AFB55-0479-43CC-8E4E-9371F57D22EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Year"
+              DTS:DTSID="{E935BA77-AA3D-4DC6-9A17-EE7ED0351F6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Year_Name"
+              DTS:DTSID="{C31011B0-C4E2-4D8B-A5F2-AFA70A92D04A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Half_Year"
+              DTS:DTSID="{CDC5E2A6-03FE-4AE3-A36D-FC76217CF6A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Half_Year_Name"
+              DTS:DTSID="{39FA0F2E-CF78-4FCD-80D8-89C9C95F3E4D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Trimester"
+              DTS:DTSID="{71BD8ADE-C28D-4F2F-9BEC-A5DC49CFAA0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Trimester_Name"
+              DTS:DTSID="{7FA146B3-8F53-4532-A7DD-8495E4D52B97}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Quarter"
+              DTS:DTSID="{71E47AFC-054C-41CB-B00A-D7EA0B1141EA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Quarter_Name"
+              DTS:DTSID="{226E008E-2F94-4F6D-BC4B-B343CEC3B176}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Month"
+              DTS:DTSID="{C37E8D87-5C5E-46D7-B879-5F595AD5C549}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Month_Name"
+              DTS:DTSID="{D4A7BB94-51AD-4704-8D98-35C659B509A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Ten_Days"
+              DTS:DTSID="{694312AC-188D-4C6F-A01B-35D7D169C758}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Ten_Days_Name"
+              DTS:DTSID="{ADEF67DB-B8D1-497C-87E9-FD90E435E6E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Week"
+              DTS:DTSID="{6253050E-62E5-4B8F-BBCD-A8B0B3F55ED3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Day_Of_Week_Name"
+              DTS:DTSID="{9CC47F55-F988-42EF-AB2F-37C224F6DF7B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Week_Of_Year"
+              DTS:DTSID="{AF619341-EF7D-47DC-986C-FA8D0DFFF40F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Week_Of_Year_Name"
+              DTS:DTSID="{747F6AA7-CA98-4648-B55B-21C740A3EB12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Year"
+              DTS:DTSID="{7A217760-D4CF-4849-B1CC-C16F6CE1B193}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Year_Name"
+              DTS:DTSID="{D660360C-6C31-4C76-9525-DA9974FB84D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Half_Year"
+              DTS:DTSID="{62C634FA-7137-452F-A513-9DA717DC5AB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Half_Year_Name"
+              DTS:DTSID="{5B077628-5EC7-4547-B05E-9695A1D4027C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Trimester"
+              DTS:DTSID="{B90CCAEA-62CC-4276-BD6E-A2DA4D59D22C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Trimester_Name"
+              DTS:DTSID="{5A324F79-94F8-4095-AAFF-7A1060523EB7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Quarter"
+              DTS:DTSID="{ABEF1350-CE26-45F5-BCDB-5D93AA0EFDFE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Quarter_Name"
+              DTS:DTSID="{5D204FBE-86B7-4E54-A8B0-BB730D6B86DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Month"
+              DTS:DTSID="{B06AEFFD-6F97-4268-94AF-A24D999F637D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ten_Days_Of_Month_Name"
+              DTS:DTSID="{7D0DAD5E-3F30-4AFC-B503-9520DAAEC0CE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Of_Year"
+              DTS:DTSID="{AE7404CC-9B5B-4481-B800-9E6591E0A658}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Of_Year_Name"
+              DTS:DTSID="{8079068C-D7CE-4D22-A282-E9272ADBD3AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Of_Half_Year"
+              DTS:DTSID="{C095D5DE-9163-4FBC-AEAB-29B9E9F306D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Of_Half_Year_Name"
+              DTS:DTSID="{61390A61-49A5-4DB6-88AD-EBDCCBC2A72A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Of_Trimester"
+              DTS:DTSID="{CC035C93-CBF4-468F-ABFE-1F2F0D29CC5B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Of_Trimester_Name"
+              DTS:DTSID="{F92239C1-4ECE-4CB2-A53C-9BB1150A0486}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Of_Quarter"
+              DTS:DTSID="{7844EC72-0EEB-4010-B8B8-230B2E7BC4FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month_Of_Quarter_Name"
+              DTS:DTSID="{CFBEA08F-C46A-472F-8656-78FA42B4522D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quarter_Of_Year"
+              DTS:DTSID="{715B4792-C1EA-4B05-83A9-D2515BEE10E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quarter_Of_Year_Name"
+              DTS:DTSID="{B4D8EE27-3F50-417B-AEA3-2A6B751C11CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quarter_Of_Half_Year"
+              DTS:DTSID="{00E87A69-D999-46BD-9D8B-6021ECFB9902}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quarter_Of_Half_Year_Name"
+              DTS:DTSID="{C17239DB-9F79-4D02-87C3-F1C5124061E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Trimester_Of_Year"
+              DTS:DTSID="{F29BDF04-F1AE-4196-88EE-6FF1651B80F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Trimester_Of_Year_Name"
+              DTS:DTSID="{B01A4A09-353F-41A5-8F9C-2AED866C3907}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Half_Year_Of_Year"
+              DTS:DTSID="{17690C3C-1BA6-465E-BFC8-45DE4EAA6AC3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Half_Year_Of_Year_Name"
+              DTS:DTSID="{C6A17BEF-A35E-4BCF-8E1F-559BA3F02433}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Year"
+              DTS:DTSID="{8DBE8860-9C1A-4250-AB71-02AD45876FE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Year_Name"
+              DTS:DTSID="{886DF500-706B-4C59-ABB2-AE7F25C9BEC5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Week"
+              DTS:DTSID="{519CB48B-218A-4F4F-A9AC-797C57513C57}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Week_Name"
+              DTS:DTSID="{612104D1-873C-43CD-B2DB-DBC085EE169E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Day"
+              DTS:DTSID="{40E312CA-298A-4A29-BA88-93CFFC88F7FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Day_Name"
+              DTS:DTSID="{63B64ABC-654B-4B4F-A854-929443805B0B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Day_Of_Year"
+              DTS:DTSID="{E100D6A4-2757-4A0D-821A-30D826FD4528}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Day_Of_Year_Name"
+              DTS:DTSID="{1B2D8303-EF53-4CB3-9261-756472F2D13C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Day_Of_Week"
+              DTS:DTSID="{71ECA9F4-B74E-4C4C-94A4-55AAAF4EAACF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Day_Of_Week_Name"
+              DTS:DTSID="{5D08C8C7-A25B-4298-9E9E-AF1FEA44C152}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Week_Of_Year"
+              DTS:DTSID="{F3CC0A20-BEDF-4251-8395-150949D99BE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ISO_8601_Week_Of_Year_Name"
+              DTS:DTSID="{20079E7A-247F-4B9B-BB48-9D574D0A21D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year(yyyy)"
+              DTS:DTSID="{61844494-4444-4453-A387-DB8B9172EF27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MonthName"
+              DTS:DTSID="{4C72BD98-482B-44BD-827A-2CBA2FE89865}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DayOfTheWeek"
+              DTS:DTSID="{7AD8930A-A8D0-4E04-AE71-EAB722B3169F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsWeekend"
+              DTS:DTSID="{7A50844B-3216-4237-A108-843917F04FF3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsLastDayOfTheMonth"
+              DTS:DTSID="{349ACF60-B242-4EA3-B27C-F27A45C60334}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Season"
+              DTS:DTSID="{AACA32DB-2E43-4CA1-87B2-2E365B0E80CC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load DimDate"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contêiner da Sequência"
+      DTS:DTSID="{E27A168B-7962-413A-8CED-D8E8C15AC4DF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimDate">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Load DimDate\Load DimDate"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BB51CB87-E9FD-45A4-BB77-6EE125AF3337}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load DimDate"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load DimDate\Load DimDate\CSV DimDate"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="2070"
+                  name="CSV DimDate"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load DimDate\Load DimDate\CSV DimDate.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CSV DimDate]"
+                      connectionManagerRefId="Package.ConnectionManagers[CSV DimDate]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[PK_Date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[PK_Date]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[PK_Date]"
+                          name="PK_Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Date_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Date_Name]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Date_Name]"
+                          name="Date_Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Quarter]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Quarter]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Quarter]"
+                          name="Quarter"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Week_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Week_Of_Year]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Week_Of_Year]"
+                          name="Week_Of_Year"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Year]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Year]"
+                          name="Day_Of_Year"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Month]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Month]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Month]"
+                          name="Day_Of_Month"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Week]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Week]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Week]"
+                          name="Day_Of_Week"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[DayOfTheWeek]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[DayOfTheWeek]"
+                          length="10"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[DayOfTheWeek]"
+                          name="DayOfTheWeek"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[IsWeekend]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[IsWeekend]"
+                          length="3"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[IsWeekend]"
+                          name="IsWeekend"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[IsLastDayOfTheMonth]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[IsLastDayOfTheMonth]"
+                          length="3"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[IsLastDayOfTheMonth]"
+                          name="IsLastDayOfTheMonth"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Year(yyyy)]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Year(yyyy)]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Year(yyyy)]"
+                          name="Year(yyyy)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Season]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Season]"
+                          length="6"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Season]"
+                          name="Season"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Trimester]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Trimester]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Trimester]"
+                          name="Trimester"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[MonthName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[MonthName]"
+                          length="10"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[MonthName]"
+                          name="MonthName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Month_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Year]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Month_Of_Year]"
+                          name="Month_Of_Year"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Half_Year_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Half_Year_Of_Year]"
+                          length="50"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Half_Year_Of_Year]"
+                          name="Half_Year_Of_Year"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[PK_Date]"
+                          dataType="wstr"
+                          length="50"
+                          name="PK_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Date_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Date_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Half_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Half_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Half_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Half_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Quarter]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Quarter" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Quarter_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Quarter_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Trimester]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Trimester" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Trimester_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Trimester_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Name]"
+                          dataType="wstr"
+                          length="20"
+                          name="Month_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Week]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Week" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Week_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Week_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Half_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Half_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Half_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Half_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Trimester]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Trimester" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Trimester_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Trimester_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Quarter]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Quarter" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Quarter_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Quarter_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Month]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Month" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Month_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Month_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Ten_Days]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Ten_Days" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Ten_Days_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Ten_Days_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Week]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Week" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Day_Of_Week_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Day_Of_Week_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Week_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Week_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Week_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Week_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Half_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Half_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Half_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Half_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Trimester]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Trimester" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Trimester_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Trimester_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Quarter]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Quarter" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Quarter_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Quarter_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Month]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Month" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Ten_Days_Of_Month_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Ten_Days_Of_Month_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Half_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month_Of_Half_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Half_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month_Of_Half_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Trimester]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month_Of_Trimester" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Trimester_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month_Of_Trimester_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Quarter]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month_Of_Quarter" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Month_Of_Quarter_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Month_Of_Quarter_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Quarter_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Quarter_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Quarter_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Quarter_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Quarter_Of_Half_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Quarter_Of_Half_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Quarter_Of_Half_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Quarter_Of_Half_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Trimester_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Trimester_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Trimester_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Trimester_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Half_Year_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Half_Year_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Half_Year_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Half_Year_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Week]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Week" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Week_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Week_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Day]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Day" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Day_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Day_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Day_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Day_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Day_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Day_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Day_Of_Week]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Day_Of_Week" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Day_Of_Week_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Day_Of_Week_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Week_Of_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Week_Of_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[ISO_8601_Week_Of_Year_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ISO_8601_Week_Of_Year_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[MonthName]"
+                          dataType="wstr"
+                          length="10"
+                          name="MonthName" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[DayOfTheWeek]"
+                          dataType="wstr"
+                          length="10"
+                          name="DayOfTheWeek" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[IsWeekend]"
+                          dataType="wstr"
+                          length="3"
+                          name="IsWeekend" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[IsLastDayOfTheMonth]"
+                          dataType="wstr"
+                          length="3"
+                          name="IsLastDayOfTheMonth" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Year(yyyy)]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Year(yyyy)" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Season]"
+                          dataType="wstr"
+                          length="6"
+                          name="Season" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load DimDate\Load DimDate\DimDate"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DimDate"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimDate]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load DimDate\Load DimDate\DimDate.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Quarter]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Quarter"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Quarter]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Trimester]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Trimester"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Trimester]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Trimester]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Season]"
+                          cachedDataType="wstr"
+                          cachedLength="6"
+                          cachedName="Season"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Season]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Season]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[PK_Date]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PK_Date"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[FullDate]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[PK_Date]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Year(yyyy)]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Year(yyyy)"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Year(yyyy)]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Week_Of_Year]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Week_Of_Year"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Week]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Week_Of_Year]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Day_Of_Year]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Day_Of_Year"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfYear]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Year]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Day_Of_Month]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Day_Of_Month"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfMonth]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Month]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Day_Of_Week]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Day_Of_Week"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfWeek]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Day_Of_Week]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[IsWeekend]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="IsWeekend"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Weekend]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[IsWeekend]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[IsLastDayOfTheMonth]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="IsLastDayOfTheMonth"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[LastDayOfMonth]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[IsLastDayOfTheMonth]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[DayOfTheWeek]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DayOfTheWeek"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeek]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[DayOfTheWeek]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[MonthName]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="MonthName"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[MonthName]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Month_Of_Year]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Month_Of_Year"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Month_Of_Year]" />
+                        <inputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].Columns[Half_Year_Of_Year]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Half_Year_Of_Year"
+                          externalMetadataColumnId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Semester]"
+                          lineageId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Half_Year_Of_Year]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[FullDate]"
+                          dataType="wstr"
+                          length="50"
+                          name="FullDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          dataType="i4"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Semester]"
+                          dataType="ui1"
+                          name="Semester" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                          dataType="ui1"
+                          name="Quarter" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                          dataType="ui1"
+                          name="Month" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                          dataType="wstr"
+                          length="10"
+                          name="MonthName" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Week]"
+                          dataType="ui1"
+                          name="Week" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfYear]"
+                          dataType="i4"
+                          name="DayNumberOfYear" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfMonth]"
+                          dataType="ui1"
+                          name="DayNumberOfMonth" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfWeek]"
+                          dataType="ui1"
+                          name="DayNumberOfWeek" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeek]"
+                          dataType="wstr"
+                          length="10"
+                          name="DayOfWeek" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Weekend]"
+                          dataType="wstr"
+                          length="3"
+                          name="Weekend" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[LastDayOfMonth]"
+                          dataType="wstr"
+                          length="3"
+                          name="LastDayOfMonth" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Trimester]"
+                          dataType="i4"
+                          name="Trimester" />
+                        <externalMetadataColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Season]"
+                          dataType="wstr"
+                          length="6"
+                          name="Season" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load DimDate\Load DimDate\DimDate.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load DimDate\Load DimDate\DimDate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load DimDate\Load DimDate\DimDate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load DimDate\Load DimDate\DimDate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load DimDate\Load DimDate.Paths[Flat File Source Output]"
+                  endId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Load DimDate\Load DimDate"
+          TopLeft="53.0571432357541,32.1647056879675" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="246.4,128"
+          Size="246.4,171.2"
+          Id="Package\Load DimDate"
+          TopLeft="125.000000266092,146.058823401386" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load DimDate\Load DimDate">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Load DimDate\Load DimDate\DimDate"
+          TopLeft="199.285714709941,207.99999981768" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Load DimDate\Load DimDate\CSV DimDate"
+          TopLeft="191.428571836072,67.2941175880735" />
+        <EdgeLayout
+          Id="Package\Load DimDate\Load DimDate.Paths[Flat File Source Output]"
+          TopLeft="260.357143273007,108.894117588074">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,99.1058822296068"
+              Start="0,0"
+              End="0,91.6058822296068">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.6058822296068" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimDate\Load DimDate\DimDate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
