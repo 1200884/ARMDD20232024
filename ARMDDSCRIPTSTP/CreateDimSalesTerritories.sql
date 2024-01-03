@@ -9,8 +9,8 @@ IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'DimSalesTerritories')
 		[CountryRegionName] [nvarchar](50) NOT NULL,	
 		[CreatedDate] [date] NOT NULL,	
 		[ModifiedDate] [date] NOT NULL,
-		[EffectiveDate] [date] NOT NULL,	
-		[ExpiredDate] [date] NULL,
+		[EffectiveDate] [datetime] NOT NULL,	
+		[ExpiredDate] [datetime] NULL,
 		[Is_Current] [nvarchar] (3) NOT NULL,	
 		CONSTRAINT [PK_DimSalesTerritories] PRIMARY KEY CLUSTERED 
 	(

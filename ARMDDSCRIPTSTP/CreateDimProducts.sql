@@ -22,8 +22,8 @@ IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'DimProducts')
 		[CategoryName] [nvarchar](50) NOT NULL,
 		[SellStartDate] [date] NOT NULL,
 		[SellEndDate] [date] NOT NULL,
-		[EffectiveDate] [date] NOT NULL,
-		[ExpiredDate] [date] NULL,
+		[EffectiveDate] [datetime] NOT NULL,
+		[ExpiredDate] [datetime] NULL,
 		[IsCurrent] [nvarchar](3) NOT NULL		
 		CONSTRAINT [PK_DimProduct] PRIMARY KEY CLUSTERED 
 	(

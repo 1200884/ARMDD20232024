@@ -9,8 +9,8 @@ BEGIN
 		[LastName] [nvarchar](50) NOT NULL,
 		[CreatedDate] [date] NOT NULL,
 		[ModifiedDate] [date] NULL,
-		[EffectiveDate] [date] NOT NULL,
-		[ExpiredDate] [date] NULL,
+		[EffectiveDate] [datetime] NOT NULL,
+		[ExpiredDate] [datetime] NULL,
 		[IsCurrent] [nvarchar](3) NOT NULL		
 	CONSTRAINT [PK_DimCustomers] PRIMARY KEY CLUSTERED 
 	(
