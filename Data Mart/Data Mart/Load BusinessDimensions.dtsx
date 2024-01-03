@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{2DE702EB-C59C-4C5E-91E6-467772B3C4AE}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{4DD8F591-CCE0-4B77-9BD9-D803F9F9554B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -65,7 +65,1729 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <pipeline
-              version="1" />
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\DimAddresses\Expire Old Record"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Expire Old Record"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimAddresses] 
+SET [ExpiredDate] = ?, Is_Current = 'No'
+WHERE [AddressID] = ? AND [ExpiredDate] IS NULL</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DimAddresses\Expire Old Record.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input].Columns[AddressID]"
+                          cachedDataType="i4"
+                          cachedName="AddressID"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input].Columns[ExpiredDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ExpiredDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Output].Columns[ExpiredDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="dbTimeStamp"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">17</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Expire Old Record.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Expire Old Record.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Expire Old Record.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Expire Old Record.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Expire Old Record.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Expire Old Record.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimAddresses\Insert DimAddresses"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert DimAddresses"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimAddresses]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[AddressID]"
+                          cachedDataType="i4"
+                          cachedName="AddressID"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[AddressLine1]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine1"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine1]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[AddressLine2]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine2"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine2]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[City]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="City"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[City]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="PostalCode"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[PostalCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[CountryRegionName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CountryRegionName"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[CountryRegionName]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CountryRegionName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[StateProvinceCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="StateProvinceCode"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceCode]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[StateProvinceName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateProvinceName"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceName]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CreatedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CreatedDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[EffectiveDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="EffectiveDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDate]"
+                          lineageId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Output].Columns[EffectiveDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].Columns[Is_Current]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="Is_Current"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[Is_Current]"
+                          lineageId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Output].Columns[Is_Current]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressKey]"
+                          dataType="i4"
+                          name="AddressKey" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                          dataType="i4"
+                          name="AddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine]"
+                          dataType="wstr"
+                          length="60"
+                          name="AddressLine" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                          dataType="wstr"
+                          length="60"
+                          name="AddressLine2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="30"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                          dataType="wstr"
+                          length="15"
+                          name="PostalCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[CountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CountryRegionName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="StateProvinceCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateProvinceName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ModifiedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveDate]"
+                          dataType="dbTimeStamp"
+                          name="EffectiveDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[ExpiredDate]"
+                          dataType="dbTimeStamp"
+                          name="ExpiredDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input].ExternalColumns[Is_Current]"
+                          dataType="wstr"
+                          length="3"
+                          name="Is_Current" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimAddresses\OLE DB Command 1"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command 1"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimAddresses] SET [AddressLine] = ?,[AddressLine2] = ?,[ModifiedDate] = ? WHERE [AddressID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[AddressID]"
+                          cachedDataType="i4"
+                          cachedName="AddressID"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[AddressLine1]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine1"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[AddressLine2]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine2"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="60"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">1</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="60"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="wstr"
+                          length="10"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">1</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">17</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimAddresses\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        Addresses.AddressID, Addresses.AddressLine1, Addresses.AddressLine2, Addresses.City, Addresses.PostalCode, StateProvinces.StateProvinceCode, StateProvinces.Name AS StateProvinceName, 
+                         CountryRegions.Name AS CountryRegionName, Addresses.CreatedDate, Addresses.ModifiedDate
+FROM            Addresses INNER JOIN
+                         StateProvinces ON Addresses.StateProvinceID = StateProvinces.StateProvinceID INNER JOIN
+                         CountryRegions ON StateProvinces.CountryRegionCode = CountryRegions.CountryRegionCode</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DimAddresses\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                      connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressID]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]"
+                          name="AddressID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                          length="60"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                          name="AddressLine1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                          length="60"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                          name="AddressLine2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                          length="30"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                          name="City"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                          length="15"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                          name="PostalCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceCode]"
+                          length="3"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceCode]"
+                          name="StateProvinceCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceName]"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]"
+                          name="StateProvinceName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryRegionName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountryRegionName]"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryRegionName]"
+                          name="CountryRegionName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                          name="CreatedDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          name="ModifiedDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressID]"
+                          dataType="i4"
+                          name="AddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                          dataType="wstr"
+                          length="60"
+                          name="AddressLine1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                          dataType="wstr"
+                          length="60"
+                          name="AddressLine2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="30"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                          dataType="wstr"
+                          length="15"
+                          name="PostalCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="StateProvinceCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateProvinceName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CountryRegionName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ModifiedDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressID]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressID]"
+                          name="AddressID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                          name="AddressLine1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                          name="AddressLine2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                          name="City" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                          name="PostalCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateProvinceCode]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateProvinceCode]"
+                          name="StateProvinceCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateProvinceName]"
+                          name="StateProvinceName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountryRegionName]"
+                          name="CountryRegionName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                          name="CreatedDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          name="ModifiedDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimAddresses\Set New Record Effective Date"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Set New Record Effective Date"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Output].Columns[EffectiveDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Output].Columns[EffectiveDate]"
+                          name="EffectiveDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::ContainerStartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::ContainerStartTime])</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Output].Columns[Is_Current]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="3"
+                          lineageId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Output].Columns[Is_Current]"
+                          name="Is_Current"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Yes"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Yes"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Set Old Record Expired Date"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Output].Columns[ExpiredDate]"
+                          dataType="dbTimeStamp"
+                          description="ExpiredDate"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Output].Columns[ExpiredDate]"
+                          name="ExpiredDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIMESTAMP)(@[System::ContainerStartTime])</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::ContainerStartTime])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension"
+                  componentClassID="Microsoft.SCD"
+                  contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+                  name="Slowly Changing Dimension"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SELECT statement used to create a schema rowset."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [AddressID], [AddressLine], [AddressLine2], [City], [CountryRegionName], [CreatedDate], [ModifiedDate], [PostalCode], [StateProvinceCode], [StateProvinceName],[EffectiveDate],[ExpiredDate] FROM [dbo].[DimAddresses]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                      name="CurrentRowWhere">[EffectiveDate] IS NOT NULL AND [ExpiredDate] IS NULL</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                      name="UpdateChangingAttributeHistory">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                      name="FailOnFixedAttributeChange">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the column name for the inferred member."
+                      name="InferredMemberIndicator"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether inferred member updates are detected."
+                      name="EnableInferredMember">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                      name="FailOnLookupFailure">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies that all rows in the input are new or the transformation detects the change type."
+                      name="IncomingRowChangeType"
+                      typeConverter="IncomingRowChangeType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Connections[LookupConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                      description="Defines the connection to use for lookups in the dimension table"
+                      name="LookupConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                      name="Slowly Changing Dimension Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[AddressID]"
+                          cachedDataType="i4"
+                          cachedName="AddressID"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AddressID]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[AddressLine1]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine1"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AddressLine]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[AddressLine2]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine2"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AddressLine2]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[City]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="City"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[City]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CountryRegionName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CountryRegionName"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryRegionName]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryRegionName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CreatedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CreatedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CreatedDate]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">4</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PostalCode]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="PostalCode"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PostalCode]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[StateProvinceCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="StateProvinceCode"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateProvinceCode]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceCode]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[StateProvinceName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateProvinceName"
+                          externalMetadataColumnId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateProvinceName]"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AddressID]"
+                          dataType="i4"
+                          name="AddressID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AddressLine]"
+                          dataType="wstr"
+                          length="60"
+                          name="AddressLine" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[AddressLine2]"
+                          dataType="wstr"
+                          length="60"
+                          name="AddressLine2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[City]"
+                          dataType="wstr"
+                          length="30"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CountryRegionName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CreatedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ModifiedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ModifiedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PostalCode]"
+                          dataType="wstr"
+                          length="15"
+                          name="PostalCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateProvinceCode]"
+                          dataType="wstr"
+                          length="3"
+                          name="StateProvinceCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          name="StateProvinceName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[EffectiveDate]"
+                          dataType="dbTimeStamp"
+                          name="EffectiveDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ExpiredDate]"
+                          dataType="dbTimeStamp"
+                          name="ExpiredDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                      description="Unchanged rows"
+                      exclusionGroup="1"
+                      name="Unchanged Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[New Output]"
+                      description="New rows"
+                      exclusionGroup="1"
+                      name="New Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                      description="Rows with changes in columns tagged FixedAttribute"
+                      exclusionGroup="1"
+                      name="Fixed Attribute Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                      description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                      exclusionGroup="1"
+                      name="Changing Attribute Updates Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                      description="HistoricalAttribute (Type 2) changes result in these new rows"
+                      exclusionGroup="2"
+                      name="Historical Attribute Inserts Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                      description="Information to update unpopulated initial dimension row"
+                      exclusionGroup="1"
+                      name="Inferred Member Updates Output"
+                      synchronousInputId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimAddresses\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[AddressID]"
+                          cachedDataType="i4"
+                          cachedName="AddressID"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[AddressLine1]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine1"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine1]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[AddressLine2]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine2"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine2]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[City]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="City"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[City]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[PostalCode]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="PostalCode"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[PostalCode]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[StateProvinceCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="StateProvinceCode"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceCode]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceCode]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[StateProvinceName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateProvinceName"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[CountryRegionName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CountryRegionName"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryRegionName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CountryRegionName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[CreatedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CreatedDate"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CreatedDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[AddressID]"
+                          cachedDataType="i4"
+                          cachedName="AddressID"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[AddressLine1]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine1"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine1]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[AddressLine2]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="AddressLine2"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine2]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[City]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="City"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[City]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[PostalCode]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="PostalCode"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[PostalCode]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[StateProvinceCode]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="StateProvinceCode"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceCode]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceCode]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[StateProvinceName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StateProvinceName"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[CountryRegionName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CountryRegionName"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryRegionName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CountryRegionName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[CreatedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CreatedDate"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CreatedDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          lineageId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressID]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressID]"
+                          name="AddressID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine1]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine1]"
+                          name="AddressLine1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine2]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[AddressLine2]"
+                          name="AddressLine2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[City]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[City]"
+                          name="City" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[PostalCode]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[PostalCode]"
+                          name="PostalCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceCode]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceCode]"
+                          name="StateProvinceCode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]"
+                          name="StateProvinceName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CountryRegionName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CountryRegionName]"
+                          name="CountryRegionName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CreatedDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[CreatedDate]"
+                          name="CreatedDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                          name="ModifiedDate" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\DimAddresses.Paths[Changing Attribute Updates Output]"
+                  endId="Package\Sequence Container\DimAddresses\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  name="Changing Attribute Updates Output"
+                  startId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+                <path
+                  refId="Package\Sequence Container\DimAddresses.Paths[Derived Column Output]"
+                  endId="Package\Sequence Container\DimAddresses\Expire Old Record.Inputs[OLE DB Command Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\DimAddresses.Paths[Derived Column Output1]"
+                  endId="Package\Sequence Container\DimAddresses\Insert DimAddresses.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\DimAddresses.Paths[Historical Attribute Inserts Output]"
+                  endId="Package\Sequence Container\DimAddresses\Set Old Record Expired Date.Inputs[Derived Column Input]"
+                  name="Historical Attribute Inserts Output"
+                  startId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+                <path
+                  refId="Package\Sequence Container\DimAddresses.Paths[New Output]"
+                  endId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 1]"
+                  name="New Output"
+                  startId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Outputs[New Output]" />
+                <path
+                  refId="Package\Sequence Container\DimAddresses.Paths[OLE DB Command Output]"
+                  endId="Package\Sequence Container\DimAddresses\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Command Output"
+                  startId="Package\Sequence Container\DimAddresses\Expire Old Record.Outputs[OLE DB Command Output]" />
+                <path
+                  refId="Package\Sequence Container\DimAddresses.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\DimAddresses\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\DimAddresses\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Sequence Container\DimAddresses.Paths[Union All Output 1]"
+                  endId="Package\Sequence Container\DimAddresses\Set New Record Effective Date.Inputs[Derived Column Input]"
+                  name="Union All Output 1"
+                  startId="Package\Sequence Container\DimAddresses\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -4310,6 +6032,300 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Sequence Container\DimAddresses">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Sequence Container\DimAddresses\OLE DB Source"
+          TopLeft="426.5,34.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Sequence Container\DimAddresses\Slowly Changing Dimension"
+          TopLeft="397,136.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimAddresses.Paths[OLE DB Source Output]"
+          TopLeft="501.5,76.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Sequence Container\DimAddresses\Set Old Record Expired Date"
+          TopLeft="286.5,238.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimAddresses.Paths[Historical Attribute Inserts Output]"
+          TopLeft="451.25,178.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.25,60"
+              Start="0,0"
+              End="-58.25,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="-54.25,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.25,20.503937007874"
+                    Point2="-58.25,20.503937007874"
+                    Point3="-58.25,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="-58.25,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-104.18138671875,25.503937007874,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Sequence Container\DimAddresses\Expire Old Record"
+          TopLeft="274.5,340.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimAddresses.Paths[Derived Column Output]"
+          TopLeft="393,280.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-37,60"
+              Start="0,0"
+              End="-37,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-33,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33,30"
+                    Point2="-37,30"
+                    Point3="-37,34" />
+                  <mssgle:LineSegment
+                    End="-37,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Sequence Container\DimAddresses\Union All"
+          TopLeft="463,372.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimAddresses.Paths[New Output]"
+          TopLeft="501.5,178.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22,194"
+              Start="0,0"
+              End="22,186.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,93" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,93"
+                    Point2="0,97"
+                    Point3="4,97" />
+                  <mssgle:LineSegment
+                    End="18,97" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18,97"
+                    Point2="22,97"
+                    Point3="22,101" />
+                  <mssgle:LineSegment
+                    End="22,186.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.09138671875,102,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimAddresses.Paths[OLE DB Command Output]"
+          TopLeft="437.5,361.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.5,32"
+              Start="0,0"
+              End="18,32">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="8.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.75,0"
+                    Point2="12.75,0"
+                    Point3="12.75,4" />
+                  <mssgle:LineSegment
+                    End="12.75,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.75,28"
+                    Point2="12.75,32"
+                    Point3="16.75,32" />
+                  <mssgle:LineSegment
+                    End="18,32" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Sequence Container\DimAddresses\Set New Record Effective Date"
+          TopLeft="623,374.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimAddresses.Paths[Union All Output 1]"
+          TopLeft="584,394.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39,0"
+              Start="0,0"
+              End="31.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="31.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Sequence Container\DimAddresses\Insert DimAddresses"
+          TopLeft="622,305.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimAddresses.Paths[Derived Column Output1]"
+          TopLeft="734.5,374.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.5,-27"
+              Start="0,0"
+              End="-24.5,-19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-9.5"
+                    Point2="0,-13.5"
+                    Point3="-4,-13.5" />
+                  <mssgle:LineSegment
+                    End="-20.5,-13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5,-13.5"
+                    Point2="-24.5,-13.5"
+                    Point3="-24.5,-17.5" />
+                  <mssgle:LineSegment
+                    End="-24.5,-19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Sequence Container\DimAddresses\OLE DB Command 1"
+          TopLeft="563,238.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimAddresses.Paths[Changing Attribute Updates Output]"
+          TopLeft="551.75,178.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.75,60"
+              Start="0,0"
+              End="98.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="94.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.75,20.503937007874"
+                    Point2="98.75,20.503937007874"
+                    Point3="98.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="98.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\Sequence Container\DimCurrency">
     <LayoutInfo>
       <GraphLayout
@@ -4696,35 +6712,33 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           Id="Package\Sequence Container\DimCustomers\Slowly Changing Dimension"
           TopLeft="397,150.5" />
         <NodeLayout
-          Size="129,42"
-          Id="Package\Sequence Container\DimCustomers\Customers"
-          TopLeft="437,48.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\DimCustomers.Paths[OLE DB Source Output]"
-          TopLeft="501.5,90.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="166,42"
+          Id="Package\Sequence Container\DimCustomers\OLE DB Command"
+          TopLeft="274.5,354.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Sequence Container\DimCustomers\Set New Record Effective Date"
+          TopLeft="620,400.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Sequence Container\DimCustomers\Update DimCustomer"
+          TopLeft="563,252.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Sequence Container\DimCustomers\Union All"
+          TopLeft="471,398.5" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Sequence Container\DimCustomers\Insert DimCustomer"
+          TopLeft="626,319.5" />
         <NodeLayout
           Size="213,42"
           Id="Package\Sequence Container\DimCustomers\Set Old Record Expired Date"
           TopLeft="286.5,252.5" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Sequence Container\DimCustomers\Customers"
+          TopLeft="437,48.5" />
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[Historical Attribute Inserts Output]"
           TopLeft="451.25,192.5">
@@ -4761,148 +6775,6 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Sequence Container\DimCustomers\OLE DB Command"
-          TopLeft="274.5,354.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\DimCustomers.Paths[Derived Column Output]"
-          TopLeft="393,294.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-35.5,60"
-              Start="0,0"
-              End="-35.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-31.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-31.5,30"
-                    Point2="-35.5,30"
-                    Point3="-35.5,34" />
-                  <mssgle:LineSegment
-                    End="-35.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Sequence Container\DimCustomers\Union All"
-          TopLeft="471,398.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\DimCustomers.Paths[New Output]"
-          TopLeft="501.5,192.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="30,206"
-              Start="0,0"
-              End="30,198.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,99" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,99"
-                    Point2="0,103"
-                    Point3="4,103" />
-                  <mssgle:LineSegment
-                    End="26,103" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26,103"
-                    Point2="30,103"
-                    Point3="30,107" />
-                  <mssgle:LineSegment
-                    End="30,198.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-12.09138671875,108,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimCustomers.Paths[OLE DB Command Output]"
-          TopLeft="440.5,375.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="30.5000000000001,44"
-              Start="0,0"
-              End="23.0000000000001,44">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="11.25,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.25,0"
-                    Point2="15.25,0"
-                    Point3="15.25,4" />
-                  <mssgle:LineSegment
-                    End="15.25,40" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.25,40"
-                    Point2="15.25,44"
-                    Point3="19.25,44" />
-                  <mssgle:LineSegment
-                    End="23.0000000000001,44" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="223,42"
-          Id="Package\Sequence Container\DimCustomers\Set New Record Effective Date"
-          TopLeft="620,400.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\DimCustomers.Paths[Union All Output 1]"
-          TopLeft="592,420.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="28,0"
-              Start="0,0"
-              End="20.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="20.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Sequence Container\DimCustomers\Insert DimCustomer"
-          TopLeft="626,319.5" />
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[Derived Column Output1]"
           TopLeft="731.5,400.5">
@@ -4937,10 +6809,40 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Sequence Container\DimCustomers\Update DimCustomer"
-          TopLeft="563,252.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[Derived Column Output]"
+          TopLeft="393,294.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.5,60"
+              Start="0,0"
+              End="-35.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-31.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.5,30"
+                    Point2="-35.5,30"
+                    Point3="-35.5,34" />
+                  <mssgle:LineSegment
+                    End="-35.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[Changing Attribute Updates Output]"
           TopLeft="551.75,192.5">
@@ -4977,22 +6879,123 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[Union All Output 1]"
+          TopLeft="592,420.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28,0"
+              Start="0,0"
+              End="20.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[OLE DB Source Output]"
+          TopLeft="501.5,90.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[OLE DB Command Output]"
+          TopLeft="440.5,375.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5000000000001,44"
+              Start="0,0"
+              End="23.0000000000001,44">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="11.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.25,0"
+                    Point2="15.25,0"
+                    Point3="15.25,4" />
+                  <mssgle:LineSegment
+                    End="15.25,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.25,40"
+                    Point2="15.25,44"
+                    Point3="19.25,44" />
+                  <mssgle:LineSegment
+                    End="23.0000000000001,44" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[New Output]"
+          TopLeft="501.5,192.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,206"
+              Start="0,0"
+              End="30,198.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,99" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,99"
+                    Point2="0,103"
+                    Point3="4,103" />
+                  <mssgle:LineSegment
+                    End="26,103" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,103"
+                    Point2="30,103"
+                    Point3="30,107" />
+                  <mssgle:LineSegment
+                    End="30,198.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.09138671875,108,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\DimCustomers\Customers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\DimCustomers\Slowly Changing Dimension">
     <Properties>
@@ -5073,6 +7076,32 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
   &lt;DateVariable&gt;System::ContainerStartTime&lt;/DateVariable&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimCustomers\Insert DimCustomer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimCustomers\Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -5466,7 +7495,110 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\DimCustomers\Insert DimCustomer">
+    design-time-name="Package\Sequence Container\DimAddresses\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimAddresses\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{7530D60F-7E45-434F-A481-BF0445DDFBCB}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimAddresses]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;AddressID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;AddressLine&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;AddressLine2&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[City]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;City&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[CountryRegionName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CountryRegionName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CreatedDate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ModifiedDate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PostalCode&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceCode]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StateProvinceCode&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StateProvinceName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;EffectiveDate&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;ExpiredDate&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::ContainerStartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimAddresses\Insert DimAddresses">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
