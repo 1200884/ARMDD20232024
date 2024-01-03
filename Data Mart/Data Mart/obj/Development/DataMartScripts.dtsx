@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{8DA64C65-CFE4-4B42-AFA9-F6F8E0E6EB7C}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{E05E583B-6E56-4CA5-824F-A04F1A7B0D25}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,7 +68,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Users\jgasp\OneDrive\Desktop\ARMDDSCRIPTSTP" />
+              Folder="C:\Users\tiago\Desktop\ARMDD\ARMDDSCRIPTSTP" />
             <FEFEProperty
               FileSpec="*.sql" />
             <FEFEProperty
@@ -102,36 +102,36 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3C86AD5C-5DF8-49A8-9035-1FA8F948B498}"
-          DTS:ObjectName="{3C86AD5C-5DF8-49A8-9035-1FA8F948B498}"
+          DTS:DTSID="{AC4F04A3-180F-4D8A-BA19-B1EE3C66EF34}"
+          DTS:ObjectName="{AC4F04A3-180F-4D8A-BA19-B1EE3C66EF34}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::DMScriptFilename" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
-<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
-<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="164,41.6"
+          Size="164,42"
           Id="Package\ForEach DM Create Table Script\Execute DM Script"
           TopLeft="62.914285960611,26.9764703864767" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="292.8,119.2"
-          Size="292.8,162.4"
+          PanelSize="293,119"
+          Size="293,162"
           Id="Package\ForEach DM Create Table Script"
-          TopLeft="52.8571429696619,159.823529271673" />
+          TopLeft="445.857142969662,102.823529271673" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
