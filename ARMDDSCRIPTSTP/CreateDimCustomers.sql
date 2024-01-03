@@ -2,10 +2,11 @@ IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'DimCustomers')
 BEGIN
 	CREATE TABLE [dbo].[DimCustomers](
 		[CustomerKey] [int] IDENTITY(1,1) NOT NULL,
+		[CustomerID] [int] NOT NULL,
 		[PersonType] [nvarchar](20) NOT NULL,
-		[Title] [nvarchar](8) NOT NULL,
+		[Title] [nvarchar](8) NULL,
 		[FirstName] [nvarchar](50) NOT NULL,
-		[MiddleName] [nvarchar](50) NOT NULL,
+		[MiddleName] [nvarchar](50) NULL,
 		[LastName] [nvarchar](50) NOT NULL,
 		[CreatedDate] [date] NOT NULL,
 		[ModifiedDate] [date] NULL,
