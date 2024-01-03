@@ -7,10 +7,10 @@ BEGIN
 		[FirstName] [nvarchar](50) NOT NULL,
 		[MiddleName] [nvarchar](50) NOT NULL,
 		[LastName] [nvarchar](50) NOT NULL,
-		[CreatedDate] [datetime] NOT NULL,
-		[ModifiedDate] [datetime] NULL,
-		[EffectiveDate] [datetime] NOT NULL,
-		[ExpiredDate] [datetime] NULL,
+		[CreatedDate] [date] NOT NULL,
+		[ModifiedDate] [date] NULL,
+		[EffectiveDate] [date] NOT NULL,
+		[ExpiredDate] [date] NULL,
 		[IsCurrent] [nvarchar](3) NOT NULL		
 	CONSTRAINT [PK_DimCustomers] PRIMARY KEY CLUSTERED 
 	(
