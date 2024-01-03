@@ -43,7 +43,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="DataMartDBName">
+    SSIS:Name="PackagePath">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{3d910579-5962-4cd7-a9b8-0c936e9ff9b1}</SSIS:Property>
@@ -58,9 +58,30 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">BikesAndBikes_DataMart</SSIS:Property>
+        SSIS:Name="Value">C:\Users\jgasp\source\repos\ARMDD</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="Parâmetro">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{219dc7fe-c09b-4c5d-b302-9839ec31c382}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">9</SSIS:Property>
     </SSIS:Properties>
   </SSIS:Parameter>
 </SSIS:Parameters>
