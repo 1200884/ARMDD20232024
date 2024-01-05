@@ -2,7 +2,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'DimDate')
 
 	CREATE TABLE [dbo].[DimDate](
 		[DateKey] [int] IDENTITY(1,1) NOT NULL,
-		[FullDate] [datetime] NOT NULL,
+		[FullDate] [DATE] NOT NULL,
 		[Year] [int] NOT NULL,
 		[Semester] [tinyint] NOT NULL,
 		[Quarter] [tinyint] NOT NULL,
