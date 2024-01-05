@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{1138703E-DE50-492B-9BC5-C07D0DE260F6}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{96714ECC-A587-4FEB-8496-ED200E3F884D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -53,16 +53,16 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="PK_Date"
-              DTS:DTSID="{C906E311-61B8-46D7-A952-2B16983B3FE8}"
+              DTS:DTSID="{AC42C4F7-48BA-4DAD-9BD0-873AEB3F0EAE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Date_Name"
-              DTS:DTSID="{FBBBEB0D-C216-48B0-AD5C-E15D6BE4D32A}"
+              DTS:DTSID="{31E41641-F894-4791-AAF2-CC57EBC3745A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -71,7 +71,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Year"
-              DTS:DTSID="{54D4112A-6352-4AD2-A4B7-DD2A45B24919}"
+              DTS:DTSID="{09A9A60A-92C0-4B57-9989-EC18CC36FC82}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -80,7 +80,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Year_Name"
-              DTS:DTSID="{D63CB7CE-98F6-4F9E-A5B9-A63A6F239D9A}"
+              DTS:DTSID="{07F88682-AEBD-412D-B70B-1CF0B2D6501F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -89,7 +89,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Half_Year"
-              DTS:DTSID="{57764A08-8705-43E4-8CE3-2ED59953DB81}"
+              DTS:DTSID="{394D795D-2DC3-40E8-BB9F-646C67E8924F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -98,7 +98,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Half_Year_Name"
-              DTS:DTSID="{E883B981-892C-485C-AD3A-174779E1ED2A}"
+              DTS:DTSID="{EC88A26F-310B-4E4D-BBB2-2A7FB26A2E1F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -107,7 +107,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quarter"
-              DTS:DTSID="{1CE089C2-2993-4DAD-92F7-DEF25756A6FD}"
+              DTS:DTSID="{67914883-D0FC-4C3F-8D3B-655CBFBB01F7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -116,7 +116,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quarter_Name"
-              DTS:DTSID="{9B773373-F053-42CB-8349-F6E17FF40A32}"
+              DTS:DTSID="{155ACB2F-D0F6-4137-AB8B-B32465115471}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -125,7 +125,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Trimester"
-              DTS:DTSID="{298AF69E-AEB1-4B9B-85A5-8D1A43BA9705}"
+              DTS:DTSID="{E833B3E6-22D3-479C-8762-BF37EA1C29A7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -134,7 +134,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Trimester_Name"
-              DTS:DTSID="{DFCF80E9-EEF9-462B-ABAB-097C5F8842D4}"
+              DTS:DTSID="{2FFCEF7C-35E5-42A2-A2B1-51EA693265B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -143,7 +143,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month"
-              DTS:DTSID="{4A286B4E-D187-49C3-BBF8-558794A924CF}"
+              DTS:DTSID="{C725C348-061F-487D-B6E0-9714DADFEF53}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -152,7 +152,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Name"
-              DTS:DTSID="{9FC0A5EB-7106-495E-80C1-B0651918EE01}"
+              DTS:DTSID="{8E6403B6-E711-408F-866C-32E965B66791}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -161,7 +161,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days"
-              DTS:DTSID="{C26CB062-1176-4DC0-9802-58A86BD83ED2}"
+              DTS:DTSID="{E61EB45B-FF1F-4E0C-8E02-18840D3B9AAA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -170,7 +170,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Name"
-              DTS:DTSID="{D884B65B-300D-4E4A-81A2-7189CAC237B4}"
+              DTS:DTSID="{E08E4A36-DEE4-4FE0-9C40-D944989C65BB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -179,7 +179,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Week"
-              DTS:DTSID="{739F4DC5-5B81-4C24-AE71-A099821E3D87}"
+              DTS:DTSID="{31E96910-1599-4546-B06D-33A525AE2C40}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -188,7 +188,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Week_Name"
-              DTS:DTSID="{CE7AFB55-0479-43CC-8E4E-9371F57D22EE}"
+              DTS:DTSID="{628D29E8-1DBC-4305-BCA6-6D912B91E1BA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -197,7 +197,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Year"
-              DTS:DTSID="{E935BA77-AA3D-4DC6-9A17-EE7ED0351F6C}"
+              DTS:DTSID="{0EF84512-6AFA-4EC8-98AE-573453A7433F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -206,7 +206,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Year_Name"
-              DTS:DTSID="{C31011B0-C4E2-4D8B-A5F2-AFA70A92D04A}"
+              DTS:DTSID="{18435620-69EF-4DC6-8C64-22FF8512B730}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -215,7 +215,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Half_Year"
-              DTS:DTSID="{CDC5E2A6-03FE-4AE3-A36D-FC76217CF6A2}"
+              DTS:DTSID="{F13063A3-DACB-4AA7-B190-E8DB6BA8650D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -224,7 +224,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Half_Year_Name"
-              DTS:DTSID="{39FA0F2E-CF78-4FCD-80D8-89C9C95F3E4D}"
+              DTS:DTSID="{3333D93A-14BF-4D8A-8AE0-108FAF0F3441}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -233,7 +233,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Trimester"
-              DTS:DTSID="{71BD8ADE-C28D-4F2F-9BEC-A5DC49CFAA0D}"
+              DTS:DTSID="{46CAAD5F-D0DF-41E8-9406-F412FDA5D2B2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -242,7 +242,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Trimester_Name"
-              DTS:DTSID="{7FA146B3-8F53-4532-A7DD-8495E4D52B97}"
+              DTS:DTSID="{73B72E75-F8BE-4509-9DE0-B66A39954015}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -251,7 +251,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Quarter"
-              DTS:DTSID="{71E47AFC-054C-41CB-B00A-D7EA0B1141EA}"
+              DTS:DTSID="{F6E0355B-F9E3-4286-9645-C682E31A5EAB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -260,7 +260,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Quarter_Name"
-              DTS:DTSID="{226E008E-2F94-4F6D-BC4B-B343CEC3B176}"
+              DTS:DTSID="{6627FFC0-D37D-40D4-BC69-1723DC614320}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -269,7 +269,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Month"
-              DTS:DTSID="{C37E8D87-5C5E-46D7-B879-5F595AD5C549}"
+              DTS:DTSID="{40E7197B-A28B-400F-875B-DB35C9790EEA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -278,7 +278,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Month_Name"
-              DTS:DTSID="{D4A7BB94-51AD-4704-8D98-35C659B509A6}"
+              DTS:DTSID="{1DE43850-C3EF-488B-A8FD-7D8550DDCB1A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -287,7 +287,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Ten_Days"
-              DTS:DTSID="{694312AC-188D-4C6F-A01B-35D7D169C758}"
+              DTS:DTSID="{B1DE2ADA-4BAF-41DC-BEB3-28E26D453DA5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -296,7 +296,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Ten_Days_Name"
-              DTS:DTSID="{ADEF67DB-B8D1-497C-87E9-FD90E435E6E8}"
+              DTS:DTSID="{EE965564-3928-42E9-986C-4C4EA13B839E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -305,7 +305,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Week"
-              DTS:DTSID="{6253050E-62E5-4B8F-BBCD-A8B0B3F55ED3}"
+              DTS:DTSID="{025271C6-A8D2-4EB5-AEFB-F2DD3247BAE6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -314,7 +314,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Day_Of_Week_Name"
-              DTS:DTSID="{9CC47F55-F988-42EF-AB2F-37C224F6DF7B}"
+              DTS:DTSID="{3620F4C5-3EA1-4D60-8371-030E1966B803}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -323,7 +323,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Week_Of_Year"
-              DTS:DTSID="{AF619341-EF7D-47DC-986C-FA8D0DFFF40F}"
+              DTS:DTSID="{E522F32C-5BC9-43F9-B278-4C4ADF12B093}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -332,7 +332,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Week_Of_Year_Name"
-              DTS:DTSID="{747F6AA7-CA98-4648-B55B-21C740A3EB12}"
+              DTS:DTSID="{61CCE3F2-F2FF-435B-94FB-09E8EC7A6E6A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -341,7 +341,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Year"
-              DTS:DTSID="{7A217760-D4CF-4849-B1CC-C16F6CE1B193}"
+              DTS:DTSID="{BCB1E430-515C-4D0D-9A55-3731F57991B5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -350,7 +350,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Year_Name"
-              DTS:DTSID="{D660360C-6C31-4C76-9525-DA9974FB84D0}"
+              DTS:DTSID="{649F9C98-026D-4CC5-AD16-D3366484C930}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -359,7 +359,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Half_Year"
-              DTS:DTSID="{62C634FA-7137-452F-A513-9DA717DC5AB5}"
+              DTS:DTSID="{FD335717-E31C-422D-9EF5-AFE58B52F57F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -368,7 +368,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Half_Year_Name"
-              DTS:DTSID="{5B077628-5EC7-4547-B05E-9695A1D4027C}"
+              DTS:DTSID="{EEC55F47-9D07-4882-9A5D-DA36C58F61ED}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -377,7 +377,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Trimester"
-              DTS:DTSID="{B90CCAEA-62CC-4276-BD6E-A2DA4D59D22C}"
+              DTS:DTSID="{DD625E13-7F9D-4CA7-81CE-C1DD4CA3526A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -386,7 +386,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Trimester_Name"
-              DTS:DTSID="{5A324F79-94F8-4095-AAFF-7A1060523EB7}"
+              DTS:DTSID="{EFE6A6AA-F141-41FF-805E-73337239EF0E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -395,7 +395,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Quarter"
-              DTS:DTSID="{ABEF1350-CE26-45F5-BCDB-5D93AA0EFDFE}"
+              DTS:DTSID="{C9DA02F3-A3BB-4AAE-956C-AF5F9EBC1AB9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -404,7 +404,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Quarter_Name"
-              DTS:DTSID="{5D204FBE-86B7-4E54-A8B0-BB730D6B86DE}"
+              DTS:DTSID="{5C6A41EB-4B68-468F-ABDD-EBC4AAF5209B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -413,7 +413,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Month"
-              DTS:DTSID="{B06AEFFD-6F97-4268-94AF-A24D999F637D}"
+              DTS:DTSID="{E3300FFE-27B8-4321-9B4D-56DAA6F6074F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -422,7 +422,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ten_Days_Of_Month_Name"
-              DTS:DTSID="{7D0DAD5E-3F30-4AFC-B503-9520DAAEC0CE}"
+              DTS:DTSID="{5BB2CEDA-485E-41F6-88FB-ED0BD1D27E8B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -431,7 +431,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Of_Year"
-              DTS:DTSID="{AE7404CC-9B5B-4481-B800-9E6591E0A658}"
+              DTS:DTSID="{9312314A-2C4B-4CF7-81C9-3CE426E35264}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -440,7 +440,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Of_Year_Name"
-              DTS:DTSID="{8079068C-D7CE-4D22-A282-E9272ADBD3AF}"
+              DTS:DTSID="{22573201-C90B-4DAD-89A3-6B534CD34AF8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -449,7 +449,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Of_Half_Year"
-              DTS:DTSID="{C095D5DE-9163-4FBC-AEAB-29B9E9F306D2}"
+              DTS:DTSID="{57C28961-7312-45B0-AE95-10BCBA42C884}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -458,7 +458,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Of_Half_Year_Name"
-              DTS:DTSID="{61390A61-49A5-4DB6-88AD-EBDCCBC2A72A}"
+              DTS:DTSID="{447465EE-0DCF-47B7-BAAB-37EF6DD4980B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -467,7 +467,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Of_Trimester"
-              DTS:DTSID="{CC035C93-CBF4-468F-ABFE-1F2F0D29CC5B}"
+              DTS:DTSID="{B66FBDEE-85D5-4813-8B01-9C3F534C2F17}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -476,7 +476,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Of_Trimester_Name"
-              DTS:DTSID="{F92239C1-4ECE-4CB2-A53C-9BB1150A0486}"
+              DTS:DTSID="{4DCB82E8-D45A-49B6-80AA-BAA460155B7E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -485,7 +485,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Of_Quarter"
-              DTS:DTSID="{7844EC72-0EEB-4010-B8B8-230B2E7BC4FE}"
+              DTS:DTSID="{C60C3366-C807-4A56-9BAB-482B410EDA4E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -494,7 +494,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Month_Of_Quarter_Name"
-              DTS:DTSID="{CFBEA08F-C46A-472F-8656-78FA42B4522D}"
+              DTS:DTSID="{2C32DF99-6E21-42DD-8378-DDF8A480713A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -503,7 +503,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quarter_Of_Year"
-              DTS:DTSID="{715B4792-C1EA-4B05-83A9-D2515BEE10E6}"
+              DTS:DTSID="{94454785-334E-4F38-B0DA-15560FE9825D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -512,7 +512,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quarter_Of_Year_Name"
-              DTS:DTSID="{B4D8EE27-3F50-417B-AEA3-2A6B751C11CA}"
+              DTS:DTSID="{55C96EAC-4F70-45EA-9895-1C953EDDFF63}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -521,7 +521,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quarter_Of_Half_Year"
-              DTS:DTSID="{00E87A69-D999-46BD-9D8B-6021ECFB9902}"
+              DTS:DTSID="{172F40C9-3B76-407D-A3D7-5C5A0703AD89}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -530,7 +530,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Quarter_Of_Half_Year_Name"
-              DTS:DTSID="{C17239DB-9F79-4D02-87C3-F1C5124061E1}"
+              DTS:DTSID="{F23CB8B2-E4C9-43F2-9088-DE9A6AA6ACC5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -539,7 +539,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Trimester_Of_Year"
-              DTS:DTSID="{F29BDF04-F1AE-4196-88EE-6FF1651B80F5}"
+              DTS:DTSID="{07267E8C-2F97-479C-AAE8-BF0240F0FF6A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -548,7 +548,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Trimester_Of_Year_Name"
-              DTS:DTSID="{B01A4A09-353F-41A5-8F9C-2AED866C3907}"
+              DTS:DTSID="{D979AA44-C7C4-43E3-8DE3-B0D2EE459C5F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -557,7 +557,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Half_Year_Of_Year"
-              DTS:DTSID="{17690C3C-1BA6-465E-BFC8-45DE4EAA6AC3}"
+              DTS:DTSID="{D24F6D0E-3BD0-438B-B7F3-E182F4483138}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -566,7 +566,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Half_Year_Of_Year_Name"
-              DTS:DTSID="{C6A17BEF-A35E-4BCF-8E1F-559BA3F02433}"
+              DTS:DTSID="{1BA16FF9-8066-4D01-AEE7-A60B9691E1A5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -575,7 +575,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Year"
-              DTS:DTSID="{8DBE8860-9C1A-4250-AB71-02AD45876FE8}"
+              DTS:DTSID="{D341ED5A-2B40-4B35-AA01-8AA18AABACDF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -584,7 +584,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Year_Name"
-              DTS:DTSID="{886DF500-706B-4C59-ABB2-AE7F25C9BEC5}"
+              DTS:DTSID="{20DC61F0-25AE-4ADE-95CF-B4EBE2BF1D8B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -593,7 +593,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Week"
-              DTS:DTSID="{519CB48B-218A-4F4F-A9AC-797C57513C57}"
+              DTS:DTSID="{A7E9EB7D-9507-471F-B35A-239479B8D8CD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -602,7 +602,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Week_Name"
-              DTS:DTSID="{612104D1-873C-43CD-B2DB-DBC085EE169E}"
+              DTS:DTSID="{4D4B8BBE-FFCC-46BD-B452-66E8550B9B49}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -611,7 +611,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Day"
-              DTS:DTSID="{40E312CA-298A-4A29-BA88-93CFFC88F7FC}"
+              DTS:DTSID="{3226C39B-CC96-42D0-BFFF-9C6197D365F3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -620,7 +620,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Day_Name"
-              DTS:DTSID="{63B64ABC-654B-4B4F-A854-929443805B0B}"
+              DTS:DTSID="{AC716685-4357-41CF-BB88-1484C6A9881F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -629,7 +629,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Day_Of_Year"
-              DTS:DTSID="{E100D6A4-2757-4A0D-821A-30D826FD4528}"
+              DTS:DTSID="{BE352B89-9DE0-40E7-804C-77ED881C5970}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -638,7 +638,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Day_Of_Year_Name"
-              DTS:DTSID="{1B2D8303-EF53-4CB3-9261-756472F2D13C}"
+              DTS:DTSID="{4F9CDDC0-05F9-42E0-BCC1-192F353C09A5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -647,7 +647,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Day_Of_Week"
-              DTS:DTSID="{71ECA9F4-B74E-4C4C-94A4-55AAAF4EAACF}"
+              DTS:DTSID="{CA69D2CF-0688-4B2B-B460-4AE82FE1C739}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -656,7 +656,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Day_Of_Week_Name"
-              DTS:DTSID="{5D08C8C7-A25B-4298-9E9E-AF1FEA44C152}"
+              DTS:DTSID="{8EEAC827-7FAB-4000-BA45-2D00645D434F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -665,7 +665,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Week_Of_Year"
-              DTS:DTSID="{F3CC0A20-BEDF-4251-8395-150949D99BE9}"
+              DTS:DTSID="{90FE51B4-9872-4BCF-82B0-88EE77891001}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -674,7 +674,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ISO_8601_Week_Of_Year_Name"
-              DTS:DTSID="{20079E7A-247F-4B9B-BB48-9D574D0A21D5}"
+              DTS:DTSID="{216D80E5-FC73-4A19-AC56-6ED7E53F1106}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -683,7 +683,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Year(yyyy)"
-              DTS:DTSID="{61844494-4444-4453-A387-DB8B9172EF27}"
+              DTS:DTSID="{20C917E6-D386-4BD9-95EA-A98EAE851805}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -692,7 +692,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="MonthName"
-              DTS:DTSID="{4C72BD98-482B-44BD-827A-2CBA2FE89865}"
+              DTS:DTSID="{48094B46-718B-43A2-B19B-C06957F2F722}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -701,7 +701,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="DayOfTheWeek"
-              DTS:DTSID="{7AD8930A-A8D0-4E04-AE71-EAB722B3169F}"
+              DTS:DTSID="{7F000CBA-B447-4C9E-9328-28FEDA8DDE3F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -710,7 +710,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="IsWeekend"
-              DTS:DTSID="{7A50844B-3216-4237-A108-843917F04FF3}"
+              DTS:DTSID="{2D22B79B-5094-46FC-8828-293293E65018}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -719,7 +719,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="IsLastDayOfTheMonth"
-              DTS:DTSID="{349ACF60-B242-4EA3-B27C-F27A45C60334}"
+              DTS:DTSID="{B7C7548E-55DF-41AD-A440-FF8ABD1AAFD3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -728,7 +728,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Season"
-              DTS:DTSID="{AACA32DB-2E43-4CA1-87B2-2E365B0E80CC}"
+              DTS:DTSID="{272F54A4-9284-4A20-A1A8-797DFD1493CB}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1273,8 +1273,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].Columns[Date_Name]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Date_Name]"
@@ -1606,8 +1605,7 @@
                           name="PK_Date" />
                         <externalMetadataColumn
                           refId="Package\Load DimDate\Load DimDate\CSV DimDate.Outputs[Flat File Source Output].ExternalColumns[Date_Name]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           length="50"
                           name="Date_Name" />
                         <externalMetadataColumn
@@ -2274,7 +2272,8 @@
                           name="DateKey" />
                         <externalMetadataColumn
                           refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[FullDate]"
-                          dataType="dbTimeStamp"
+                          dataType="wstr"
+                          length="10"
                           name="FullDate" />
                         <externalMetadataColumn
                           refId="Package\Load DimDate\Load DimDate\DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
@@ -2392,23 +2391,23 @@
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Load DimDate\Is DimDate Empty?"
           TopLeft="58.0571432463977,18.9176469167211" />
         <NodeLayout
-          Size="145,42"
+          Size="144.8,41.6"
           Id="Package\Load DimDate\Load DimDate"
           TopLeft="66.6285718360727,102.517646802771" />
         <EdgeLayout
@@ -2438,8 +2437,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="270,199"
-          Size="270,242"
+          PanelSize="270.4,199.2"
+          Size="270.4,241.6"
           Id="Package\Load DimDate"
           TopLeft="125.000000266092,146.058823401386" />
       </GraphLayout>
@@ -2516,27 +2515,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="119,42"
+          Size="119.2,41.6"
           Id="Package\Load DimDate\Load DimDate\DimDate"
-          TopLeft="199.285714709941,207.99999981768" />
+          TopLeft="199.285714709941,207.235293935997" />
         <NodeLayout
-          Size="141,42"
+          Size="140.8,41.6"
           Id="Package\Load DimDate\Load DimDate\CSV DimDate"
-          TopLeft="191.428571836072,67.2941175880735" />
+          TopLeft="192.142857551878,67.2941175880735" />
         <EdgeLayout
           Id="Package\Load DimDate\Load DimDate.Paths[Flat File Source Output]"
-          TopLeft="260.357143273007,108.894117588074">
+          TopLeft="260.71428613091,108.894117588073">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,99.1058822296068"
+              EndConnector="0,98.3411763479238"
               Start="0,0"
-              End="0,91.6058822296068">
+              End="0,90.8411763479238">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,91.6058822296068" />
+                    End="0,90.8411763479238" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
