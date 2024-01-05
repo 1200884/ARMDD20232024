@@ -21,6 +21,14 @@ BEGIN
 		[UnitPriceDiscountStandard] [money] NOT NULL,
 		[LineTotalLocal] [numeric] (38,6) NOT NULL,
 		[LineTotalStandard] [numeric] (38,6) NOT NULL,
+		[FreightLocal] [money] NOT NULL,
+		[FreightStandard] [money] NOT NULL,
+		[TotalDueLocal] [money] NOT NULL,
+		[TotalDueStandard] [money] NOT NULL,
+		[TaxAmountLocal] [money] NOT NULL,
+		[TaxAmountStandard] [money] NOT NULL,
+		[SubTotalLocal] [money] NOT NULL,
+		[SubTotalStandard] [money] NOT NULL 
 		CONSTRAINT [PK_FactSales] PRIMARY KEY CLUSTERED 
 		(
 			[ProductKey] ASC,
