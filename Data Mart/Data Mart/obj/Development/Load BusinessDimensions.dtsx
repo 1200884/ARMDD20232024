@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{5833A515-EBAF-4C8F-AF0C-39E26D5AB849}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{F055D55D-A0F2-4C3A-90D3-A2C932174FCD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7794,6 +7794,170 @@ FROM            ProductSubcategories LEFT OUTER JOIN
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Sequence Container\DimSalesPersons\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimSalesPersons\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Conditional Split.Inputs[Conditional Split Input].Columns[NationalIDNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="NationalIDNumber"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[NationalIDNumber]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Valid]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Valid"
+                      synchronousInputId="Package\Sequence Container\DimSalesPersons\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[LEN](#{Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[NationalIDNumber]}) == 9</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(NationalIDNumber) == 9</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Invalid]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Invalid"
+                      synchronousInputId="Package\Sequence Container\DimSalesPersons\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Sequence Container\DimSalesPersons\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimSalesPersons\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimSalesPersons\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\DimSalesPersons\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Output].Columns[DQP]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="24"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Output].Columns[DQP]"
+                          name="DQP"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Invalid NationalIDNumber"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Invalid NationalIDNumber"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\DimSalesPersons\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Sequence Container\DimSalesPersons\Expire Old Record"
                   componentClassID="Microsoft.OLEDBCommand"
                   contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -8537,58 +8701,160 @@ where [refTable].[MaritalStatus] = ?</property>
                           cachedDataType="cy"
                           cachedName="SalesQuota"
                           externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesQuota]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesQuota]" />
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesQuota]" />
                         <inputColumn
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Bonus]"
                           cachedDataType="cy"
                           cachedName="Bonus"
                           externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Bonus]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[Bonus]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CommissionPct]"
-                          cachedDataType="cy"
-                          cachedName="CommissionPct"
-                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionPct]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionPct]" />
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Bonus]" />
                         <inputColumn
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesYTD]"
                           cachedDataType="cy"
                           cachedName="SalesYTD"
                           externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesYTD]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesYTD]" />
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesYTD]" />
                         <inputColumn
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesLastYear]"
                           cachedDataType="cy"
                           cachedName="SalesLastYear"
                           externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesLastYear]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesLastYear]" />
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesLastYear]" />
                         <inputColumn
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
                           cachedDataType="wstr"
                           cachedLength="10"
                           cachedName="CreatedDate"
                           externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CreatedDate]" />
                         <inputColumn
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
                           cachedDataType="wstr"
                           cachedLength="10"
                           cachedName="ModifiedDate"
                           externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[ModifiedDate]" />
                         <inputColumn
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
                           cachedDataType="i4"
                           cachedName="BusinessEntityID"
                           externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BusinessEntityID]" />
                         <inputColumn
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DQP]"
                           cachedDataType="wstr"
                           cachedLength="81"
                           cachedName="DQP"
                           externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DQP]"
-                          lineageId="Package\Sequence Container\DimSalesPersons\Add MaritalStatusDescription Lookup Failure DQP.Outputs[Derived Column Output].Columns[DQP]" />
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[DQP]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CommissionPct]"
+                          cachedDataType="cy"
+                          cachedName="CommissionPct"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ComissionPct]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CommissionPct]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NationalIDNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="NationalIDNumber"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NationalIDNumber]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[NationalIDNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoginID]"
+                          cachedDataType="wstr"
+                          cachedLength="256"
+                          cachedName="LoginID"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoginID]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LoginID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[JobTitle]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="JobTitle"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[JobTitle]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BirthDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="BirthDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BirthDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaritalStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="MaritalStatus"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MaritalStatus]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[HireDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="HireDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HireDate]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[HireDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalariedFlag]"
+                          cachedDataType="bool"
+                          cachedName="SalariedFlag"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalariedFlag]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalariedFlag]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VacationHours]"
+                          cachedDataType="i2"
+                          cachedName="VacationHours"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VacationHours]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[VacationHours]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SickLeaveHours]"
+                          cachedDataType="i2"
+                          cachedName="SickLeaveHours"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SickLeaveHours]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SickLeaveHours]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PersonType]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PersonType"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PersonType]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[PersonType]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Title]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Title"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Title]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MiddleName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MiddleName"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MiddleName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LastName]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -8604,10 +8870,6 @@ where [refTable].[MaritalStatus] = ?</property>
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Bonus]"
                           dataType="cy"
                           name="Bonus" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CommissionPct]"
-                          dataType="cy"
-                          name="CommissionPct" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesYTD]"
                           dataType="cy"
@@ -8631,6 +8893,83 @@ where [refTable].[MaritalStatus] = ?</property>
                           dataType="wstr"
                           length="100"
                           name="DQP" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ComissionPct]"
+                          dataType="cy"
+                          name="ComissionPct" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NationalIDNumber]"
+                          dataType="wstr"
+                          length="15"
+                          name="NationalIDNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoginID]"
+                          dataType="wstr"
+                          length="256"
+                          name="LoginID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle]"
+                          dataType="wstr"
+                          length="50"
+                          name="JobTitle" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="BirthDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus]"
+                          dataType="wstr"
+                          length="10"
+                          name="MaritalStatus" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="6"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HireDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="HireDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalariedFlag]"
+                          dataType="wstr"
+                          length="3"
+                          name="SalariedFlag" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VacationHours]"
+                          dataType="i2"
+                          name="VacationHours" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SickLeaveHours]"
+                          dataType="i2"
+                          name="SickLeaveHours" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PersonType]"
+                          dataType="wstr"
+                          length="20"
+                          name="PersonType" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                          dataType="wstr"
+                          length="8"
+                          name="Title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MiddleName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -10986,6 +11325,836 @@ FROM            Employees INNER JOIN
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Sequence Container\DimSalesPersons\Union All 1"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All 1"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[SalesQuota]"
+                          cachedDataType="cy"
+                          cachedName="SalesQuota"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesQuota]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesQuota]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[Bonus]"
+                          cachedDataType="cy"
+                          cachedName="Bonus"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[Bonus]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Bonus]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[CommissionPct]"
+                          cachedDataType="cy"
+                          cachedName="CommissionPct"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionPct]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CommissionPct]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[SalesYTD]"
+                          cachedDataType="cy"
+                          cachedName="SalesYTD"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesYTD]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesYTD]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[SalesLastYear]"
+                          cachedDataType="cy"
+                          cachedName="SalesLastYear"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesLastYear]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesLastYear]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[NationalIDNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="NationalIDNumber"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[NationalIDNumber]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[NationalIDNumber]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[LoginID]"
+                          cachedDataType="wstr"
+                          cachedLength="256"
+                          cachedName="LoginID"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoginID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LoginID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[JobTitle]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="JobTitle"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[JobTitle]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[JobTitle]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[BirthDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="BirthDate"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[BirthDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BirthDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[MaritalStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="MaritalStatus"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaritalStatus]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MaritalStatus]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Gender]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[HireDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="HireDate"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[HireDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[SalariedFlag]"
+                          cachedDataType="bool"
+                          cachedName="SalariedFlag"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalariedFlag]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalariedFlag]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[VacationHours]"
+                          cachedDataType="i2"
+                          cachedName="VacationHours"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[VacationHours]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[VacationHours]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[SickLeaveHours]"
+                          cachedDataType="i2"
+                          cachedName="SickLeaveHours"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SickLeaveHours]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SickLeaveHours]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[PersonType]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PersonType"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[PersonType]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[PersonType]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[Title]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Title"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Title]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[MiddleName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MiddleName"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[MiddleName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MiddleName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LastName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[CreatedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CreatedDate"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CreatedDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[BusinessEntityID]"
+                          cachedDataType="i4"
+                          cachedName="BusinessEntityID"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[BusinessEntityID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BusinessEntityID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1].Columns[DQP]"
+                          cachedDataType="wstr"
+                          cachedLength="24"
+                          cachedName="DQP"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Output].Columns[DQP]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[DQP]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[SalesQuota]"
+                          cachedDataType="cy"
+                          cachedName="SalesQuota"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesQuota]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesQuota]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[Bonus]"
+                          cachedDataType="cy"
+                          cachedName="Bonus"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[Bonus]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Bonus]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[CommissionPct]"
+                          cachedDataType="cy"
+                          cachedName="CommissionPct"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[CommissionPct]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CommissionPct]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[SalesYTD]"
+                          cachedDataType="cy"
+                          cachedName="SalesYTD"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesYTD]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesYTD]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[SalesLastYear]"
+                          cachedDataType="cy"
+                          cachedName="SalesLastYear"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesLastYear]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesLastYear]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[NationalIDNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="NationalIDNumber"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[NationalIDNumber]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[NationalIDNumber]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[LoginID]"
+                          cachedDataType="wstr"
+                          cachedLength="256"
+                          cachedName="LoginID"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoginID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LoginID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[JobTitle]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="JobTitle"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[JobTitle]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[JobTitle]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[BirthDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="BirthDate"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[BirthDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BirthDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[MaritalStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="MaritalStatus"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaritalStatus]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MaritalStatus]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Gender]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[HireDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="HireDate"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[HireDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[SalariedFlag]"
+                          cachedDataType="bool"
+                          cachedName="SalariedFlag"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalariedFlag]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalariedFlag]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[VacationHours]"
+                          cachedDataType="i2"
+                          cachedName="VacationHours"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[VacationHours]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[VacationHours]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[SickLeaveHours]"
+                          cachedDataType="i2"
+                          cachedName="SickLeaveHours"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[SickLeaveHours]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SickLeaveHours]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[PersonType]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PersonType"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[PersonType]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[PersonType]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[Title]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Title"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Title]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[FirstName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[MiddleName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MiddleName"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[MiddleName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MiddleName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LastName]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[CreatedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CreatedDate"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CreatedDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[ModifiedDate]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[BusinessEntityID]"
+                          cachedDataType="i4"
+                          cachedName="BusinessEntityID"
+                          lineageId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output].Columns[BusinessEntityID]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BusinessEntityID]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2].Columns[DQP]"
+                          cachedDataType="wstr"
+                          cachedLength="81"
+                          cachedName="DQP"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Add MaritalStatusDescription Lookup Failure DQP.Outputs[Derived Column Output].Columns[DQP]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[DQP]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesQuota]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesQuota]"
+                          name="SalesQuota" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Bonus]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Bonus]"
+                          name="Bonus" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CommissionPct]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CommissionPct]"
+                          name="CommissionPct" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesYTD]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesYTD]"
+                          name="SalesYTD" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesLastYear]"
+                          dataType="cy"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalesLastYear]"
+                          name="SalesLastYear" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[NationalIDNumber]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[NationalIDNumber]"
+                          name="NationalIDNumber" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LoginID]"
+                          dataType="wstr"
+                          length="256"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LoginID]"
+                          name="LoginID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[JobTitle]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[JobTitle]"
+                          name="JobTitle" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BirthDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BirthDate]"
+                          name="BirthDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MaritalStatus]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MaritalStatus]"
+                          name="MaritalStatus" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Gender]"
+                          name="Gender" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[HireDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[HireDate]"
+                          name="HireDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalariedFlag]"
+                          dataType="bool"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SalariedFlag]"
+                          name="SalariedFlag" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[VacationHours]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[VacationHours]"
+                          name="VacationHours" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SickLeaveHours]"
+                          dataType="i2"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[SickLeaveHours]"
+                          name="SickLeaveHours" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[PersonType]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[PersonType]"
+                          name="PersonType" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Title]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[Title]"
+                          name="Title" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[FirstName]"
+                          name="FirstName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[MiddleName]"
+                          name="MiddleName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[LastName]"
+                          name="LastName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CreatedDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[CreatedDate]"
+                          name="CreatedDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[ModifiedDate]"
+                          name="ModifiedDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BusinessEntityID]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[BusinessEntityID]"
+                          name="BusinessEntityID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[DQP]"
+                          dataType="wstr"
+                          length="81"
+                          lineageId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1].Columns[DQP]"
+                          name="DQP" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Sequence Container\DimSalesPersons\Update DimSalesPersons"
                   componentClassID="Microsoft.OLEDBCommand"
                   contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -11203,34 +12372,44 @@ FROM            Employees INNER JOIN
                   startId="Package\Sequence Container\DimSalesPersons\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
                 <path
                   refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output]"
-                  endId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  name="Derived Column Output"
-                  startId="Package\Sequence Container\DimSalesPersons\Add MaritalStatusDescription Lookup Failure DQP.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output1]"
                   endId="Package\Sequence Container\DimSalesPersons\Lookup MaritalStatusDescription.Inputs[Lookup Input]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\DimSalesPersons\Transform SalariedFlag.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output2]"
+                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output1]"
                   endId="Package\Sequence Container\DimSalesPersons\Transform SalariedFlag.Inputs[Derived Column Input]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\DimSalesPersons\Transform Gender.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output3]"
+                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output2]"
                   endId="Package\Sequence Container\DimSalesPersons\Expire Old Record.Inputs[OLE DB Command Input]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\DimSalesPersons\Set Old Record Expired Date.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output4]"
+                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output3]"
                   endId="Package\Sequence Container\DimSalesPersons\Insert DimSalesPersons.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\DimSalesPersons\Set New Record Effective Date.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output4]"
+                  endId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 2]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\DimSalesPersons\Add MaritalStatusDescription Lookup Failure DQP.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output5]"
+                  endId="Package\Sequence Container\DimSalesPersons\Union All 1.Inputs[Union All Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\DimSalesPersons\Derived Column.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Sequence Container\DimSalesPersons.Paths[Historical Attribute Inserts Output]"
                   endId="Package\Sequence Container\DimSalesPersons\Set Old Record Expired Date.Inputs[Derived Column Input]"
                   name="Historical Attribute Inserts Output"
                   startId="Package\Sequence Container\DimSalesPersons\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+                <path
+                  refId="Package\Sequence Container\DimSalesPersons.Paths[Invalid]"
+                  endId="Package\Sequence Container\DimSalesPersons\Derived Column.Inputs[Derived Column Input]"
+                  name="Invalid"
+                  startId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Invalid]" />
                 <path
                   refId="Package\Sequence Container\DimSalesPersons.Paths[Lookup Error Output]"
                   endId="Package\Sequence Container\DimSalesPersons\Add MaritalStatusDescription Lookup Failure DQP.Inputs[Derived Column Input]"
@@ -11238,7 +12417,7 @@ FROM            Employees INNER JOIN
                   startId="Package\Sequence Container\DimSalesPersons\Lookup MaritalStatusDescription.Outputs[Lookup Error Output]" />
                 <path
                   refId="Package\Sequence Container\DimSalesPersons.Paths[Lookup Match Output]"
-                  endId="Package\Sequence Container\DimSalesPersons\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  endId="Package\Sequence Container\DimSalesPersons\Conditional Split.Inputs[Conditional Split Input]"
                   name="Lookup Match Output"
                   startId="Package\Sequence Container\DimSalesPersons\Lookup MaritalStatusDescription.Outputs[Lookup Match Output]" />
                 <path
@@ -11258,9 +12437,19 @@ FROM            Employees INNER JOIN
                   startId="Package\Sequence Container\DimSalesPersons\OLE DB Source.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\Sequence Container\DimSalesPersons.Paths[Union All Output 1]"
+                  endId="Package\Sequence Container\DimSalesPersons\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Union All Output 1"
+                  startId="Package\Sequence Container\DimSalesPersons\Union All 1.Outputs[Union All Output 1]" />
+                <path
+                  refId="Package\Sequence Container\DimSalesPersons.Paths[Union All Output 11]"
                   endId="Package\Sequence Container\DimSalesPersons\Set New Record Effective Date.Inputs[Derived Column Input]"
                   name="Union All Output 1"
                   startId="Package\Sequence Container\DimSalesPersons\Union All.Outputs[Union All Output 1]" />
+                <path
+                  refId="Package\Sequence Container\DimSalesPersons.Paths[Valid]"
+                  endId="Package\Sequence Container\DimSalesPersons\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Valid"
+                  startId="Package\Sequence Container\DimSalesPersons\Conditional Split.Outputs[Valid]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -15446,20 +16635,44 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="148,42"
+          Id="Package\Sequence Container\DimProducts\Transform flag"
+          TopLeft="158.5,107.5" />
+        <NodeLayout
           Size="209,42"
           Id="Package\Sequence Container\DimProducts\Slowly Changing Dimension"
           TopLeft="128,209.5" />
         <NodeLayout
-          Size="148,42"
-          Id="Package\Sequence Container\DimProducts\Transform flag"
-          TopLeft="158.5,107.5" />
+          Size="163,42"
+          Id="Package\Sequence Container\DimProducts\Derived Column 1"
+          TopLeft="151,617.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Sequence Container\DimProducts\Union All"
+          TopLeft="172,515.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Sequence Container\DimProducts\Insert Destination"
+          TopLeft="150,719.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Sequence Container\DimProducts\OLE DB Command"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Sequence Container\DimProducts\OLE DB Command 1"
+          TopLeft="294,311.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Sequence Container\DimProducts\Derived Column"
+          TopLeft="17.5000000000001,311.5" />
         <NodeLayout
           Size="150,42"
           Id="Package\Sequence Container\DimProducts\OLE DB Source"
           TopLeft="157.5,5.5" />
         <EdgeLayout
-          Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output]"
-          TopLeft="232.5,149.5">
+          Id="Package\Sequence Container\DimProducts.Paths[Union All Output 1]"
+          TopLeft="232.5,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15476,7 +16689,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15498,79 +16713,47 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Sequence Container\DimProducts\Derived Column"
-          TopLeft="17.5000000000001,311.5" />
         <EdgeLayout
-          Id="Package\Sequence Container\DimProducts.Paths[Historical Attribute Inserts Output]"
-          TopLeft="182.25,251.5">
+          Id="Package\Sequence Container\DimProducts.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-87.75,60"
+              EndConnector="125.166666666667,60"
               Start="0,0"
-              End="-87.75,52.5">
+              End="125.166666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,31.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="-4,20.503937007874" />
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
                   <mssgle:LineSegment
-                    End="-83.75,20.503937007874" />
+                    End="121.166666666667,35.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="-83.75,20.503937007874"
-                    Point2="-87.75,20.503937007874"
-                    Point3="-87.75,24.503937007874" />
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
                   <mssgle:LineSegment
-                    End="-87.75,52.5" />
+                    End="125.166666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Sequence Container\DimProducts\OLE DB Command"
-          TopLeft="5.50000000000006,413.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output1]"
-          TopLeft="91.5000000000001,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Sequence Container\DimProducts\Union All"
-          TopLeft="172,515.5" />
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[New Output]"
           TopLeft="232.5,251.5">
@@ -15608,69 +16791,41 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Sequence Container\DimProducts.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,455.5">
+          Id="Package\Sequence Container\DimProducts.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.25,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.166666666667,60"
+              EndConnector="-87.75,60"
               Start="0,0"
-              End="125.166666666667,52.5">
+              End="-87.75,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5301794453507" />
+                    End="0,16.503937007874" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5301794453507"
-                    Point2="0,35.5301794453507"
-                    Point3="4,35.5301794453507" />
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
                   <mssgle:LineSegment
-                    End="121.166666666667,35.5301794453507" />
+                    End="-83.75,20.503937007874" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.166666666667,35.5301794453507"
-                    Point2="125.166666666667,35.5301794453507"
-                    Point3="125.166666666667,39.5301794453507" />
+                    Point1="-83.75,20.503937007874"
+                    Point2="-87.75,20.503937007874"
+                    Point3="-87.75,24.503937007874" />
                   <mssgle:LineSegment
-                    End="125.166666666667,52.5" />
+                    End="-87.75,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Sequence Container\DimProducts\Derived Column 1"
-          TopLeft="151,617.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\DimProducts.Paths[Union All Output 1]"
-          TopLeft="232.5,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Sequence Container\DimProducts\Insert Destination"
-          TopLeft="150,719.5" />
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output2]"
           TopLeft="232,659.5">
@@ -15690,13 +16845,59 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Sequence Container\DimProducts\OLE DB Command 1"
-          TopLeft="294,311.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output1]"
+          TopLeft="91.5000000000001,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output]"
+          TopLeft="232.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[Changing Attribute Updates Output]"
           TopLeft="282.75,251.5">
@@ -15904,6 +17105,19 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimProducts\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\DimProducts\OLE DB Source">
     <Properties>
       <Property>
@@ -15915,19 +17129,19 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
     design-time-name="Package\Sequence Container\DimSalesPersons">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="213,42"
           Id="Package\Sequence Container\DimSalesPersons\Set Old Record Expired Date"
-          TopLeft="173.5,471.5" />
+          TopLeft="164.5,494.5" />
         <NodeLayout
           Size="188,42"
           Id="Package\Sequence Container\DimSalesPersons\Transform SalariedFlag"
-          TopLeft="205.5,188.5" />
+          TopLeft="168.5,117.5" />
         <NodeLayout
           Size="310,42"
           Id="Package\Sequence Container\DimSalesPersons\Add MaritalStatusDescription Lookup Failure DQP"
-          TopLeft="691.5,61.5" />
+          TopLeft="452.5,52.5" />
         <NodeLayout
           Size="195,42"
           Id="Package\Sequence Container\DimSalesPersons\Update DimSalesPersons"
@@ -15935,7 +17149,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
         <NodeLayout
           Size="230,42"
           Id="Package\Sequence Container\DimSalesPersons\Lookup MaritalStatusDescription"
-          TopLeft="188.5,259.5" />
+          TopLeft="179.5,188.5" />
         <NodeLayout
           Size="223,42"
           Id="Package\Sequence Container\DimSalesPersons\Set New Record Effective Date"
@@ -15943,7 +17157,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
         <NodeLayout
           Size="165,42"
           Id="Package\Sequence Container\DimSalesPersons\Transform Gender"
-          TopLeft="212,104.5" />
+          TopLeft="245,36.5" />
         <NodeLayout
           Size="163,42"
           Id="Package\Sequence Container\DimSalesPersons\Expire Old Record"
@@ -15951,7 +17165,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
         <NodeLayout
           Size="171,42"
           Id="Package\Sequence Container\DimSalesPersons\OLE DB Destination"
-          TopLeft="846,155.5" />
+          TopLeft="858,153.5" />
         <NodeLayout
           Size="190,42"
           Id="Package\Sequence Container\DimSalesPersons\Insert DimSalesPersons"
@@ -15959,17 +17173,17 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
         <NodeLayout
           Size="150,42"
           Id="Package\Sequence Container\DimSalesPersons\OLE DB Source"
-          TopLeft="237.5,31.5" />
+          TopLeft="53.5,22.5" />
         <NodeLayout
           Size="209,42"
           Id="Package\Sequence Container\DimSalesPersons\Slowly Changing Dimension"
-          TopLeft="200,360.5" />
+          TopLeft="189,368.5" />
         <NodeLayout
           Size="121,42"
           Id="Package\Sequence Container\DimSalesPersons\Union All"
           TopLeft="451,380.5" />
         <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Union All Output 1]"
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Union All Output 11]"
           TopLeft="572,401.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15999,45 +17213,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[OLE DB Source Output]"
-          TopLeft="312.5,73.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-17.9999999999999,31"
-              Start="0,0"
-              End="-17.9999999999999,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5"
-                    Point2="0,15.5"
-                    Point3="-4,15.5" />
-                  <mssgle:LineSegment
-                    End="-13.9999999999999,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.9999999999999,15.5"
-                    Point2="-17.9999999999999,15.5"
-                    Point3="-17.9999999999999,19.5" />
-                  <mssgle:LineSegment
-                    End="-17.9999999999999,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16071,145 +17247,119 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[New Output]"
-          TopLeft="409,381.5">
+          TopLeft="398,389.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="42,20"
+              EndConnector="53,12"
               Start="0,0"
-              End="34.5,20">
+              End="45.5,12">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="17,0" />
+                    End="22.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="17,0"
-                    Point2="21,0"
-                    Point3="21,4" />
+                    Point1="22.5,0"
+                    Point2="26.5,0"
+                    Point3="26.5,4" />
                   <mssgle:LineSegment
-                    End="21,16" />
+                    End="26.5,8" />
                   <mssgle:CubicBezierSegment
-                    Point1="21,16"
-                    Point2="21,20"
-                    Point3="25,20" />
+                    Point1="26.5,8"
+                    Point2="26.5,12"
+                    Point3="30.5,12" />
                   <mssgle:LineSegment
-                    End="34.5,20" />
+                    End="45.5,12" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-6.09138671875,-17.43359375,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Lookup Match Output]"
-          TopLeft="304,301.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59"
-              Start="0,0"
-              End="0,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,19.9453125,96.3827734375,11.609375"
+              BoundingBox="-0.591386718750002,-17.43359375,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Lookup Error Output]"
-          TopLeft="340.5,259.5">
+          TopLeft="401.5,188.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="455.666666666667,-156"
+              EndConnector="206,-94"
               Start="0,0"
-              End="455.666666666667,-148.5">
+              End="206,-86.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-74.1724233213595" />
+                    End="0,-33.9896373056995" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-74.1724233213595"
-                    Point2="0,-78.1724233213595"
-                    Point3="4,-78.1724233213595" />
+                    Point1="0,-33.9896373056995"
+                    Point2="0,-37.9896373056995"
+                    Point3="4,-37.9896373056995" />
                   <mssgle:LineSegment
-                    End="451.666666666667,-78.1724233213595" />
+                    End="202,-37.9896373056995" />
                   <mssgle:CubicBezierSegment
-                    Point1="451.666666666667,-78.1724233213595"
-                    Point2="455.666666666667,-78.1724233213595"
-                    Point3="455.666666666667,-82.1724233213595" />
+                    Point1="202,-37.9896373056995"
+                    Point2="206,-37.9896373056995"
+                    Point3="206,-41.9896373056995" />
                   <mssgle:LineSegment
-                    End="455.666666666667,-148.5" />
+                    End="206,-86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="181.966946614583,-73.1724233213595,91.7327734375,11.609375"
+              BoundingBox="57.13361328125,-32.9896373056995,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Historical Attribute Inserts Output]"
-          TopLeft="304.5,402.5">
+          TopLeft="293.5,410.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-24.5,69.0000000000001"
+              EndConnector="-22.5,84"
               Start="0,0"
-              End="-24.5,61.5000000000001">
+              End="-22.5,76.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.5000000000001" />
+                    End="0,38" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.5000000000001"
-                    Point2="0,34.5000000000001"
-                    Point3="-4,34.5000000000001" />
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="-4,42" />
                   <mssgle:LineSegment
-                    End="-20.5,34.5000000000001" />
+                    End="-18.5,42" />
                   <mssgle:CubicBezierSegment
-                    Point1="-20.5,34.5000000000001"
-                    Point2="-24.5,34.5000000000001"
-                    Point3="-24.5,38.5000000000001" />
+                    Point1="-18.5,42"
+                    Point2="-22.5,42"
+                    Point3="-22.5,46" />
                   <mssgle:LineSegment
-                    End="-24.5,61.5000000000001" />
+                    End="-22.5,76.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.30638671875,39.5000000000001,150.1127734375,11.609375"
+              BoundingBox="-86.30638671875,47,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output4]"
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output3]"
           TopLeft="841.5,364.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16239,176 +17389,388 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output3]"
-          TopLeft="386.5,492.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="197,-11"
-              Start="0,0"
-              End="189.5,-11">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="94.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="94.5,0"
-                    Point2="98.5,0"
-                    Point3="98.5,-4" />
-                  <mssgle:LineSegment
-                    End="98.5,-7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="98.5,-7"
-                    Point2="98.5,-11"
-                    Point3="102.5,-11" />
-                  <mssgle:LineSegment
-                    End="189.5,-11" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output2]"
-          TopLeft="297,146.5">
+          TopLeft="377.5,515.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42"
+              EndConnector="206,-34"
               Start="0,0"
-              End="0,34.5">
+              End="198.5,-34">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="99,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99,0"
+                    Point2="103,0"
+                    Point3="103,-4" />
+                  <mssgle:LineSegment
+                    End="103,-30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="103,-30"
+                    Point2="103,-34"
+                    Point3="107,-34" />
+                  <mssgle:LineSegment
+                    End="198.5,-34" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output1]"
-          TopLeft="299.5,230.5">
+          TopLeft="327.5,78.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-33,29"
+              EndConnector="-65,39"
               Start="0,0"
-              End="-33,21.5">
+              End="-65,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.279792746114" />
+                    End="0,15.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.279792746114"
-                    Point2="0,17.279792746114"
-                    Point3="-4,17.279792746114" />
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="-4,19.5" />
                   <mssgle:LineSegment
-                    End="-29,17.279792746114" />
+                    End="-61,19.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29,17.279792746114"
-                    Point2="-33,17.279792746114"
-                    Point3="-33,21.279792746114" />
+                    Point1="-61,19.5"
+                    Point2="-65,19.5"
+                    Point3="-65,23.5" />
                   <mssgle:LineSegment
-                    End="-33,21.5" />
+                    End="-65,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output]"
-          TopLeft="896.833333333333,103.5">
+          TopLeft="260,159.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="34.6666666666666,52"
+              EndConnector="0,29"
               Start="0,0"
-              End="34.6666666666666,44.5">
+              End="0,21.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.9602053915276" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.9602053915276"
-                    Point2="0,20.9602053915276"
-                    Point3="4,20.9602053915276" />
-                  <mssgle:LineSegment
-                    End="30.6666666666666,20.9602053915276" />
-                  <mssgle:CubicBezierSegment
-                    Point1="30.6666666666666,20.9602053915276"
-                    Point2="34.6666666666666,20.9602053915276"
-                    Point3="34.6666666666666,24.9602053915276" />
-                  <mssgle:LineSegment
-                    End="34.6666666666666,44.5" />
+                    End="0,21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Changing Attribute Updates Output]"
-          TopLeft="338,360.5">
+          TopLeft="327,368.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="391.5,-108"
+              EndConnector="402.5,-116"
               Start="0,0"
-              End="391.5,-100.5">
+              End="402.5,-108.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-39.6923076923077" />
+                    End="0,-8.92877492877494" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-39.6923076923077"
-                    Point2="0,-43.6923076923077"
-                    Point3="4,-43.6923076923077" />
+                    Point1="0,-8.92877492877494"
+                    Point2="0,-12.9287749287749"
+                    Point3="4,-12.9287749287749" />
                   <mssgle:LineSegment
-                    End="387.5,-43.6923076923077" />
+                    End="398.5,-12.9287749287749" />
                   <mssgle:CubicBezierSegment
-                    Point1="387.5,-43.6923076923077"
-                    Point2="391.5,-43.6923076923077"
-                    Point3="391.5,-47.6923076923077" />
+                    Point1="398.5,-12.9287749287749"
+                    Point2="402.5,-12.9287749287749"
+                    Point3="402.5,-16.9287749287749" />
                   <mssgle:LineSegment
-                    End="391.5,-100.5" />
+                    End="402.5,-108.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="117.21609375,-38.6923076923077,157.0678125,11.6630859375"
+              BoundingBox="122.71609375,-7.92877492877494,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\DimSalesPersons\Conditional Split"
+          TopLeft="208,259" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Sequence Container\DimSalesPersons\Derived Column"
+          TopLeft="453,250" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Invalid]"
+          TopLeft="363,280">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90,-9"
+              Start="0,0"
+              End="82.5,-9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41,0"
+                    Point2="45,0"
+                    Point3="45,-4" />
+                  <mssgle:LineSegment
+                    End="45,-5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45,-5"
+                    Point2="45,-9"
+                    Point3="49,-9" />
+                  <mssgle:LineSegment
+                    End="82.5,-9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.73541015625,1,30.5291796875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Sequence Container\DimSalesPersons\Union All 1"
+          TopLeft="795,68" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output5]"
+          TopLeft="530,250">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="309.666666666667,-140"
+              Start="0,0"
+              End="309.666666666667,-132.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-78.9787234042553" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-78.9787234042553"
+                    Point2="0,-82.9787234042553"
+                    Point3="4,-82.9787234042553" />
+                  <mssgle:LineSegment
+                    End="305.666666666667,-82.9787234042553" />
+                  <mssgle:CubicBezierSegment
+                    Point1="305.666666666667,-82.9787234042553"
+                    Point2="309.666666666667,-82.9787234042553"
+                    Point3="309.666666666667,-86.9787234042553" />
+                  <mssgle:LineSegment
+                    End="309.666666666667,-132.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output4]"
+          TopLeft="762.5,73.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.5,15.5"
+              Start="0,0"
+              End="25,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="12.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.25,0"
+                    Point2="16.25,0"
+                    Point3="16.25,4" />
+                  <mssgle:LineSegment
+                    End="16.25,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.25,11.5"
+                    Point2="16.25,15.5"
+                    Point3="20.25,15.5" />
+                  <mssgle:LineSegment
+                    End="25,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Union All Output 1]"
+          TopLeft="880.333333333333,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.1666666666666,43.5"
+              Start="0,0"
+              End="63.1666666666666,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.7173252279635" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.7173252279635"
+                    Point2="0,17.7173252279635"
+                    Point3="4,17.7173252279635" />
+                  <mssgle:LineSegment
+                    End="59.1666666666666,17.7173252279635" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.1666666666666,17.7173252279635"
+                    Point2="63.1666666666666,17.7173252279635"
+                    Point3="63.1666666666666,21.7173252279635" />
+                  <mssgle:LineSegment
+                    End="63.1666666666666,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[OLE DB Source Output]"
+          TopLeft="203.5,43.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,14"
+              Start="0,0"
+              End="34,14">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="16.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.75,0"
+                    Point2="20.75,0"
+                    Point3="20.75,4" />
+                  <mssgle:LineSegment
+                    End="20.75,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.75,10"
+                    Point2="20.75,14"
+                    Point3="24.75,14" />
+                  <mssgle:LineSegment
+                    End="34,14" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Lookup Match Output]"
+          TopLeft="294.5,230.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,28.5"
+              Start="0,0"
+              End="-9,21">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.25"
+                    Point2="0,14.25"
+                    Point3="-4,14.25" />
+                  <mssgle:LineSegment
+                    End="-5,14.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,14.25"
+                    Point2="-9,14.25"
+                    Point3="-9,18.25" />
+                  <mssgle:LineSegment
+                    End="-9,21" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-52.69138671875,19.25,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Valid]"
+          TopLeft="285.5,301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.5,67.5"
+              Start="0,0"
+              End="-25.5,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.1923076923077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.1923076923077"
+                    Point2="0,40.1923076923077"
+                    Point3="-4,40.1923076923077" />
+                  <mssgle:LineSegment
+                    End="-21.5,40.1923076923077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5,40.1923076923077"
+                    Point2="-25.5,40.1923076923077"
+                    Point3="-25.5,44.1923076923077" />
+                  <mssgle:LineSegment
+                    End="-25.5,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.101171875,45.1923076923077,22.70234375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17439,19 +18801,6 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
   &lt;DateVariable&gt;System::ContainerStartTime&lt;/DateVariable&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\DimProducts\Insert Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
