@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Data Mart</Name>
-    <LastWriteTime>2024-01-04T21:57:19.2368023Z</LastWriteTime>
+    <LastWriteTime>2024-01-05T13:33:34.3828122Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StagingAreaScripts.dtsx</Name>
-      <LastWriteTime>2024-01-04T17:58:27.729204Z</LastWriteTime>
+      <LastWriteTime>2024-01-05T15:33:20.6300611Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -23,7 +23,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load FactSales.dtsx</Name>
-      <LastWriteTime>2024-01-04T23:55:00.4812353Z</LastWriteTime>
+      <LastWriteTime>2024-01-05T13:33:34.3878114Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -33,7 +33,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load BusinessDimensions.dtsx</Name>
-      <LastWriteTime>2024-01-04T21:57:50.4767147Z</LastWriteTime>
+      <LastWriteTime>2024-01-05T15:38:48.5312246Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

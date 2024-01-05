@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{B5B77AFF-59C8-417D-8D39-187B380C6BED}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{1730C43F-6AF9-4B6C-9FB7-B6C193C22686}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,7 +68,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Users\tiago\Desktop\ARMDD\Folder\StagingArea" />
+              Folder="C:\ARMDD\Folder\StagingArea" />
             <FEFEProperty
               FileSpec="*.sql" />
             <FEFEProperty
@@ -102,8 +102,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{177FB59B-6969-4AD2-A092-F6FC33E67C5F}"
-          DTS:ObjectName="{177FB59B-6969-4AD2-A092-F6FC33E67C5F}"
+          DTS:DTSID="{F636EF58-3DB9-4D74-9AE6-C409E00B720F}"
+          DTS:ObjectName="{F636EF58-3DB9-4D74-9AE6-C409E00B720F}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::SAScriptFilename" />
       </DTS:ForEachVariableMappings>
