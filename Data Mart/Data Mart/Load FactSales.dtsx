@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{3698B1E7-9860-4063-AB58-E4D3189C1C5F}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{EF5B1232-5B5D-436E-8875-FCF989C7C555}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -234,29 +234,73 @@
                       externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[LineTotalLocal]"
                       lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[LineTotal]" />
                     <inputColumn
-                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[FreightLine]"
-                      cachedDataType="cy"
-                      cachedName="FreightLine"
-                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[FreightLocal]"
-                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLine]" />
-                    <inputColumn
-                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[TotalDueLine]"
-                      cachedDataType="cy"
-                      cachedName="TotalDueLine"
-                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[TotalDueLocal]"
-                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLine]" />
-                    <inputColumn
-                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[TaxAmountLine]"
-                      cachedDataType="cy"
-                      cachedName="TaxAmountLine"
-                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmountLocal]"
-                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLine]" />
-                    <inputColumn
                       refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[SubTotal]"
                       cachedDataType="cy"
                       cachedName="SubTotal"
                       externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[SubTotalLocal]"
                       lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[UnitPriceStandard]"
+                      cachedDataType="cy"
+                      cachedName="UnitPriceStandard"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceStandard]"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[UnitPriceStandard]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[UnitPriceDiscountStandard]"
+                      cachedDataType="cy"
+                      cachedName="UnitPriceDiscountStandard"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[UnitPriceDiscountStandard]"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[UnitPriceDiscountStandard]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[LineTotalStandard]"
+                      cachedDataType="numeric"
+                      cachedName="LineTotalStandard"
+                      cachedPrecision="38"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[LineTotalStandard]"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[LineTotalStandard]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[FreightLineStandard]"
+                      cachedDataType="cy"
+                      cachedName="FreightLineStandard"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[FreightStandard]"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLineStandard]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[FreightLineLocal]"
+                      cachedDataType="cy"
+                      cachedName="FreightLineLocal"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[FreightLocal]"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLineLocal]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[TotalDueLineStandard]"
+                      cachedDataType="cy"
+                      cachedName="TotalDueLineStandard"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[TotalDueStandard]"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLineStandard]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[TaxAmountLineStandard]"
+                      cachedDataType="cy"
+                      cachedName="TaxAmountLineStandard"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmountStandard]"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLineStandard]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[SubTotalStandard]"
+                      cachedDataType="cy"
+                      cachedName="SubTotalStandard"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[SubTotalStandard]"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[SubTotalStandard]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[TaxAmountLineLocal]"
+                      cachedDataType="cy"
+                      cachedName="TaxAmountLineLocal"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmountLocal]"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLineLocal]" />
+                    <inputColumn
+                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[TotalDueLineLocal]"
+                      cachedDataType="cy"
+                      cachedName="TotalDueLineLocal"
+                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[TotalDueLocal]"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLineLocal]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1229,15 +1273,23 @@ where [refTable].[FullDate] = ?</property>
   sod.OrderQty,
   sod.ProductNumber,
   soh.OrderDate,
-  soh.Freight / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS FreightLine,
- soh.TaxAmount/ COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS TaxAmountLine,
- soh.TotalDue/ COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS TotalDueLine
- FROM
- SalesOrderHeaders soh 
+  soh.Freight / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS FreightLineLocal,
+  soh.TaxAmount / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS TaxAmountLineLocal,
+  soh.TotalDue / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS TotalDueLineLocal,
+  soh.Freight / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) * c.AverageRate AS FreightLineStandard,
+  soh.TaxAmount / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) * c.AverageRate AS TaxAmountLineStandard,
+  soh.TotalDue / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) * c.AverageRate AS TotalDueLineStandard
+FROM
+  SalesOrderHeaders soh
 JOIN
-  SalesOrderDetails sod 
+  SalesOrderDetails sod
 ON
- soh.SalesOrderID = sod.SalesOrderID;</property>
+  soh.SalesOrderID = sod.SalesOrderID
+JOIN
+  CurrencyRates c
+ON
+  soh.CurrencyCode = c.FromCurrencyCode
+AND soh.OrderDate = c.CurrencyRateDate</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
@@ -1249,16 +1301,24 @@ ON
   sod.OrderQty,
   sod.ProductNumber,
   soh.OrderDate,
-  soh.Freight / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS FreightLine,
- soh.TaxAmount/ COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS TaxAmountLine,
- soh.TotalDue/ COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS TotalDueLine
- FROM
- SalesOrderHeaders soh 
+  soh.Freight / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS FreightLineLocal,
+  soh.TaxAmount / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS TaxAmountLineLocal,
+  soh.TotalDue / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) AS TotalDueLineLocal,
+  soh.Freight / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) * c.AverageRate AS FreightLineStandard,
+  soh.TaxAmount / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) * c.AverageRate AS TaxAmountLineStandard,
+  soh.TotalDue / COUNT(*) OVER (PARTITION BY sod.SalesOrderID) * c.AverageRate AS TotalDueLineStandard
+FROM
+  SalesOrderHeaders soh
 JOIN
-  SalesOrderDetails sod 
+  SalesOrderDetails sod
 ON
- soh.SalesOrderID = sod.SalesOrderID;) [refTable]
-where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable].[TaxAmountLine] = ? and [refTable].[FreightLine] = ? and [refTable].[TotalDueLine] = ?</property>
+  soh.SalesOrderID = sod.SalesOrderID
+JOIN
+  CurrencyRates c
+ON
+  soh.CurrencyCode = c.FromCurrencyCode
+AND soh.OrderDate = c.CurrencyRateDate) [refTable]
+where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -1289,12 +1349,12 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SalesOrderID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesOrderDetailID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrderQty" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductNumber" dataType="DT_WSTR" length="25" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrderDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FreightLine" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TaxAmountLine" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TotalDueLine" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SalesOrderID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesOrderDetailID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrderQty" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductNumber" dataType="DT_WSTR" length="25" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrderDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FreightLineLocal" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TaxAmountLineLocal" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TotalDueLineLocal" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FreightLineStandard" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TaxAmountLineStandard" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TotalDueLineStandard" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[TaxAmount]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[Freight]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[TotalDue]};</property>
+                  name="ParameterMap">#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1318,22 +1378,6 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input].Columns[SalesOrderID]"
-                      cachedDataType="i4"
-                      cachedName="SalesOrderID"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">SalesOrderID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input].Columns[OrderDate]"
                       cachedDataType="wstr"
                       cachedLength="10"
@@ -1351,47 +1395,15 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input].Columns[Freight]"
-                      cachedDataType="cy"
-                      cachedName="Freight"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[Freight]">
+                      refId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">FreightLine</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input].Columns[TaxAmount]"
-                      cachedDataType="cy"
-                      cachedName="TaxAmount"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[TaxAmount]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">TaxAmountLine</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input].Columns[TotalDue]"
-                      cachedDataType="cy"
-                      cachedName="TotalDue"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[TotalDue]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">TotalDueLine</property>
+                          name="JoinToReferenceColumn">SalesOrderID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -1412,45 +1424,87 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable
                   synchronousInputId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLine]"
+                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLineLocal]"
                       dataType="cy"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLine]"
-                      name="FreightLine"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLineLocal]"
+                      name="FreightLineLocal"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">FreightLine</property>
+                          name="CopyFromReferenceColumn">FreightLineLocal</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLine]"
+                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLineLocal]"
                       dataType="cy"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLine]"
-                      name="TaxAmountLine"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLineLocal]"
+                      name="TaxAmountLineLocal"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">TaxAmountLine</property>
+                          name="CopyFromReferenceColumn">TaxAmountLineLocal</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLine]"
+                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLineLocal]"
                       dataType="cy"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLine]"
-                      name="TotalDueLine"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLineLocal]"
+                      name="TotalDueLineLocal"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">TotalDueLine</property>
+                          name="CopyFromReferenceColumn">TotalDueLineLocal</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLineStandard]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[FreightLineStandard]"
+                      name="FreightLineStandard"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FreightLineStandard</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLineStandard]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TaxAmountLineStandard]"
+                      name="TaxAmountLineStandard"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TaxAmountLineStandard</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLineStandard]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output].Columns[TotalDueLineStandard]"
+                      name="TotalDueLineStandard"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TotalDueLineStandard</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2459,6 +2513,282 @@ where [refTable].[TerritoryID] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Load FactSales\Lookup UnitPriceStandard"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup UnitPriceStandard"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+  f.OrderDate,
+  f.CurrencyCode,
+  f.SalesOrderID,
+  sod.UnitPrice * c.AverageRate AS UnitPriceStandard,
+  sod.UnitPriceDiscount *c.AverageRate As UnitPriceDiscountStandard,
+  sod.LineTotal *c.AverageRate As LineTotalStandard,
+  f.SubTotal *c.AverageRate AS SubTotalStandard
+  
+
+FROM
+  SalesOrderHeaders f
+JOIN
+  CurrencyRates c
+ON
+  f.CurrencyCode = c.FromCurrencyCode
+  AND f.OrderDate = c.CurrencyRateDate
+JOIN
+  SalesOrderDetails sod
+ON
+  f.SalesOrderID = sod.SalesOrderID</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+  f.OrderDate,
+  f.CurrencyCode,
+  f.SalesOrderID,
+  sod.UnitPrice * c.AverageRate AS UnitPriceStandard,
+  sod.UnitPriceDiscount *c.AverageRate As UnitPriceDiscountStandard,
+  sod.LineTotal *c.AverageRate As LineTotalStandard,
+  f.SubTotal *c.AverageRate AS SubTotalStandard
+  
+
+FROM
+  SalesOrderHeaders f
+JOIN
+  CurrencyRates c
+ON
+  f.CurrencyCode = c.FromCurrencyCode
+  AND f.OrderDate = c.CurrencyRateDate
+JOIN
+  SalesOrderDetails sod
+ON
+  f.SalesOrderID = sod.SalesOrderID) [refTable]
+where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable].[CurrencyCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="OrderDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SalesOrderID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UnitPriceStandard" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UnitPriceDiscountStandard" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LineTotalStandard" dataType="DT_NUMERIC" length="0" precision="38" scale="6" codePage="0"/&gt;&lt;referenceColumn name="SubTotalStandard" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[CurrencyCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactSales\Lookup UnitPriceStandard.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SalesOrderID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input].Columns[OrderDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="OrderDate"
+                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">OrderDate</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input].Columns[CurrencyCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencyCode"
+                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[CurrencyCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CurrencyCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[UnitPriceStandard]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[UnitPriceStandard]"
+                      name="UnitPriceStandard"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">UnitPriceStandard</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[UnitPriceDiscountStandard]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[UnitPriceDiscountStandard]"
+                      name="UnitPriceDiscountStandard"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">UnitPriceDiscountStandard</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[LineTotalStandard]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[LineTotalStandard]"
+                      name="LineTotalStandard"
+                      precision="38"
+                      scale="6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">LineTotalStandard</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[SubTotalStandard]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output].Columns[SubTotalStandard]"
+                      name="SubTotalStandard"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SubTotalStandard</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load FactSales\Transaction &amp; Transaction_Item"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -3048,9 +3378,14 @@ FROM     SalesOrderDetails INNER JOIN
               startId="Package\Load FactSales\Lookup ProductNumber.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactSales.Paths[Lookup Match Output11]"
-              endId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input]"
+              endId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output12]"
+              endId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactSales.Paths[OLE DB Source Output]"
               endId="Package\Load FactSales\Lookup DateKey.Inputs[Lookup Input]"
@@ -3086,145 +3421,61 @@ FROM     SalesOrderDetails INNER JOIN
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\Load FactSales\Lookup ShipDate"
-          TopLeft="278.999995842576,295.999995589256" />
-        <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Load FactSales\Lookup ShipToAddress"
-          TopLeft="275.99999588728,688.399994724989" />
-        <NodeLayout
-          Size="229.6,41.6"
-          Id="Package\Load FactSales\Transaction &amp; Transaction_Item"
-          TopLeft="240.99999640882,57.9999991357327" />
-        <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\Load FactSales\Lookup CurrencyCode"
-          TopLeft="281.428567259287,850.905876778412" />
-        <NodeLayout
           Size="155.2,41.6"
           Id="Package\Load FactSales\Lookup DateKey"
           TopLeft="275.999995887279,133.999998003244" />
-        <NodeLayout
-          Size="188.8,41.6"
-          Id="Package\Load FactSales\Lookup SalesPersonKey"
-          TopLeft="268.999995991588,455.199995350838" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Load FactSales\Lookup ShipMethod"
-          TopLeft="280.999995812774,769.599994635582" />
-        <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\Load FactSales\Lookup TerritoryKey"
-          TopLeft="280.999995812774,535.799994650483" />
         <NodeLayout
           Size="178.4,41.6"
           Id="Package\Load FactSales\Lookup BillToAddress"
           TopLeft="280.999995812774,613.199994665384" />
         <NodeLayout
-          Size="177.6,41.6"
-          Id="Package\Load FactSales\Lookup CustomerKey"
-          TopLeft="272.999995931983,373.999995142222" />
+          Size="173.6,41.6"
+          Id="Package\Load FactSales\Lookup TerritoryKey"
+          TopLeft="280.999995812774,535.799994650483" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Load FactSales\Lookup ShipDate"
+          TopLeft="278.999995842576,295.999995589256" />
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\Load FactSales\Lookup DueDate"
           TopLeft="273.999995917082,209.999996870756" />
-        <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output3]"
-          TopLeft="362.599995961785,415.599995142222">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.6000002086159"
-              Start="0,0"
-              End="0,32.1000002086159">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.1000002086159" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.245312604308,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output2]"
-          TopLeft="359.999995887279,337.599995589256">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.3999995529652"
-              Start="0,0"
-              End="0,28.8999995529652">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.8999995529652" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.6453122764826,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output1]"
-          TopLeft="355.299995879829,251.599996870756">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.3999987185003"
-              Start="0,0"
-              End="0,36.8999987185003">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.8999987185003" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.6453118592501,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output]"
-          TopLeft="352.999995902181,175.599998003244">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.3999988675117"
-              Start="0,0"
-              End="0,26.8999988675117">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.8999988675117" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.64531193375585,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Load FactSales\Lookup CurrencyCode"
+          TopLeft="281.428567259287,850.905876778412" />
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\Load FactSales\Transaction &amp; Transaction_Item"
+          TopLeft="240.99999640882,57.9999991357327" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Load FactSales\Lookup ShipMethod"
+          TopLeft="280.999995812774,769.599994635582" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Load FactSales\Lookup ProductNumber"
+          TopLeft="281.428572027659,935.011764459214" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Load FactSales\Lookup FreightPerLine"
+          TopLeft="280.000000596046,1005.56470574495" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\Load FactSales\Lookup CustomerKey"
+          TopLeft="272.999995931983,373.999995142222" />
+        <NodeLayout
+          Size="122.4,41.6"
+          Id="Package\Load FactSales\FactSales"
+          TopLeft="317.857143533777,1162.97647043206" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Load FactSales\Lookup ShipToAddress"
+          TopLeft="275.99999588728,688.399994724989" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Load FactSales\Lookup SalesPersonKey"
+          TopLeft="268.999995991588,455.199995350838" />
         <EdgeLayout
           Id="Package\Load FactSales.Paths[OLE DB Source Output]"
           TopLeft="354.69999614805,99.5999991357327">
@@ -3245,6 +3496,54 @@ FROM     SalesOrderDetails INNER JOIN
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactSales.Paths[Lookup Match Output10]"
+          TopLeft="373.714286311853,976.611764459214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.9529412857315"
+              Start="0,0"
+              End="0,21.4529412857315">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4529412857315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,4.92178314286576,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactSales.Paths[Lookup Match Output9]"
+          TopLeft="374.028569643473,892.505876778412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5058876808019"
+              Start="0,0"
+              End="0,35.0058876808019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.0058876808019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.698256340401,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3367,87 +3666,151 @@ FROM     SalesOrderDetails INNER JOIN
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="188.8,41.6"
-          Id="Package\Load FactSales\Lookup ProductNumber"
-          TopLeft="281.428572027659,935.011764459214" />
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output9]"
-          TopLeft="374.028569643473,892.505876778412">
+          Id="Package\Load FactSales.Paths[Lookup Match Output3]"
+          TopLeft="362.599995961785,415.599995142222">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.5058876808019"
+              EndConnector="0,39.6000002086159"
               Start="0,0"
-              End="0,35.0058876808019">
+              End="0,32.1000002086159">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.0058876808019" />
+                    End="0,32.1000002086159" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.698256340401,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,10.245312604308,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Load FactSales\Lookup FreightPerLine"
-          TopLeft="280.000000596046,1041.50588218403" />
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output10]"
-          TopLeft="373.714286311853,976.611764459214">
+          Id="Package\Load FactSales.Paths[Lookup Match Output2]"
+          TopLeft="359.999995887279,337.599995589256">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,64.894117724813"
+              EndConnector="0,36.3999995529652"
               Start="0,0"
-              End="0,57.394117724813">
+              End="0,28.8999995529652">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.394117724813" />
+                    End="0,28.8999995529652" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,22.8923713624065,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,8.6453122764826,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactSales.Paths[Lookup Match Output1]"
+          TopLeft="355.299995879829,251.599996870756">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.3999987185003"
+              Start="0,0"
+              End="0,36.8999987185003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8999987185003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.6453118592501,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactSales.Paths[Lookup Match Output]"
+          TopLeft="352.999995902181,175.599998003244">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.3999988675117"
+              Start="0,0"
+              End="0,26.8999988675117">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8999988675117" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,7.64531193375585,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="122.4,41.6"
-          Id="Package\Load FactSales\FactSales"
-          TopLeft="308.571429228296,1161.17647039787" />
+          Size="200,41.6"
+          Id="Package\Load FactSales\Lookup UnitPriceStandard"
+          TopLeft="275.714286301209,1087.50588229798" />
         <EdgeLayout
           Id="Package\Load FactSales.Paths[Lookup Match Output11]"
-          TopLeft="370.685714912171,1083.10588218403">
+          TopLeft="373.657143448628,1047.16470574495">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,78.0705882138448"
+              EndConnector="0,40.3411765530316"
               Start="0,0"
-              End="0,70.5705882138448">
+              End="0,32.8411765530316">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.5705882138448" />
+                    End="0,32.8411765530316" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,29.4806066069224,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,10.6159007765158,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactSales.Paths[Lookup Match Output12]"
+          TopLeft="377.385714917493,1129.10588229798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.8705881340782"
+              Start="0,0"
+              End="0,26.3705881340782">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3705881340782" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,7.38060656703908,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3455,117 +3818,17 @@ FROM     SalesOrderDetails INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup ShipDate">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup ShipToAddress">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Transaction &amp; Transaction_Item">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup CurrencyCode">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load FactSales\Lookup DateKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup SalesPersonKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
           type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
+          type="q3:string">[dbo].[DimDate]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -3578,7 +3841,7 @@ FROM     SalesOrderDetails INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup ShipMethod">
+    design-time-name="Package\Load FactSales\Lookup BillToAddress">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3624,7 +3887,7 @@ FROM     SalesOrderDetails INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup BillToAddress">
+    design-time-name="Package\Load FactSales\Lookup ShipDate">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3634,30 +3897,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup CustomerKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
+          type="q3:string">[dbo].[DimDate]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -3693,7 +3933,84 @@ FROM     SalesOrderDetails INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup CurrencyCode">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Transaction &amp; Transaction_Item">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup ShipMethod">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load FactSales\Lookup ProductNumber">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup FreightPerLine">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3716,7 +4033,7 @@ FROM     SalesOrderDetails INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup FreightPerLine">
+    design-time-name="Package\Load FactSales\Lookup CustomerKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3748,6 +4065,75 @@ FROM     SalesOrderDetails INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup ShipToAddress">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup SalesPersonKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup UnitPriceStandard">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
