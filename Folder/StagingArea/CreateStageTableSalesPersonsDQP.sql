@@ -22,7 +22,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesPersonsDQP')
 		[MiddleName] [nvarchar] (50) NULL,
 		[LastName] [nvarchar] (50) NOT NULL,
 		[CreatedDate] [date] NOT NULL,
-		[ModifiedDate] [date] NOT NULL,
+		[ModifiedDate] [date] NULL,
         DQP nvarchar(100)
 	)
 ELSE

@@ -7,7 +7,7 @@ IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesTerritoriesDQP')
 		[SalesLastYear] [money] NOT NULL,
 		[CountryRegionName] [nvarchar](50) NOT NULL,	
 		[CreatedDate] [date] NOT NULL,	
-		[ModifiedDate] [date] NOT NULL,
+		[ModifiedDate] [date] NULL,
         DQP nvarchar(100)
 	)
 ELSE

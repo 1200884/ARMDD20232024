@@ -9,7 +9,7 @@ BEGIN
 		[SalesLastYear] [money] NOT NULL,
 		[CountryRegionName] [nvarchar](50) NOT NULL,	
 		[CreatedDate] [date] NOT NULL,	
-		[ModifiedDate] [date] NOT NULL,
+		[ModifiedDate] [date] NULL,
 		[EffectiveDate] [datetime] NOT NULL,	
 		[ExpiredDate] [datetime] NULL,
 		[Is_Current] [nvarchar] (3) NOT NULL,	
