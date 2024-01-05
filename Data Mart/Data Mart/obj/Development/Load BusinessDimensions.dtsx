@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{F055D55D-A0F2-4C3A-90D3-A2C932174FCD}">
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{7C44A4C2-EF0F-4F85-B218-276A55A7D681}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4598,6 +4598,96 @@ WHERE [CustomerID] = ? AND [ExpiredDate] IS NULL</property>
               version="1">
               <components>
                 <component
+                  refId="Package\Sequence Container\DimProducts\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimProducts\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\Conditional Split.Inputs[Conditional Split Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Name"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Valid]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Valid"
+                      synchronousInputId="Package\Sequence Container\DimProducts\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">!([ISNULL](#{Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">!(ISNULL(Name))</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Invalid]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Invalid"
+                      synchronousInputId="Package\Sequence Container\DimProducts\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Sequence Container\DimProducts\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Sequence Container\DimProducts\Derived Column"
                   componentClassID="Microsoft.DerivedColumn"
                   contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -4760,6 +4850,80 @@ WHERE [CustomerID] = ? AND [ExpiredDate] IS NULL</property>
                           refId="Package\Sequence Container\DimProducts\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Sequence Container\DimProducts\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimProducts\Derived Column 2"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 2"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimProducts\Derived Column 2.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\DimProducts\Derived Column 2.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Output].Columns[DQP]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="13"
+                          lineageId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Output].Columns[DQP]"
+                          name="DQP"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Invalid entry"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Invalid entry"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\DimProducts\Derived Column 2.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -5681,6 +5845,377 @@ WHERE [ProductID] = ? AND [ExpiredDate] IS NULL</property>
                           refId="Package\Sequence Container\DimProducts\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Sequence Container\DimProducts\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimProducts\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ProductsDQP]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DimProducts\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                      connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Color]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="Color"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Color]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[Color]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SafetyStockLevel]"
+                          cachedDataType="i2"
+                          cachedName="SafetyStockLevel"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SafetyStockLevel]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[SafetyStockLevel]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReorderPoint]"
+                          cachedDataType="i2"
+                          cachedName="ReorderPoint"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReorderPoint]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReorderPoint]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StandardCost]"
+                          cachedDataType="cy"
+                          cachedName="StandardCost"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardCost]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[StandardCost]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ListPrice]"
+                          cachedDataType="cy"
+                          cachedName="ListPrice"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ListPrice]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[ListPrice]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Size]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="Size"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Size]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[Size]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Weight]"
+                          cachedDataType="numeric"
+                          cachedName="Weight"
+                          cachedPrecision="8"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Weight]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[Weight]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DaysToManufacture]"
+                          cachedDataType="i4"
+                          cachedName="DaysToManufacture"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysToManufacture]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[DaysToManufacture]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductLine]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ProductLine"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductLine]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Class]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Class"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Class]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[Class]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Style]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Style"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Style]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[Style]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SellStartDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="SellStartDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SellStartDate]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[SellStartDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SellEndDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="SellEndDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SellEndDate]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[SellEndDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CreatedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DQP]"
+                          cachedDataType="wstr"
+                          cachedLength="13"
+                          cachedName="DQP"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DQP]"
+                          lineageId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Output].Columns[DQP]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="25"
+                          cachedName="ProductNumber"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductNumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WeightMeasureName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="WeightMeasureName"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WeightUnitMeasureName]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[WeightMeasureName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SizeUnitMeasureName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="SizeUnitMeasureName"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SizeUnitMeasureName]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[SizeUnitMeasureName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductSubCategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductSubCategoryName"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubCategoryName]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductSubCategoryName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductCategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="ProductCategoryName"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryName]"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductCategoryName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FinishedGoodsFlag_Transformed]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="FinishedGoodsFlag_Transformed"
+                          externalMetadataColumnId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FinishedGoodsFlag]"
+                          lineageId="Package\Sequence Container\DimProducts\Transform flag.Outputs[Derived Column Output].Columns[FinishedGoodsFlag_Transformed]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FinishedGoodsFlag]"
+                          dataType="wstr"
+                          length="3"
+                          name="FinishedGoodsFlag" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Color]"
+                          dataType="wstr"
+                          length="15"
+                          name="Color" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SafetyStockLevel]"
+                          dataType="i2"
+                          name="SafetyStockLevel" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReorderPoint]"
+                          dataType="i2"
+                          name="ReorderPoint" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StandardCost]"
+                          dataType="cy"
+                          name="StandardCost" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ListPrice]"
+                          dataType="cy"
+                          name="ListPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Size]"
+                          dataType="wstr"
+                          length="5"
+                          name="Size" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Weight]"
+                          dataType="numeric"
+                          name="Weight"
+                          precision="8"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysToManufacture]"
+                          dataType="i4"
+                          name="DaysToManufacture" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
+                          dataType="wstr"
+                          length="10"
+                          name="ProductLine" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Class]"
+                          dataType="wstr"
+                          length="10"
+                          name="Class" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Style]"
+                          dataType="wstr"
+                          length="10"
+                          name="Style" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SellStartDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="SellStartDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SellEndDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="SellEndDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ModifiedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DQP]"
+                          dataType="wstr"
+                          length="100"
+                          name="DQP" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          dataType="wstr"
+                          length="25"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WeightUnitMeasureName]"
+                          dataType="wstr"
+                          length="50"
+                          name="WeightUnitMeasureName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SizeUnitMeasureName]"
+                          dataType="wstr"
+                          length="50"
+                          name="SizeUnitMeasureName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubCategoryName]"
+                          dataType="wstr"
+                          length="50"
+                          name="SubCategoryName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryName]"
+                          dataType="wstr"
+                          length="50"
+                          name="CategoryName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimProducts\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimProducts\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimProducts\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -7663,24 +8198,34 @@ FROM            ProductSubcategories LEFT OUTER JOIN
                   startId="Package\Sequence Container\DimProducts\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
                 <path
                   refId="Package\Sequence Container\DimProducts.Paths[Derived Column Output]"
-                  endId="Package\Sequence Container\DimProducts\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
-                  name="Derived Column Output"
-                  startId="Package\Sequence Container\DimProducts\Transform flag.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\Sequence Container\DimProducts.Paths[Derived Column Output1]"
                   endId="Package\Sequence Container\DimProducts\OLE DB Command.Inputs[OLE DB Command Input]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\DimProducts\Derived Column.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\Sequence Container\DimProducts.Paths[Derived Column Output2]"
+                  refId="Package\Sequence Container\DimProducts.Paths[Derived Column Output1]"
                   endId="Package\Sequence Container\DimProducts\Insert Destination.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\DimProducts\Derived Column 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\DimProducts.Paths[Derived Column Output2]"
+                  endId="Package\Sequence Container\DimProducts\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\DimProducts\Transform flag.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\DimProducts.Paths[Derived Column Output3]"
+                  endId="Package\Sequence Container\DimProducts\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\DimProducts\Derived Column 2.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Sequence Container\DimProducts.Paths[Historical Attribute Inserts Output]"
                   endId="Package\Sequence Container\DimProducts\Derived Column.Inputs[Derived Column Input]"
                   name="Historical Attribute Inserts Output"
                   startId="Package\Sequence Container\DimProducts\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+                <path
+                  refId="Package\Sequence Container\DimProducts.Paths[Invalid]"
+                  endId="Package\Sequence Container\DimProducts\Derived Column 2.Inputs[Derived Column Input]"
+                  name="Invalid"
+                  startId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Invalid]" />
                 <path
                   refId="Package\Sequence Container\DimProducts.Paths[New Output]"
                   endId="Package\Sequence Container\DimProducts\Union All.Inputs[Union All Input 1]"
@@ -7701,6 +8246,11 @@ FROM            ProductSubcategories LEFT OUTER JOIN
                   endId="Package\Sequence Container\DimProducts\Derived Column 1.Inputs[Derived Column Input]"
                   name="Union All Output 1"
                   startId="Package\Sequence Container\DimProducts\Union All.Outputs[Union All Output 1]" />
+                <path
+                  refId="Package\Sequence Container\DimProducts.Paths[Valid]"
+                  endId="Package\Sequence Container\DimProducts\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Valid"
+                  startId="Package\Sequence Container\DimProducts\Conditional Split.Outputs[Valid]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -16637,42 +17187,42 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
         <NodeLayout
           Size="148,42"
           Id="Package\Sequence Container\DimProducts\Transform flag"
-          TopLeft="158.5,107.5" />
+          TopLeft="158.5,81.5" />
         <NodeLayout
           Size="209,42"
           Id="Package\Sequence Container\DimProducts\Slowly Changing Dimension"
-          TopLeft="128,209.5" />
+          TopLeft="157,227.5" />
         <NodeLayout
           Size="163,42"
           Id="Package\Sequence Container\DimProducts\Derived Column 1"
-          TopLeft="151,617.5" />
+          TopLeft="180,635.5" />
         <NodeLayout
           Size="121,42"
           Id="Package\Sequence Container\DimProducts\Union All"
-          TopLeft="172,515.5" />
+          TopLeft="201,533.5" />
         <NodeLayout
           Size="163,42"
           Id="Package\Sequence Container\DimProducts\Insert Destination"
-          TopLeft="150,719.5" />
+          TopLeft="179,737.5" />
         <NodeLayout
           Size="166,42"
           Id="Package\Sequence Container\DimProducts\OLE DB Command"
-          TopLeft="5.50000000000006,413.5" />
+          TopLeft="34.5000000000001,431.5" />
         <NodeLayout
           Size="175,42"
           Id="Package\Sequence Container\DimProducts\OLE DB Command 1"
-          TopLeft="294,311.5" />
+          TopLeft="323,329.5" />
         <NodeLayout
           Size="154,42"
           Id="Package\Sequence Container\DimProducts\Derived Column"
-          TopLeft="17.5000000000001,311.5" />
+          TopLeft="46.5000000000001,329.5" />
         <NodeLayout
           Size="150,42"
           Id="Package\Sequence Container\DimProducts\OLE DB Source"
           TopLeft="157.5,5.5" />
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[Union All Output 1]"
-          TopLeft="232.5,557.5">
+          TopLeft="261.5,575.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16689,9 +17239,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16700,27 +17248,25 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,34"
               Start="0,0"
-              End="0,52.5">
+              End="0,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,455.5">
+          TopLeft="117.5,473.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16749,20 +17295,18 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[New Output]"
-          TopLeft="232.5,251.5">
+          TopLeft="261.5,269.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.8333333333334,264"
+              EndConnector="18.8333333333333,264"
               Start="0,0"
-              End="18.8333333333334,256.5">
+              End="18.8333333333333,256.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -16773,13 +17317,13 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
                     Point2="0,156.332789559543"
                     Point3="4,156.332789559543" />
                   <mssgle:LineSegment
-                    End="14.8333333333334,156.332789559543" />
+                    End="14.8333333333333,156.332789559543" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.8333333333334,156.332789559543"
-                    Point2="18.8333333333334,156.332789559543"
-                    Point3="18.8333333333334,160.332789559543" />
+                    Point1="14.8333333333333,156.332789559543"
+                    Point2="18.8333333333333,156.332789559543"
+                    Point3="18.8333333333333,160.332789559543" />
                   <mssgle:LineSegment
-                    End="18.8333333333334,256.5" />
+                    End="18.8333333333333,256.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16792,13 +17336,13 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[Historical Attribute Inserts Output]"
-          TopLeft="182.25,251.5">
+          TopLeft="211.25,269.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-87.75,60"
+              EndConnector="-87.7499999999999,60"
               Start="0,0"
-              End="-87.75,52.5">
+              End="-87.7499999999999,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -16809,13 +17353,13 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
                     Point2="0,20.503937007874"
                     Point3="-4,20.503937007874" />
                   <mssgle:LineSegment
-                    End="-83.75,20.503937007874" />
+                    End="-83.7499999999999,20.503937007874" />
                   <mssgle:CubicBezierSegment
-                    Point1="-83.75,20.503937007874"
-                    Point2="-87.75,20.503937007874"
-                    Point3="-87.75,24.503937007874" />
+                    Point1="-83.7499999999999,20.503937007874"
+                    Point2="-87.7499999999999,20.503937007874"
+                    Point3="-87.7499999999999,24.503937007874" />
                   <mssgle:LineSegment
-                    End="-87.75,52.5" />
+                    End="-87.7499999999999,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16827,32 +17371,8 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output2]"
-          TopLeft="232,659.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output1]"
-          TopLeft="91.5000000000001,353.5">
+          TopLeft="261,677.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16869,14 +17389,12 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output]"
-          TopLeft="232.5,149.5">
+          TopLeft="120.5,371.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16893,14 +17411,12 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimProducts.Paths[Changing Attribute Updates Output]"
-          TopLeft="282.75,251.5">
+          TopLeft="311.75,269.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16932,6 +17448,134 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             <mssgm:EdgeLabel
               BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\DimProducts\Conditional Split"
+          TopLeft="179,153" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output2]"
+          TopLeft="232.5,123.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24,29.5"
+              Start="0,0"
+              End="24,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.75"
+                    Point2="0,14.75"
+                    Point3="4,14.75" />
+                  <mssgle:LineSegment
+                    End="20,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20,14.75"
+                    Point2="24,14.75"
+                    Point3="24,18.75" />
+                  <mssgle:LineSegment
+                    End="24,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimProducts.Paths[Valid]"
+          TopLeft="259,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.5"
+              Start="0,0"
+              End="0,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-11.351171875,7.62548828125,22.70234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Sequence Container\DimProducts\Derived Column 2"
+          TopLeft="499,151" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimProducts.Paths[Invalid]"
+          TopLeft="334,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="165,0"
+              Start="0,0"
+              End="157.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="157.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="63.48541015625,5,30.5291796875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\DimProducts\OLE DB Destination"
+          TopLeft="837,175" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimProducts.Paths[Derived Column Output3]"
+          TopLeft="662,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175,24"
+              Start="0,0"
+              End="167.5,24">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="83.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.5,0"
+                    Point2="87.5,0"
+                    Point3="87.5,4" />
+                  <mssgle:LineSegment
+                    End="87.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.5,20"
+                    Point2="87.5,24"
+                    Point3="91.5,24" />
+                  <mssgle:LineSegment
+                    End="167.5,24" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17131,25 +17775,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="213,42"
-          Id="Package\Sequence Container\DimSalesPersons\Set Old Record Expired Date"
-          TopLeft="164.5,494.5" />
-        <NodeLayout
-          Size="188,42"
-          Id="Package\Sequence Container\DimSalesPersons\Transform SalariedFlag"
-          TopLeft="168.5,117.5" />
-        <NodeLayout
-          Size="310,42"
-          Id="Package\Sequence Container\DimSalesPersons\Add MaritalStatusDescription Lookup Failure DQP"
-          TopLeft="452.5,52.5" />
-        <NodeLayout
-          Size="195,42"
-          Id="Package\Sequence Container\DimSalesPersons\Update DimSalesPersons"
-          TopLeft="632,210.5" />
-        <NodeLayout
-          Size="230,42"
-          Id="Package\Sequence Container\DimSalesPersons\Lookup MaritalStatusDescription"
-          TopLeft="179.5,188.5" />
+          Size="190,42"
+          Id="Package\Sequence Container\DimSalesPersons\Insert DimSalesPersons"
+          TopLeft="867,238.5" />
         <NodeLayout
           Size="223,42"
           Id="Package\Sequence Container\DimSalesPersons\Set New Record Effective Date"
@@ -17163,13 +17791,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           Id="Package\Sequence Container\DimSalesPersons\Expire Old Record"
           TopLeft="583.5,460.5" />
         <NodeLayout
-          Size="171,42"
-          Id="Package\Sequence Container\DimSalesPersons\OLE DB Destination"
-          TopLeft="858,153.5" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\Sequence Container\DimSalesPersons\Insert DimSalesPersons"
-          TopLeft="867,238.5" />
+          Size="154,42"
+          Id="Package\Sequence Container\DimSalesPersons\Derived Column"
+          TopLeft="453,250" />
         <NodeLayout
           Size="150,42"
           Id="Package\Sequence Container\DimSalesPersons\OLE DB Source"
@@ -17179,9 +17803,77 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           Id="Package\Sequence Container\DimSalesPersons\Slowly Changing Dimension"
           TopLeft="189,368.5" />
         <NodeLayout
+          Size="195,42"
+          Id="Package\Sequence Container\DimSalesPersons\Update DimSalesPersons"
+          TopLeft="632,210.5" />
+        <NodeLayout
           Size="121,42"
           Id="Package\Sequence Container\DimSalesPersons\Union All"
           TopLeft="451,380.5" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\DimSalesPersons\Conditional Split"
+          TopLeft="208,259" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\DimSalesPersons\OLE DB Destination"
+          TopLeft="858,153.5" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Sequence Container\DimSalesPersons\Set Old Record Expired Date"
+          TopLeft="164.5,494.5" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Sequence Container\DimSalesPersons\Lookup MaritalStatusDescription"
+          TopLeft="179.5,188.5" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Sequence Container\DimSalesPersons\Transform SalariedFlag"
+          TopLeft="168.5,117.5" />
+        <NodeLayout
+          Size="310,42"
+          Id="Package\Sequence Container\DimSalesPersons\Add MaritalStatusDescription Lookup Failure DQP"
+          TopLeft="452.5,52.5" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Sequence Container\DimSalesPersons\Union All 1"
+          TopLeft="795,68" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Valid]"
+          TopLeft="285.5,301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.5,67.5"
+              Start="0,0"
+              End="-25.5,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.1923076923077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.1923076923077"
+                    Point2="0,40.1923076923077"
+                    Point3="-4,40.1923076923077" />
+                  <mssgle:LineSegment
+                    End="-21.5,40.1923076923077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5,40.1923076923077"
+                    Point2="-25.5,40.1923076923077"
+                    Point3="-25.5,44.1923076923077" />
+                  <mssgle:LineSegment
+                    End="-25.5,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.101171875,45.1923076923077,22.70234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Union All Output 11]"
           TopLeft="572,401.5">
@@ -17213,7 +17905,81 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Union All Output 1]"
+          TopLeft="880.333333333333,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.1666666666666,43.5"
+              Start="0,0"
+              End="63.1666666666666,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.7173252279635" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.7173252279635"
+                    Point2="0,17.7173252279635"
+                    Point3="4,17.7173252279635" />
+                  <mssgle:LineSegment
+                    End="59.1666666666666,17.7173252279635" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.1666666666666,17.7173252279635"
+                    Point2="63.1666666666666,17.7173252279635"
+                    Point3="63.1666666666666,21.7173252279635" />
+                  <mssgle:LineSegment
+                    End="63.1666666666666,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[OLE DB Source Output]"
+          TopLeft="203.5,43.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,14"
+              Start="0,0"
+              End="34,14">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="16.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.75,0"
+                    Point2="20.75,0"
+                    Point3="20.75,4" />
+                  <mssgle:LineSegment
+                    End="20.75,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.75,10"
+                    Point2="20.75,14"
+                    Point3="24.75,14" />
+                  <mssgle:LineSegment
+                    End="34,14" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17247,7 +18013,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17283,6 +18051,42 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-0.591386718750002,-17.43359375,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Lookup Match Output]"
+          TopLeft="294.5,230.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,28.5"
+              Start="0,0"
+              End="-9,21">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.25"
+                    Point2="0,14.25"
+                    Point3="-4,14.25" />
+                  <mssgle:LineSegment
+                    End="-5,14.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,14.25"
+                    Point2="-9,14.25"
+                    Point3="-9,18.25" />
+                  <mssgle:LineSegment
+                    End="-9,21" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-52.69138671875,19.25,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17323,6 +18127,42 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Invalid]"
+          TopLeft="363,280">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90,-9"
+              Start="0,0"
+              End="82.5,-9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41,0"
+                    Point2="45,0"
+                    Point3="45,-4" />
+                  <mssgle:LineSegment
+                    End="45,-5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45,-5"
+                    Point2="45,-9"
+                    Point3="49,-9" />
+                  <mssgle:LineSegment
+                    End="82.5,-9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.73541015625,1,30.5291796875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Historical Attribute Inserts Output]"
           TopLeft="293.5,410.5">
           <EdgeLayout.Curve>
@@ -17359,6 +18199,78 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output5]"
+          TopLeft="530,250">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="309.666666666667,-140"
+              Start="0,0"
+              End="309.666666666667,-132.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-78.9787234042553" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-78.9787234042553"
+                    Point2="0,-82.9787234042553"
+                    Point3="4,-82.9787234042553" />
+                  <mssgle:LineSegment
+                    End="305.666666666667,-82.9787234042553" />
+                  <mssgle:CubicBezierSegment
+                    Point1="305.666666666667,-82.9787234042553"
+                    Point2="309.666666666667,-82.9787234042553"
+                    Point3="309.666666666667,-86.9787234042553" />
+                  <mssgle:LineSegment
+                    End="309.666666666667,-132.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output4]"
+          TopLeft="762.5,73.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.5,15.5"
+              Start="0,0"
+              End="25,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="12.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.25,0"
+                    Point2="16.25,0"
+                    Point3="16.25,4" />
+                  <mssgle:LineSegment
+                    End="16.25,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.25,11.5"
+                    Point2="16.25,15.5"
+                    Point3="20.25,15.5" />
+                  <mssgle:LineSegment
+                    End="25,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output3]"
           TopLeft="841.5,364.5">
           <EdgeLayout.Curve>
@@ -17389,7 +18301,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17423,7 +18337,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17457,7 +18373,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17479,7 +18397,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17518,301 +18438,9 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Sequence Container\DimSalesPersons\Conditional Split"
-          TopLeft="208,259" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Sequence Container\DimSalesPersons\Derived Column"
-          TopLeft="453,250" />
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Invalid]"
-          TopLeft="363,280">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="90,-9"
-              Start="0,0"
-              End="82.5,-9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="41,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="41,0"
-                    Point2="45,0"
-                    Point3="45,-4" />
-                  <mssgle:LineSegment
-                    End="45,-5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="45,-5"
-                    Point2="45,-9"
-                    Point3="49,-9" />
-                  <mssgle:LineSegment
-                    End="82.5,-9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="29.73541015625,1,30.5291796875,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Sequence Container\DimSalesPersons\Union All 1"
-          TopLeft="795,68" />
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output5]"
-          TopLeft="530,250">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="309.666666666667,-140"
-              Start="0,0"
-              End="309.666666666667,-132.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-78.9787234042553" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-78.9787234042553"
-                    Point2="0,-82.9787234042553"
-                    Point3="4,-82.9787234042553" />
-                  <mssgle:LineSegment
-                    End="305.666666666667,-82.9787234042553" />
-                  <mssgle:CubicBezierSegment
-                    Point1="305.666666666667,-82.9787234042553"
-                    Point2="309.666666666667,-82.9787234042553"
-                    Point3="309.666666666667,-86.9787234042553" />
-                  <mssgle:LineSegment
-                    End="309.666666666667,-132.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Derived Column Output4]"
-          TopLeft="762.5,73.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="32.5,15.5"
-              Start="0,0"
-              End="25,15.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="12.25,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.25,0"
-                    Point2="16.25,0"
-                    Point3="16.25,4" />
-                  <mssgle:LineSegment
-                    End="16.25,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.25,11.5"
-                    Point2="16.25,15.5"
-                    Point3="20.25,15.5" />
-                  <mssgle:LineSegment
-                    End="25,15.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Union All Output 1]"
-          TopLeft="880.333333333333,110">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="63.1666666666666,43.5"
-              Start="0,0"
-              End="63.1666666666666,36">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.7173252279635" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.7173252279635"
-                    Point2="0,17.7173252279635"
-                    Point3="4,17.7173252279635" />
-                  <mssgle:LineSegment
-                    End="59.1666666666666,17.7173252279635" />
-                  <mssgle:CubicBezierSegment
-                    Point1="59.1666666666666,17.7173252279635"
-                    Point2="63.1666666666666,17.7173252279635"
-                    Point3="63.1666666666666,21.7173252279635" />
-                  <mssgle:LineSegment
-                    End="63.1666666666666,36" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[OLE DB Source Output]"
-          TopLeft="203.5,43.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="41.5,14"
-              Start="0,0"
-              End="34,14">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="16.75,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.75,0"
-                    Point2="20.75,0"
-                    Point3="20.75,4" />
-                  <mssgle:LineSegment
-                    End="20.75,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.75,10"
-                    Point2="20.75,14"
-                    Point3="24.75,14" />
-                  <mssgle:LineSegment
-                    End="34,14" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Lookup Match Output]"
-          TopLeft="294.5,230.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9,28.5"
-              Start="0,0"
-              End="-9,21">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.25"
-                    Point2="0,14.25"
-                    Point3="-4,14.25" />
-                  <mssgle:LineSegment
-                    End="-5,14.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5,14.25"
-                    Point2="-9,14.25"
-                    Point3="-9,18.25" />
-                  <mssgle:LineSegment
-                    End="-9,21" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-52.69138671875,19.25,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimSalesPersons.Paths[Valid]"
-          TopLeft="285.5,301">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-25.5,67.5"
-              Start="0,0"
-              End="-25.5,60">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.1923076923077" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.1923076923077"
-                    Point2="0,40.1923076923077"
-                    Point3="-4,40.1923076923077" />
-                  <mssgle:LineSegment
-                    End="-21.5,40.1923076923077" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-21.5,40.1923076923077"
-                    Point2="-25.5,40.1923076923077"
-                    Point3="-25.5,44.1923076923077" />
-                  <mssgle:LineSegment
-                    End="-25.5,60" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-24.101171875,45.1923076923077,22.70234375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\DimSalesPersons\Lookup MaritalStatusDescription">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[MaritalStatusDescription_Lookup]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\DimSalesPersons\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\DimSalesPersons\Insert DimSalesPersons">
     <Properties>
@@ -18004,6 +18632,42 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
   &lt;DateVariable&gt;System::ContainerStartTime&lt;/DateVariable&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimSalesPersons\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimSalesPersons\Lookup MaritalStatusDescription">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[MaritalStatusDescription_Lookup]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -18801,6 +19465,19 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
   &lt;DateVariable&gt;System::ContainerStartTime&lt;/DateVariable&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimProducts\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
