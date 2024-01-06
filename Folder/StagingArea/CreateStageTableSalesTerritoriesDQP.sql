@@ -1,12 +1,12 @@
 IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'SalesTerritoriesDQP')
 	CREATE TABLE [dbo].[SalesTerritoriesDQP](
-		[TerritoryID] [int] NOT NULL,
-		[TerritoryName] [nvarchar](50) NOT NULL,	
-		[Group] [nvarchar](50) NOT NULL,	
-		[SalesYTD] [money] NOT NULL,
-		[SalesLastYear] [money] NOT NULL,
-		[CountryRegionName] [nvarchar](50) NOT NULL,	
-		[CreatedDate] [date] NOT NULL,	
+		[TerritoryID] [int] NULL,
+		[TerritoryName] [nvarchar](50) NULL,	
+		[Group] [nvarchar](50) NULL,	
+		[SalesYTD] [money] NULL,
+		[SalesLastYear] [money] NULL,
+		[CountryRegionName] [nvarchar](50) NULL,	
+		[CreatedDate] [date] NULL,	
 		[ModifiedDate] [date] NULL,
         DQP nvarchar(100)
 	)

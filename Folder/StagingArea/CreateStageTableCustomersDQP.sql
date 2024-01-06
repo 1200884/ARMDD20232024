@@ -1,6 +1,6 @@
 IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'CustomersDQP')
 	CREATE TABLE [dbo].[CustomersDQP](
-		[CustomerID] [int] NOT NULL,
+		[CustomerID] [int] NULL,
 		[PersonType] [nvarchar](20) NULL,
 		[Title] [nvarchar](8) NULL,
 		[FirstName] [nvarchar](50) NULL,
