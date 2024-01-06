@@ -6,63 +6,10 @@
     <Name>Create Data Mart Analysis Services.database</Name>
     <FullPath>Create Data Mart Analysis Services.database</FullPath>
   </Database>
-  <Cubes>
-    <ProjectItem>
-      <Name>Bikes And Bikes Data Mart.cube</Name>
-      <FullPath>Bikes And Bikes Data Mart.cube</FullPath>
-      <Dependencies>
-        <ProjectItem>
-          <Name>Bikes And Bikes Data Mart.partitions</Name>
-          <FullPath>Bikes And Bikes Data Mart.partitions</FullPath>
-        </ProjectItem>
-      </Dependencies>
-    </ProjectItem>
-  </Cubes>
-  <Dimensions>
-    <ProjectItem>
-      <Name>Dim Customers.dim</Name>
-      <FullPath>Dim Customers.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Dim Products.dim</Name>
-      <FullPath>Dim Products.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Dim Date.dim</Name>
-      <FullPath>Dim Date.dim</FullPath>
-    </ProjectItem>
-  </Dimensions>
-  <DataSources>
-    <ProjectItem>
-      <Name>Bikes And Bikes Data Mart.ds</Name>
-      <FullPath>Bikes And Bikes Data Mart.ds</FullPath>
-    </ProjectItem>
-  </DataSources>
-  <DataSourceViews>
-    <ProjectItem>
-      <Name>Bikes And Bikes Data Mart.dsv</Name>
-      <FullPath>Bikes And Bikes Data Mart.dsv</FullPath>
-    </ProjectItem>
-  </DataSourceViews>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options>
-        <ConnectionMappings>
-          <ConfigurationSetting>
-            <Id>Bikes And Bikes Data Mart</Id>
-            <Name>Bikes And Bikes Data Mart</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=(local);Integrated Security=SSPI;Initial Catalog=BikesAndBikes_DataMart</Value>
-          </ConfigurationSetting>
-        </ConnectionMappings>
-        <ConnectionSecurityMappings>
-          <ConfigurationSetting>
-            <Id>Bikes And Bikes Data Mart</Id>
-            <Name>Bikes And Bikes Data Mart</Name>
-            <Value xsi:type="xsd:int">0</Value>
-          </ConfigurationSetting>
-        </ConnectionSecurityMappings>
-      </Options>
+      <Options />
     </Configuration>
   </Configurations>
 </Project>

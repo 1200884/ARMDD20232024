@@ -12,18 +12,33 @@
     </DataSources>
     <Dimensions>
       <Dimension>
-        <ID>Dim Customers</ID>
+        <ID>Dim Sales Persons</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Ship Methods</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Date</ID>
       </Dimension>
       <Dimension>
         <ID>Dim Products</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim Date</ID>
+        <ID>Dim Customers</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Currency</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Addresses</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Sales Territories</ID>
       </Dimension>
     </Dimensions>
     <Cubes>
       <Cube>
-        <ID>Bikes And Bikes Data Mart</ID>
+        <ID>Bikes Bikes Data Mart Final Version</ID>
         <MeasureGroups>
           <MeasureGroup>
             <ID>Fact Sales</ID>
