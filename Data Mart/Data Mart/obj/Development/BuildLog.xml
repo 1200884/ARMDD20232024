@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Data Mart</Name>
-    <LastWriteTime>2024-01-06T01:14:10.7194822Z</LastWriteTime>
+    <LastWriteTime>2024-01-06T01:28:10.1627Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -28,7 +28,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load FactCurrencyRates.dtsx</Name>
-      <LastWriteTime>2024-01-06T01:25:58.4919501Z</LastWriteTime>
+      <LastWriteTime>2024-01-06T01:28:10.1087Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

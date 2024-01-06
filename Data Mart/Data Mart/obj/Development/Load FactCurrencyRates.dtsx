@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{45DCD4FC-6576-48CA-AE30-06A40D56EBDC}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{E81FB6BE-E216-468C-9D1D-75621FE01B97}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -53,7 +53,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\tiago\Desktop\file.txt">
+          DTS:ConnectionString="C:\ARMDD\file.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -61,7 +61,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="CurrencyRateID"
-              DTS:DTSID="{4EFEF629-0676-4A4A-9809-1733A42D554C}"
+              DTS:DTSID="{940A8265-BD23-475B-90BD-65A3F471AC45}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -70,7 +70,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CurrencyRateDate"
-              DTS:DTSID="{369D7CDF-6848-40EA-B6A8-24635AEF4530}"
+              DTS:DTSID="{13B9FD07-5825-48A0-B0BF-F9ADB90AFE4D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -79,7 +79,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Name"
-              DTS:DTSID="{D626B3A7-C376-4911-BB7D-D46B17B16649}"
+              DTS:DTSID="{8424C780-0F23-4A59-9BAA-7AB02BEC3AE8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -87,7 +87,7 @@
               DTS:DataType="6"
               DTS:TextQualified="True"
               DTS:ObjectName="AverageRate"
-              DTS:DTSID="{E98ED361-85C6-4813-BB9F-10A396464F80}"
+              DTS:DTSID="{8BBCCC8A-0078-452F-AB94-446169AF574A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -95,7 +95,7 @@
               DTS:DataType="6"
               DTS:TextQualified="True"
               DTS:ObjectName="EndOfDayRate"
-              DTS:DTSID="{75BAEDF1-D51F-4835-9FF2-939A12EF1992}"
+              DTS:DTSID="{374D7D2A-3838-4E8F-9F51-58AE64C9A7AC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -104,7 +104,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="CurrencyCode"
-              DTS:DTSID="{F8E921D6-FEF7-48D0-B693-C211841D6A16}"
+              DTS:DTSID="{A9F4DAB6-DE8D-4594-B4B3-E3FA608AE305}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -112,7 +112,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="CurrencyKey"
-              DTS:DTSID="{73A6407E-752A-4280-B995-9D610A9D90DD}"
+              DTS:DTSID="{A6306603-ED5B-483A-A07F-D36F3B893C68}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -120,7 +120,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorCode"
-              DTS:DTSID="{92B030F2-6789-4AF5-ACCE-CD35EC882685}"
+              DTS:DTSID="{87988D4F-2C35-4B9C-8CD9-502FE96D33BC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -128,7 +128,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorColumn"
-              DTS:DTSID="{1FB76E60-2C24-45DE-844E-0415DF4C1690}"
+              DTS:DTSID="{975BC431-2670-4A8B-94E5-F926A32FEA07}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -516,6 +516,145 @@ WHERE
               </outputs>
             </component>
             <component
+              refId="Package\Load FactCurrencyRates\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="2070"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactCurrencyRates\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyRateID]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyRateID"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyRateID]"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyRateID]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyRateDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CurrencyRateDate"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyRateDate]"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyRateDate]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[AverageRate]"
+                      cachedDataType="cy"
+                      cachedName="AverageRate"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AverageRate]"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[EndOfDayRate]"
+                      cachedDataType="cy"
+                      cachedName="EndOfDayRate"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EndOfDayRate]"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[EndOfDayRate]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="CurrencyCode"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyCode]"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyCode]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyKey]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyKey"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyKey]"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output].Columns[CurrencyKey]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyRateID]"
+                      dataType="i4"
+                      name="CurrencyRateID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyRateDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="CurrencyRateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AverageRate]"
+                      dataType="cy"
+                      name="AverageRate" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EndOfDayRate]"
+                      dataType="cy"
+                      name="EndOfDayRate" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencyCode" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyKey]"
+                      dataType="i4"
+                      name="CurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
               refId="Package\Load FactCurrencyRates\Lookup CurrencyCode"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -840,6 +979,11 @@ where [refTable].[FullDate] = ?</property>
           </components>
           <paths>
             <path
+              refId="Package\Load FactCurrencyRates.Paths[Lookup Error Output]"
+              endId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output]" />
+            <path
               refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output]"
               endId="Package\Load FactCurrencyRates\FactCurrencyRates.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
@@ -882,45 +1026,23 @@ where [refTable].[FullDate] = ?</property>
     design-time-name="Package\Load FactCurrencyRates">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182,42"
           Id="Package\Load FactCurrencyRates\Lookup CurrencyCode"
           TopLeft="237.714282184231,107.999998572995" />
         <NodeLayout
-          Size="166,42"
-          Id="Package\Load FactCurrencyRates\FactCurrencyRates"
-          TopLeft="243.428567825532,321.352935916052" />
+          Size="146,42"
+          Id="Package\Load FactCurrencyRates\CurrencyRates"
+          TopLeft="251.999996244907,26.9999995976686" />
         <NodeLayout
           Size="138,42"
           Id="Package\Load FactCurrencyRates\Lookup Date"
           TopLeft="258.999996140599,206.694113719907" />
         <NodeLayout
-          Size="146,42"
-          Id="Package\Load FactCurrencyRates\CurrencyRates"
-          TopLeft="251.999996244907,26.9999995976686" />
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[OLE DB Source Output]"
-          TopLeft="326.857139214569,68.5999995976686">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.3999989753261"
-              Start="0,0"
-              End="0,31.8999989753261">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.8999989753261" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="166,42"
+          Id="Package\Load FactCurrencyRates\FactCurrencyRates"
+          TopLeft="243.428567825532,321.352935916052" />
         <EdgeLayout
           Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
           TopLeft="328.157139162415,149.599998572995">
@@ -969,6 +1091,68 @@ where [refTable].[FullDate] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[OLE DB Source Output]"
+          TopLeft="326.857139214569,68.5999995976686">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.3999989753261"
+              Start="0,0"
+              End="0,31.8999989753261">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8999989753261" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Load FactCurrencyRates\Flat File Destination"
+          TopLeft="518,215" />
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Error Output]"
+          TopLeft="396.999996140599,227.694113719907">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.000003859401,8.30588628009301"
+              Start="0,0"
+              End="113.500003859401,8.30588628009301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56.5000019297005,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.5000019297005,0"
+                    Point2="60.5000019297005,0"
+                    Point3="60.5000019297005,4" />
+                  <mssgle:LineSegment
+                    End="60.5000019297005,4.30588628009301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.5000019297005,4.30588628009301"
+                    Point2="60.5000019297005,8.30588628009301"
+                    Point3="64.5000019297005,8.30588628009301" />
+                  <mssgle:LineSegment
+                    End="113.500003859401,8.30588628009301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="14.6336152109505,-17.609375,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -996,15 +1180,10 @@ where [refTable].[FullDate] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactCurrencyRates\FactCurrencyRates">
+    design-time-name="Package\Load FactCurrencyRates\CurrencyRates">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1014,7 +1193,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1024,7 +1203,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1032,10 +1211,15 @@ where [refTable].[FullDate] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactCurrencyRates\CurrencyRates">
+    design-time-name="Package\Load FactCurrencyRates\FactCurrencyRates">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

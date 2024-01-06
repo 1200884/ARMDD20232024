@@ -1,0 +1,91 @@
+,,Colombian Peso,,,COP,26,-1071607778,0
+,,Tunisian Dinar,,,TND,95,-1071607778,0
+,,Danish Krone,,,DKK,31,-1071607778,0
+,,Trinidad and Tobago Dollar,,,TTD,97,-1071607778,0
+,,Bahamian Dollar,,,BSD,20,-1071607778,0
+,,Dominican Peso,,,DOP,32,-1071607778,0
+,,Kuwaiti Dinar,,,KWD,59,-1071607778,0
+,,Rupiah,,,IDR,48,-1071607778,0
+,,Costa Rican Colon,,,CRC,27,-1071607778,0
+,,New Taiwan Dollar,,,TWD,98,-1071607778,0
+,,Rand,,,ZAR,104,-1071607778,0
+,,Lebanese Pound,,,LBP,60,-1071607778,0
+,,Philippine Peso,,,PHP,79,-1071607778,0
+,,Turkish Lira,,,TRL,96,-1071607778,0
+,,Kwanza,,,AOA,6,-1071607778,0
+,,Aruban Guilder,,,AWG,10,-1071607778,0
+,,Naira,,,NGN,71,-1071607778,0
+,,New Israeli Shekel,,,ILS,50,-1071607778,0
+,,Namibia Dollar,,,NAD,70,-1071607778,0
+,,CFA Franc BCEAO,,,XOF,103,-1071607778,0
+,,Fiji Dollar,,,FJD,39,-1071607778,0
+,,Russian Ruble,,,RUB,86,-1071607778,0
+,,Irish Pound,,,IEP,49,-1071607778,0
+,,Swiss Franc,,,CHF,23,-1071607778,0
+,,Baht,,,THB,94,-1071607778,0
+,,Russian Ruble(old),,,RUR,87,-1071607778,0
+,,Slovak Koruna,,,SKK,92,-1071607778,0
+,,Lek,,,ALL,3,-1071607778,0
+,,Belgian Franc,,,BEF,14,-1071607778,0
+,,Mauritius Rupee,,,MUR,66,-1071607778,0
+,,Bulgarian Lev,,,BGN,15,-1071607778,0
+,,Tolar,,,SIT,91,-1071607778,0
+,,Iceland Krona,,,ISK,52,-1071607778,0
+,,Maltese Lira,,,MTL,65,-1071607778,0
+,,Czech Koruna,,,CZK,29,-1071607778,0
+,,Emirati Dirham,,,AED,1,-1071607778,0
+,,El Salvador Colon,,,SVC,93,-1071607778,0
+,,Afghani,,,AFA,2,-1071607778,0
+,,Azerbaijanian Manat,,,AZM,11,-1071607778,0
+,,Nepalese Rupee,,,NPR,74,-1071607778,0
+,,Chilean Peso,,,CLP,24,-1071607778,0
+,,Cedi,,,GHC,42,-1071607778,0
+,,Netherlands Antillian Guilder,,,ANG,5,-1071607778,0
+,,Dong,,,VND,102,-1071607778,0
+,,Latvian Lats,,,LVL,63,-1071607778,0
+,,Algerian Dinar,,,DZD,33,-1071607778,0
+,,Zloty,,,PLN,81,-1071607778,0
+,,Indian Rupee,,,INR,51,-1071607778,0
+,,Lithuanian Litas,,,LTL,62,-1071607778,0
+,,Egyptian Pound,,,EGP,35,-1071607778,0
+,,Guarani,,,PYG,84,-1071607778,0
+,,Portuguese Escudo,,,PTE,83,-1071607778,0
+,,Ngultrum,,,BTN,21,-1071607778,0
+,,Quetzal,,,GTQ,44,-1071607778,0
+,,Malaysian Ringgit,,,MYR,69,-1071607778,0
+,,Balboa,,,PAB,77,-1071607778,0
+,,New Zealand Dollar,,,NZD,75,-1071607778,0
+,,Italian Lira,,,ITL,53,-1071607778,0
+,,Armenian Dram,,,AMD,4,-1071607778,0
+,,Croatian Kuna,,,HRK,46,-1071607778,0
+,,Moroccan Dirham,,,MAD,64,-1071607778,0
+,,Singapore Dollar,,,SGD,90,-1071607778,0
+,,Bahraini Dinar,,,BHD,16,-1071607778,0
+,,Kroon,,,EEK,34,-1071607778,0
+,,Swedish Krona,,,SEK,89,-1071607778,0
+,,Barbados Dollar,,,BBD,12,-1071607778,0
+,,Jamaican Dollar,,,JMD,54,-1071607778,0
+,,Nuevo Sol,,,PEN,78,-1071607778,0
+,,Boliviano,,,BOB,18,-1071607778,0
+,,Shilling,,,ATS,8,-1071607778,0
+,,Brunei Dollar,,,BND,17,-1071607778,0
+,,Spanish Peseta,,,ESP,36,-1071607778,0
+,,Uruguayan Peso,,,UYU,100,-1071607778,0
+,,Cyprus Pound,,,CYP,28,-1071607778,0
+,,Hong Kong Dollar,,,HKD,45,-1071607778,0
+,,Netherlands Guilder,,,NLG,72,-1071607778,0
+,,Drachma,,,GRD,43,-1071607778,0
+,,Jordanian Dinar,,,JOD,55,-1071607778,0
+,,Kenyan Shilling,,,KES,57,-1071607778,0
+,,Leu,,,ROL,85,-1071607778,0
+,,Won,,,KRW,58,-1071607778,0
+,,Rufiyaa,,,MVR,67,-1071607778,0
+,,Forint,,,HUF,47,-1071607778,0
+,,Zimbabwe Dollar,,,ZWD,105,-1071607778,0
+,,Omani Rial,,,OMR,76,-1071607778,0
+,,Norwegian Krone,,,NOK,73,-1071607778,0
+,,Sri Lankan Rupee,,,LKR,61,-1071607778,0
+,,Pakistan Rupee,,,PKR,80,-1071607778,0
+,,Polish Zloty(old),,,PLZ,82,-1071607778,0
+,,Markka,,,FIM,38,-1071607778,0
+,,Taka,,,BDT,13,-1071607778,0
