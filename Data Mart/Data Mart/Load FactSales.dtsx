@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{0519E9FB-1644-4773-9314-2B51B2F18212}">
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{C8263C55-882F-49F0-8863-CAFA7FAB746F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -317,7 +317,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4DF5202E-DDC2-42E4-A27D-C7ADE079388A}"
-          SQLTask:SqlStatementSource="ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimCustomers] FOREIGN KEY([CustomerKey])&#xA;REFERENCES [dbo].[DimCustomers] ([CustomerKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimCustomers]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimDate] FOREIGN KEY([OrderDateKey])&#xA;REFERENCES [dbo].[DimDate] ([DateKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimDate]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimProducts] FOREIGN KEY([ProductKey])&#xA;REFERENCES [dbo].[DimProducts] ([ProductKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimProducts]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimCustomers] FOREIGN KEY([CustomerKey])&#xA;REFERENCES [dbo].[DimCustomers] ([CustomerKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimCustomers]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_OrderDate] FOREIGN KEY([OrderDateKey])&#xA;REFERENCES [dbo].[DimDate] ([DateKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_OrderDate]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimProducts] FOREIGN KEY([ProductKey])&#xA;REFERENCES [dbo].[DimProducts] ([ProductKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimProducts]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimShipMethods] FOREIGN KEY(ShipMethodKey)&#xA;REFERENCES [dbo].[DimShipMethods] ([ShipMethodKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimShipMethods]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimSalesPersons] FOREIGN KEY(SalesPersonKey)&#xA;REFERENCES [dbo].[DimSalesPersons] ([SalesPersonKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimSalesPersons]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimSalesTerritories] FOREIGN KEY(TerritoryKey)&#xA;REFERENCES [dbo].[DimSalesTerritories] ([TerritoryKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimSalesTerritories]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimCurrency] FOREIGN KEY(CurrencyKey)&#xA;REFERENCES [dbo].[DimCurrency] ([CurrencyKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimCurrency]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_ShipDate] FOREIGN KEY([ShipDateKey])&#xA;REFERENCES [dbo].[DimDate] ([DateKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_ShipDate]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DueDate] FOREIGN KEY([DueDateKey])&#xA;REFERENCES [dbo].[DimDate] ([DateKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DueDate]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_BillToAddressKey] FOREIGN KEY([BillToAddressKey])&#xA;REFERENCES [dbo].[DimAddresses] ([AddressKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_BillToAddressKey]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_ShipToAddressKey] FOREIGN KEY([ShipToAddressKey])&#xA;REFERENCES [dbo].[DimAddresses] ([AddressKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_ShipToAddressKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -334,7 +334,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4DF5202E-DDC2-42E4-A27D-C7ADE079388A}"
-          SQLTask:SqlStatementSource="IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimCustomers')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimCustomers]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimDate')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimDate]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimProducts')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimProducts]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimCustomers')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimCustomers]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_OrderDate')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_OrderDate]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DueDate')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DueDate]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_ShipDate')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_ShipDate]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimProducts')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimProducts]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_BillToAddressKey')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_BillToAddressKey]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_ShipToAddressKey')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_ShipToAddressKey]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimCurrency')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimCurrency]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimProducts')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimProducts]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimSalesPersons')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimSalesPersons]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimSalesTerritories')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimSalesTerritories]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactSales_DimShipMethods')&#xA;ALTER TABLE [dbo].[FactSales]  DROP CONSTRAINT [FK_FactSales_DimShipMethods]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4664,80 +4664,80 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
               name="Lookup Match Output"
               startId="Package\Load FactSales\Lookup DateKey.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output12]"
-              endId="Package\Load FactSales\Fact Already Exists?.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output11]"
-              endId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output10]"
-              endId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup ProductNumber.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output9]"
-              endId="Package\Load FactSales\Lookup ProductNumber.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup CurrencyCode.Outputs[Lookup Match Output]" />
-            <path
               refId="Package\Load FactSales.Paths[Lookup Match Output13]"
-              endId="Package\Load FactSales\Fact Equal?.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Fact Already Exists?.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output7]"
-              endId="Package\Load FactSales\Lookup ShipMethod.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup ShipToAddress.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output8]"
-              endId="Package\Load FactSales\Lookup CurrencyCode.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup ShipMethod.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output5]"
-              endId="Package\Load FactSales\Lookup BillToAddress.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup TerritoryKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output4]"
-              endId="Package\Load FactSales\Lookup TerritoryKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup SalesPersonKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output3]"
-              endId="Package\Load FactSales\Lookup SalesPersonKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup CustomerKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output2]"
-              endId="Package\Load FactSales\Lookup CustomerKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup ShipDate.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output1]"
-              endId="Package\Load FactSales\Lookup ShipDate.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup DueDate.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output6]"
               endId="Package\Load FactSales\Lookup ShipToAddress.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load FactSales\Lookup BillToAddress.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load FactSales.Paths[Lookup No Match Output]"
-              endId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\Load FactSales\Fact Already Exists?.Outputs[Lookup No Match Output]" />
+              refId="Package\Load FactSales.Paths[Lookup Match Output12]"
+              endId="Package\Load FactSales\Lookup ShipDate.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup DueDate.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output11]"
+              endId="Package\Load FactSales\Lookup CustomerKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup ShipDate.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output10]"
+              endId="Package\Load FactSales\Lookup SalesPersonKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup CustomerKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output9]"
+              endId="Package\Load FactSales\Lookup TerritoryKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup SalesPersonKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output7]"
+              endId="Package\Load FactSales\Lookup CurrencyCode.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup ShipMethod.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output8]"
+              endId="Package\Load FactSales\Lookup BillToAddress.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup TerritoryKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output5]"
+              endId="Package\Load FactSales\Fact Equal?.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Fact Already Exists?.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output4]"
+              endId="Package\Load FactSales\Lookup ProductNumber.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup CurrencyCode.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output3]"
+              endId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup ProductNumber.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output2]"
+              endId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output1]"
+              endId="Package\Load FactSales\Fact Already Exists?.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output6]"
+              endId="Package\Load FactSales\Lookup ShipMethod.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup ShipToAddress.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactSales.Paths[Lookup No Match Output1]"
               endId="Package\Load FactSales\Update FactSales.Inputs[OLE DB Command Input]"
               name="Lookup No Match Output"
               startId="Package\Load FactSales\Fact Equal?.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup No Match Output]"
+              endId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load FactSales\Fact Already Exists?.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load FactSales.Paths[OLE DB Source Output]"
               endId="Package\Load FactSales\Lookup DateKey.Inputs[Lookup Input]"
@@ -4767,25 +4767,29 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
       DTS:To="Package\Load FactSales" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
-<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
-<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148,41.6"
-          Id="Package\Load FactSales"
-          TopLeft="168.571428930272,136.882352821194" />
-        <NodeLayout
-          Size="243.2,41.6"
+          Size="243,42"
           Id="Package\Create FactSales PK-FK Constraints"
           TopLeft="114.285714528999,220.235293924602" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Drop FactSales PK-FK Constraints"
+          TopLeft="125.000000266092,54.2941175994679" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Load FactSales"
+          TopLeft="168.571428930272,136.882352821194" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição]"
           TopLeft="239.228571729635,178.482352821194">
@@ -4808,10 +4812,6 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="236,41.6"
-          Id="Package\Drop FactSales PK-FK Constraints"
-          TopLeft="125.000000266092,54.2941175994679" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição 1]"
           TopLeft="242.785714598182,95.8941175994679">
@@ -4925,7 +4925,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output11]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output2]"
           TopLeft="373.657143448628,1047.16470574495">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4949,7 +4949,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output10]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output3]"
           TopLeft="373.714286311853,976.611764459214">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4973,7 +4973,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output9]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output4]"
           TopLeft="374.028569643473,892.505876778412">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4997,7 +4997,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output8]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output7]"
           TopLeft="369.414281536031,811.199994635582">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5021,7 +5021,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output7]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output6]"
           TopLeft="367.499995850027,729.999994724989">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5045,7 +5045,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output6]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output13]"
           TopLeft="369.299995850027,654.799994665384">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5069,7 +5069,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output5]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output8]"
           TopLeft="368.999995812774,577.399994650483">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5093,7 +5093,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output4]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output9]"
           TopLeft="365.599995902181,496.799995350838">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5117,7 +5117,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output3]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output10]"
           TopLeft="362.599995961785,415.599995142222">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5141,7 +5141,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output2]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output11]"
           TopLeft="359.999995887279,337.599995589256">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5165,7 +5165,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output1]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output12]"
           TopLeft="355.299995879829,251.599996870756">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5217,7 +5217,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           Id="Package\Load FactSales\Fact Already Exists?"
           TopLeft="292.857143480559,1159.37647027253" />
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output12]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output1]"
           TopLeft="377.285714890884,1129.10588229798">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5269,7 +5269,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           Id="Package\Load FactSales\Fact Equal?"
           TopLeft="490.028572017015,1237.79999962396" />
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output13]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output5]"
           TopLeft="406.190476813892,1200.97647027253">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5336,75 +5336,6 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup ShipToAddress">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup DateKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup TerritoryKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load FactSales\Lookup DueDate">
     <Properties>
       <Property>
@@ -5451,7 +5382,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup UnitPriceStandard">
+    design-time-name="Package\Load FactSales\Fact Equal?">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -5461,7 +5392,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
+          type="q3:string">[dbo].[FactSales]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -5474,7 +5405,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup SalesPersonKey">
+    design-time-name="Package\Load FactSales\Lookup BillToAddress">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -5566,15 +5497,30 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Transaction &amp; Transaction_Item">
+    design-time-name="Package\Load FactSales\Lookup CurrencyCode">
     <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup CurrencyCode">
+    design-time-name="Package\Load FactSales\Lookup UnitPriceStandard">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -5633,7 +5579,30 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup BillToAddress">
+    design-time-name="Package\Load FactSales\Lookup DateKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup SalesPersonKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -5656,22 +5625,22 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Fact Already Exists?">
+    design-time-name="Package\Load FactSales\Lookup ShipToAddress">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[FactSales]</Value>
+          type="q3:string"></Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5679,12 +5648,20 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Fact Equal?">
+    design-time-name="Package\Load FactSales\Transaction &amp; Transaction_Item">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Fact Already Exists?">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5694,7 +5671,30 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup TerritoryKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
