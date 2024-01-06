@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{744A2090-7077-4C66-961C-65846B6539B9}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{0519E9FB-1644-4773-9314-2B51B2F18212}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -317,7 +317,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4DF5202E-DDC2-42E4-A27D-C7ADE079388A}"
-          SQLTask:SqlStatementSource="ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimCustomers] FOREIGN KEY([CustomerKey])&#xA;REFERENCES [dbo].[DimCustomers] ([CustomerKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimCustomers]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimDate] FOREIGN KEY([DateKey])&#xA;REFERENCES [dbo].[DimDate] ([DateKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimDate]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimProducts] FOREIGN KEY([ProductKey])&#xA;REFERENCES [dbo].[DimProducts] ([ProductKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimProducts]&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimCustomers] FOREIGN KEY([CustomerKey])&#xA;REFERENCES [dbo].[DimCustomers] ([CustomerKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimCustomers]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimDate] FOREIGN KEY([OrderDateKey])&#xA;REFERENCES [dbo].[DimDate] ([DateKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimDate]&#xA;&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_FactSales_DimProducts] FOREIGN KEY([ProductKey])&#xA;REFERENCES [dbo].[DimProducts] ([ProductKey])&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_FactSales_DimProducts]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
