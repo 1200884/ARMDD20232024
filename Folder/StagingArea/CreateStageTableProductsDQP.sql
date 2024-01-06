@@ -1,6 +1,6 @@
 IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'ProductsDQP')
 	CREATE TABLE [dbo].[ProductsDQP](
-		[ProductID] [nvarchar](25) NOT NULL,
+		[ProductID] [nvarchar](25) NULL,
 		[Name] [nvarchar](50) NULL,
 		[FinishedGoodsFlag] [nvarchar] (3) NULL,
 		[Color] [nvarchar](15) NULL,
