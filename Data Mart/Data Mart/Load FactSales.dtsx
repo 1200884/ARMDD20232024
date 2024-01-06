@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{EF5B1232-5B5D-436E-8875-FCF989C7C555}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{5EBD751D-CDB4-472A-83A4-B8D1022E0610}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -129,12 +129,6 @@
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[SalesOrderID]"
-                      cachedDataType="i4"
-                      cachedName="SalesOrderID"
-                      externalMetadataColumnId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]" />
                     <inputColumn
                       refId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input].Columns[SalesOrderDetailID]"
                       cachedDataType="i4"
@@ -987,7 +981,7 @@ where [refTable].[FullDate] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semester" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Week" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfYear" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Weekend" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastDayOfMonth" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Trimester" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Season" dataType="DT_WSTR" length="6" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semester" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Week" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfYear" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Weekend" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastDayOfMonth" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Trimester" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Season" dataType="DT_WSTR" length="6" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1146,7 +1140,7 @@ where [refTable].[FullDate] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semester" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Week" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfYear" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Weekend" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastDayOfMonth" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Trimester" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Season" dataType="DT_WSTR" length="6" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semester" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Week" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfYear" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Weekend" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastDayOfMonth" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Trimester" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Season" dataType="DT_WSTR" length="6" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1318,7 +1312,7 @@ JOIN
 ON
   soh.CurrencyCode = c.FromCurrencyCode
 AND soh.OrderDate = c.CurrencyRateDate) [refTable]
-where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ?</property>
+where [refTable].[OrderDate] = ? and [refTable].[SalesOrderID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -1354,7 +1348,7 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]};</property>
+                  name="ParameterMap">#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]};#{Package\Load FactSales\437:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1388,22 +1382,6 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">OrderDate</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input].Columns[SalesOrderID]"
-                      cachedDataType="i4"
-                      cachedName="SalesOrderID"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">SalesOrderID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -2609,7 +2587,7 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[CurrencyCode]};</property>
+                  name="ParameterMap">#{Package\Load FactSales\437:invalid};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]};#{Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[CurrencyCode]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2632,22 +2610,6 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable
                   refId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input].Columns[SalesOrderID]"
-                      cachedDataType="i4"
-                      cachedName="SalesOrderID"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">SalesOrderID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
                     <inputColumn
                       refId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input].Columns[OrderDate]"
                       cachedDataType="wstr"
@@ -2813,7 +2775,10 @@ where [refTable].[SalesOrderID] = ? and [refTable].[OrderDate] = ? and [refTable
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT SalesOrderHeaders.*, SalesOrderDetails.SalesOrderDetailID, SalesOrderDetails.OrderQty, SalesOrderDetails.ProductNumber, SalesOrderDetails.UnitPrice, SalesOrderDetails.UnitPriceDiscount, SalesOrderDetails.LineTotal
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeaders.ShipDate, SalesOrderHeaders.CustomerID, SalesOrderHeaders.SalesPersonID, SalesOrderHeaders.TerritoryID, SalesOrderHeaders.BillToAddressID, 
+                  SalesOrderHeaders.ShipToAddressID, SalesOrderHeaders.ShipMethodID, SalesOrderHeaders.CurrencyCode, SalesOrderHeaders.SubTotal, SalesOrderHeaders.TaxAmount, SalesOrderHeaders.Freight, SalesOrderHeaders.TotalDue, 
+                  SalesOrderHeaders.CreatedDate, SalesOrderHeaders.ModifiedDate, SalesOrderDetails.SalesOrderDetailID, SalesOrderDetails.OrderQty, SalesOrderDetails.ProductNumber, SalesOrderDetails.UnitPrice, 
+                  SalesOrderDetails.UnitPriceDiscount, SalesOrderDetails.LineTotal, SalesOrderDetails.SalesOrderID AS OrderID
 FROM     SalesOrderDetails INNER JOIN
                   SalesOrderHeaders ON SalesOrderDetails.SalesOrderID = SalesOrderHeaders.SalesOrderID</property>
                 <property
@@ -2851,15 +2816,6 @@ FROM     SalesOrderDetails INNER JOIN
                   refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
-                      name="SalesOrderID"
-                      truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderDate]"
                       dataType="wstr"
@@ -3067,13 +3023,18 @@ FROM     SalesOrderDetails INNER JOIN
                       precision="38"
                       scale="6"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
-                      dataType="i4"
-                      name="SalesOrderID" />
                     <externalMetadataColumn
                       refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
                       dataType="wstr"
@@ -3171,6 +3132,10 @@ FROM     SalesOrderDetails INNER JOIN
                       name="LineTotal"
                       precision="38"
                       scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3178,11 +3143,6 @@ FROM     SalesOrderDetails INNER JOIN
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
-                      dataType="i4"
-                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
-                      name="SalesOrderID" />
                     <outputColumn
                       refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
                       dataType="wstr"
@@ -3302,6 +3262,11 @@ FROM     SalesOrderDetails INNER JOIN
                       name="LineTotal"
                       precision="38"
                       scale="6" />
+                    <outputColumn
+                      refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      name="OrderID" />
                     <outputColumn
                       refId="Package\Load FactSales\Transaction &amp; Transaction_Item.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -3425,9 +3390,9 @@ FROM     SalesOrderDetails INNER JOIN
           Id="Package\Load FactSales\Lookup DateKey"
           TopLeft="275.999995887279,133.999998003244" />
         <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\Load FactSales\Lookup BillToAddress"
-          TopLeft="280.999995812774,613.199994665384" />
+          Size="229.6,41.6"
+          Id="Package\Load FactSales\Transaction &amp; Transaction_Item"
+          TopLeft="240.99999640882,57.9999991357327" />
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Load FactSales\Lookup TerritoryKey"
@@ -3445,9 +3410,9 @@ FROM     SalesOrderDetails INNER JOIN
           Id="Package\Load FactSales\Lookup CurrencyCode"
           TopLeft="281.428567259287,850.905876778412" />
         <NodeLayout
-          Size="229.6,41.6"
-          Id="Package\Load FactSales\Transaction &amp; Transaction_Item"
-          TopLeft="240.99999640882,57.9999991357327" />
+          Size="200,41.6"
+          Id="Package\Load FactSales\Lookup UnitPriceStandard"
+          TopLeft="275.714286301209,1087.50588229798" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Load FactSales\Lookup ShipMethod"
@@ -3465,10 +3430,6 @@ FROM     SalesOrderDetails INNER JOIN
           Id="Package\Load FactSales\Lookup CustomerKey"
           TopLeft="272.999995931983,373.999995142222" />
         <NodeLayout
-          Size="122.4,41.6"
-          Id="Package\Load FactSales\FactSales"
-          TopLeft="317.857143533777,1162.97647043206" />
-        <NodeLayout
           Size="184.8,41.6"
           Id="Package\Load FactSales\Lookup ShipToAddress"
           TopLeft="275.99999588728,688.399994724989" />
@@ -3476,76 +3437,14 @@ FROM     SalesOrderDetails INNER JOIN
           Size="188.8,41.6"
           Id="Package\Load FactSales\Lookup SalesPersonKey"
           TopLeft="268.999995991588,455.199995350838" />
-        <EdgeLayout
-          Id="Package\Load FactSales.Paths[OLE DB Source Output]"
-          TopLeft="354.69999614805,99.5999991357327">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.3999988675118"
-              Start="0,0"
-              End="0,26.8999988675118">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.8999988675118" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output10]"
-          TopLeft="373.714286311853,976.611764459214">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.9529412857315"
-              Start="0,0"
-              End="0,21.4529412857315">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.4529412857315" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,4.92178314286576,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output9]"
-          TopLeft="374.028569643473,892.505876778412">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.5058876808019"
-              Start="0,0"
-              End="0,35.0058876808019">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.0058876808019" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.698256340401,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="122.4,41.6"
+          Id="Package\Load FactSales\FactSales"
+          TopLeft="317.857143533777,1162.97647043206" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Load FactSales\Lookup BillToAddress"
+          TopLeft="280.999995812774,613.199994665384" />
         <EdgeLayout
           Id="Package\Load FactSales.Paths[Lookup Match Output8]"
           TopLeft="369.414281536031,811.199994635582">
@@ -3762,10 +3661,52 @@ FROM     SalesOrderDetails INNER JOIN
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="200,41.6"
-          Id="Package\Load FactSales\Lookup UnitPriceStandard"
-          TopLeft="275.714286301209,1087.50588229798" />
+        <EdgeLayout
+          Id="Package\Load FactSales.Paths[OLE DB Source Output]"
+          TopLeft="354.69999614805,99.5999991357327">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.3999988675118"
+              Start="0,0"
+              End="0,26.8999988675118">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8999988675118" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactSales.Paths[Lookup Match Output12]"
+          TopLeft="377.385714917493,1129.10588229798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.8705881340782"
+              Start="0,0"
+              End="0,26.3705881340782">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3705881340782" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,7.3806065670391,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactSales.Paths[Lookup Match Output11]"
           TopLeft="373.657143448628,1047.16470574495">
@@ -3791,26 +3732,50 @@ FROM     SalesOrderDetails INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output12]"
-          TopLeft="377.385714917493,1129.10588229798">
+          Id="Package\Load FactSales.Paths[Lookup Match Output10]"
+          TopLeft="373.714286311853,976.611764459214">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.8705881340782"
+              EndConnector="0,28.9529412857315"
               Start="0,0"
-              End="0,26.3705881340782">
+              End="0,21.4529412857315">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.3705881340782" />
+                    End="0,21.4529412857315" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.38060656703908,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,4.92178314286575,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactSales.Paths[Lookup Match Output9]"
+          TopLeft="374.028569643473,892.505876778412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5058876808019"
+              Start="0,0"
+              End="0,35.0058876808019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.0058876808019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.698256340401,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3823,7 +3788,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3833,7 +3798,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3841,23 +3806,8 @@ FROM     SalesOrderDetails INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup BillToAddress">
+    design-time-name="Package\Load FactSales\Transaction &amp; Transaction_Item">
     <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -3915,7 +3865,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3925,7 +3875,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3956,8 +3906,23 @@ FROM     SalesOrderDetails INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Transaction &amp; Transaction_Item">
+    design-time-name="Package\Load FactSales\Lookup UnitPriceStandard">
     <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -3992,7 +3957,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4002,7 +3967,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4038,7 +4003,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4048,23 +4013,10 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\FactSales">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -4115,12 +4067,25 @@ FROM     SalesOrderDetails INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load FactSales\Lookup UnitPriceStandard">
+    design-time-name="Package\Load FactSales\FactSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactSales\Lookup BillToAddress">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4130,7 +4095,7 @@ FROM     SalesOrderDetails INNER JOIN
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
