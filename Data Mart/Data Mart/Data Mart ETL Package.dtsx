@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Data Mart ETL Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{26157F02-BE89-4117-8692-33CDEBFD0CD2}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{9D52DAD2-C438-4A36-AE90-80970C4F12A0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -243,62 +243,62 @@
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\Load FactCurrencyRates" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:refId="Package.PrecedenceConstraints[Restrição]"
       DTS:CreationName=""
-      DTS:DTSID="{E50CEAA6-F621-462B-8E56-A62434643CB4}"
-      DTS:From="Package\Load Business Dimensions"
+      DTS:DTSID="{1C3F7B23-E8B7-410C-BB61-29A99B3D4BA7}"
+      DTS:From="Package\Load FactCurrencyRates"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 7"
+      DTS:ObjectName="Restrição"
       DTS:To="Package\Load FactSales" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Create Data Mart Tables"
           TopLeft="584,210" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\Create DataMart Database"
           TopLeft="583,92" />
         <NodeLayout
-          Size="220,42"
+          Size="220,41.6"
           Id="Package\Create Staging Area Database"
           TopLeft="265,101" />
         <NodeLayout
-          Size="207,42"
+          Size="207.2,41.6"
           Id="Package\Create Staging Area Tables"
           TopLeft="279,204" />
         <NodeLayout
-          Size="178,42"
+          Size="177.6,41.6"
           Id="Package\Load Bikes and Bikes"
           TopLeft="270,306" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\Load Business Dimensions"
           TopLeft="374,409" />
         <NodeLayout
-          Size="146,42"
+          Size="145.6,41.6"
           Id="Package\Load DimDate"
           TopLeft="595,322" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Load FactCurrencyRates"
-          TopLeft="252,525" />
+          TopLeft="372.000000255449,479.117647099041" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\Load FactSales"
-          TopLeft="532,522" />
+          TopLeft="391.28571398617,557.576470580192" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="682.5,134">
@@ -481,30 +481,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="443,451">
+          TopLeft="472.000000127724,450.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-94.5,74"
+              EndConnector="0,28.5176470990411"
               Start="0,0"
-              End="-94.5,66.5">
+              End="0,21.0176470990411">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.9472140762463" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.9472140762463"
-                    Point2="0,29.9472140762463"
-                    Point3="-4,29.9472140762463" />
-                  <mssgle:LineSegment
-                    End="-90.5,29.9472140762463" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-90.5,29.9472140762463"
-                    Point2="-94.5,29.9472140762463"
-                    Point3="-94.5,33.9472140762463" />
-                  <mssgle:LineSegment
-                    End="-94.5,66.5" />
+                    End="0,21.0176470990411" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -514,31 +502,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="508,451">
+          Id="Package.PrecedenceConstraints[Restrição]"
+          TopLeft="467.04285712081,520.717647099041">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="98.5,71"
+              EndConnector="0,36.8588234811507"
               Start="0,0"
-              End="98.5,63.5">
+              End="0,29.3588234811507">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.733137829912" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.733137829912"
-                    Point2="0,28.733137829912"
-                    Point3="4,28.733137829912" />
-                  <mssgle:LineSegment
-                    End="94.5,28.733137829912" />
-                  <mssgle:CubicBezierSegment
-                    Point1="94.5,28.733137829912"
-                    Point2="98.5,28.733137829912"
-                    Point3="98.5,32.733137829912" />
-                  <mssgle:LineSegment
-                    End="98.5,63.5" />
+                    End="0,29.3588234811507" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
