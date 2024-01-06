@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{E81FB6BE-E216-468C-9D1D-75621FE01B97}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{74C85156-CB39-4605-B3DB-AA3FE533D98A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -177,22 +177,16 @@
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-    cr.CurrencyRateID, 
-    cr.CurrencyRateDate, 
-	c.CurrencyCode,
-    c.Name, 
-    cr.AverageRate, 
-    cr.EndOfDayRate
-FROM 
-    Currencies c
-LEFT OUTER JOIN 
-    CurrencyRates cr 
-    ON c.CurrencyCode = cr.FromCurrencyCode
-LEFT OUTER JOIN 
-    CurrencyRates cr_to 
-    ON c.CurrencyCode = cr_to.ToCurrencyCode AND cr.CurrencyRateDate = cr_to.CurrencyRateDate
-WHERE
-    cr_to.ToCurrencyCode IS NULL;</property>
+    CurrencyRates.CurrencyRateID, 
+    CurrencyRates.CurrencyRateDate, 
+    CurrencyRates.AverageRate, 
+    CurrencyRates.EndOfDayRate, 
+    FromCurrency.Name AS FromCurrencyName,
+    ToCurrency.Name AS ToCurrencyName
+FROM
+    CurrencyRates
+LEFT JOIN Currencies AS FromCurrency ON FromCurrency.CurrencyCode = CurrencyRates.FromCurrencyCode
+LEFT JOIN Currencies AS ToCurrency ON ToCurrency.CurrencyCode = CurrencyRates.ToCurrencyCode;</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -248,16 +242,6 @@ WHERE
                       name="CurrencyRateDate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[Name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                      length="50"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[Name]"
-                      name="Name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]"
                       dataType="cy"
                       errorOrTruncationOperation="Conversion"
@@ -276,14 +260,24 @@ WHERE
                       name="EndOfDayRate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyCode]"
+                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[FromCurrencyName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[CurrencyCode]"
-                      length="3"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyCode]"
-                      name="CurrencyCode"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[FromCurrencyName]"
+                      length="50"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[FromCurrencyName]"
+                      name="FromCurrencyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[ToCurrencyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[ToCurrencyName]"
+                      length="50"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[ToCurrencyName]"
+                      name="ToCurrencyName"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -298,11 +292,6 @@ WHERE
                       length="10"
                       name="CurrencyRateDate" />
                     <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                      dataType="wstr"
-                      length="50"
-                      name="Name" />
-                    <externalMetadataColumn
                       refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[AverageRate]"
                       dataType="cy"
                       name="AverageRate" />
@@ -311,10 +300,15 @@ WHERE
                       dataType="cy"
                       name="EndOfDayRate" />
                     <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[CurrencyCode]"
+                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[FromCurrencyName]"
                       dataType="wstr"
-                      length="3"
-                      name="CurrencyCode" />
+                      length="50"
+                      name="FromCurrencyName" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].ExternalColumns[ToCurrencyName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ToCurrencyName" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -334,18 +328,6 @@ WHERE
                       lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[CurrencyRateDate]"
                       name="CurrencyRateDate" />
                     <outputColumn
-                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[CurrencyCode]"
-                      dataType="wstr"
-                      length="3"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[CurrencyCode]"
-                      name="CurrencyCode" />
-                    <outputColumn
-                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[Name]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[Name]"
-                      name="Name" />
-                    <outputColumn
                       refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[AverageRate]"
                       dataType="cy"
                       lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[AverageRate]"
@@ -355,6 +337,18 @@ WHERE
                       dataType="cy"
                       lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[EndOfDayRate]"
                       name="EndOfDayRate" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[FromCurrencyName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[FromCurrencyName]"
+                      name="FromCurrencyName" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[ToCurrencyName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[ToCurrencyName]"
+                      name="ToCurrencyName" />
                     <outputColumn
                       refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -516,145 +510,6 @@ WHERE
               </outputs>
             </component>
             <component
-              refId="Package\Load FactCurrencyRates\Flat File Destination"
-              componentClassID="Microsoft.FlatFileDestination"
-              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Destination"
-              localeId="2070"
-              name="Flat File Destination"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether the data will overwrite or append to the destination file."
-                  name="Overwrite">true</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies the text to write to the destination file before any data is written."
-                  expressionType="Notify"
-                  name="Header" />
-                <property
-                  dataType="System.Boolean"
-                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
-                  name="EscapeQualifier">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load FactCurrencyRates\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
-                  name="FlatFileConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input]"
-                  hasSideEffects="true"
-                  name="Flat File Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyRateID]"
-                      cachedDataType="i4"
-                      cachedName="CurrencyRateID"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyRateID]"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyRateID]" />
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyRateDate]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CurrencyRateDate"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyRateDate]"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyRateDate]" />
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[Name]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Name"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[Name]" />
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[AverageRate]"
-                      cachedDataType="cy"
-                      cachedName="AverageRate"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AverageRate]"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]" />
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[EndOfDayRate]"
-                      cachedDataType="cy"
-                      cachedName="EndOfDayRate"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EndOfDayRate]"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[EndOfDayRate]" />
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyCode]"
-                      cachedDataType="wstr"
-                      cachedLength="3"
-                      cachedName="CurrencyCode"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyCode]"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyCode]" />
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[CurrencyKey]"
-                      cachedDataType="i4"
-                      cachedName="CurrencyKey"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyKey]"
-                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output].Columns[CurrencyKey]" />
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
-                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output].Columns[ErrorCode]" />
-                    <inputColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
-                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output].Columns[ErrorColumn]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyRateID]"
-                      dataType="i4"
-                      name="CurrencyRateID" />
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyRateDate]"
-                      dataType="wstr"
-                      length="10"
-                      name="CurrencyRateDate" />
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Name]"
-                      dataType="wstr"
-                      length="50"
-                      name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AverageRate]"
-                      dataType="cy"
-                      name="AverageRate" />
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EndOfDayRate]"
-                      dataType="cy"
-                      name="EndOfDayRate" />
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyCode]"
-                      dataType="wstr"
-                      length="3"
-                      name="CurrencyCode" />
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrencyKey]"
-                      dataType="i4"
-                      name="CurrencyKey" />
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
-                      dataType="i4"
-                      name="ErrorCode" />
-                    <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
-                      dataType="i4"
-                      name="ErrorColumn" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-            </component>
-            <component
               refId="Package\Load FactCurrencyRates\Lookup CurrencyCode"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -668,7 +523,7 @@ WHERE
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CurrencyKey, CurrencyCode
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CurrencyKey, Name 
 FROM DimCurrency
 WHERE Is_Current='Yes'</property>
                 <property
@@ -676,10 +531,10 @@ WHERE Is_Current='Yes'</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT CurrencyKey, CurrencyCode
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT CurrencyKey, Name 
 FROM DimCurrency
 WHERE Is_Current='Yes') [refTable]
-where [refTable].[CurrencyCode] = ?</property>
+where [refTable].[Name] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -710,12 +565,12 @@ where [refTable].[CurrencyCode] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CurrencyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CurrencyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyCode]};</property>
+                  name="ParameterMap">#{Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[FromCurrencyName]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -739,16 +594,16 @@ where [refTable].[CurrencyCode] = ?</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Inputs[Lookup Input].Columns[CurrencyCode]"
+                      refId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Inputs[Lookup Input].Columns[FromCurrencyName]"
                       cachedDataType="wstr"
-                      cachedLength="3"
-                      cachedName="CurrencyCode"
-                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyCode]">
+                      cachedLength="50"
+                      cachedName="FromCurrencyName"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[FromCurrencyName]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">CurrencyCode</property>
+                          name="JoinToReferenceColumn">Name</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -979,11 +834,6 @@ where [refTable].[FullDate] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Load FactCurrencyRates.Paths[Lookup Error Output]"
-              endId="Package\Load FactCurrencyRates\Flat File Destination.Inputs[Flat File Destination Input]"
-              name="Lookup Error Output"
-              startId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output]" />
-            <path
               refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output]"
               endId="Package\Load FactCurrencyRates\FactCurrencyRates.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
@@ -1026,7 +876,7 @@ where [refTable].[FullDate] = ?</property>
     design-time-name="Package\Load FactCurrencyRates">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182,42"
           Id="Package\Load FactCurrencyRates\Lookup CurrencyCode"
@@ -1038,56 +888,32 @@ where [refTable].[FullDate] = ?</property>
         <NodeLayout
           Size="138,42"
           Id="Package\Load FactCurrencyRates\Lookup Date"
-          TopLeft="258.999996140599,206.694113719907" />
+          TopLeft="262.999996140599,227.694113719907" />
         <NodeLayout
           Size="166,42"
           Id="Package\Load FactCurrencyRates\FactCurrencyRates"
-          TopLeft="243.428567825532,321.352935916052" />
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
-          TopLeft="328.157139162415,149.599998572995">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.0941151469123"
-              Start="0,0"
-              End="0,49.5941151469123">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.5941151469123" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,18.9923700734562,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="250.428567825532,339.352935916052" />
         <EdgeLayout
           Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output]"
-          TopLeft="327.214281983065,248.294113719907">
+          TopLeft="332.714281983066,269.694113719907">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73.0588221961446"
+              EndConnector="0,69.658822196145"
               Start="0,0"
-              End="0,65.5588221961446">
+              End="0,62.158822196145">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.5588221961446" />
+                    End="0,62.158822196145" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,26.9747235980723,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,25.2747235980725,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1113,43 +939,27 @@ where [refTable].[FullDate] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172,42"
-          Id="Package\Load FactCurrencyRates\Flat File Destination"
-          TopLeft="518,215" />
         <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Lookup Error Output]"
-          TopLeft="396.999996140599,227.694113719907">
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
+          TopLeft="330.357139162415,149.999998572995">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="121.000003859401,8.30588628009301"
+              EndConnector="0,77.694115146912"
               Start="0,0"
-              End="113.500003859401,8.30588628009301">
+              End="0,70.194115146912">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="56.5000019297005,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="56.5000019297005,0"
-                    Point2="60.5000019297005,0"
-                    Point3="60.5000019297005,4" />
-                  <mssgle:LineSegment
-                    End="60.5000019297005,4.30588628009301" />
-                  <mssgle:CubicBezierSegment
-                    Point1="60.5000019297005,4.30588628009301"
-                    Point2="60.5000019297005,8.30588628009301"
-                    Point3="64.5000019297005,8.30588628009301" />
-                  <mssgle:LineSegment
-                    End="113.500003859401,8.30588628009301" />
+                    End="0,70.194115146912" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="14.6336152109505,-17.609375,91.7327734375,11.609375"
+              BoundingBox="-48.19138671875,29.292370073456,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1162,7 +972,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1172,7 +982,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1193,7 +1003,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1203,7 +1013,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
