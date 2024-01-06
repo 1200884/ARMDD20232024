@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Create Data Mart Analysis Services", "Create Data Mart Analysis Services\Create Data Mart Analysis Services.dwproj", "{9508D6AB-5DCA-47B9-94CE-40F0132C5F5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9508D6AB-5DCA-47B9-94CE-40F0132C5F5F}.Development|Default.ActiveCfg = Development
+		{9508D6AB-5DCA-47B9-94CE-40F0132C5F5F}.Development|Default.Build.0 = Development
+		{9508D6AB-5DCA-47B9-94CE-40F0132C5F5F}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9A56CA1-5C55-401B-9143-9FD87DCCD57F}
+	EndGlobalSection
+EndGlobal
