@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{0EAEDCFD-FB7E-417C-A376-7795621CD65B}">
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{22DD76D7-A3B4-465C-A8FA-5634FAFED2AD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2998,6 +2998,96 @@ WHERE [CurrencyCode] = ? AND [ExpiredDate] IS NULL</property>
               version="1">
               <components>
                 <component
+                  refId="Package\Sequence Container\DimCustomers\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimCustomers\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\Conditional Split.Inputs[Conditional Split Input].Columns[PersonType]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PersonType"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[PersonType]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Valid]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Valid"
+                      synchronousInputId="Package\Sequence Container\DimCustomers\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">!([ISNULL](#{Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[PersonType]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">!(ISNULL(PersonType))</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Invalid]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Invalid"
+                      synchronousInputId="Package\Sequence Container\DimCustomers\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Sequence Container\DimCustomers\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Sequence Container\DimCustomers\Customers"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -3023,7 +3113,7 @@ WHERE [CurrencyCode] = ? AND [ExpiredDate] IS NULL</property>
                       description="The SQL command to be executed."
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        Customers.CustomerID, Persons.PersonType, Persons.Title, Persons.FirstName, Persons.MiddleName, Persons.LastName, Customers.CreatedDate, Customers.ModifiedDate
-FROM            Customers INNER JOIN
+FROM            Customers left JOIN
                          Persons ON Customers.PersonID = Persons.BusinessEntityID</property>
                     <property
                       dataType="System.String"
@@ -3245,6 +3335,80 @@ FROM            Customers INNER JOIN
                           refId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimCustomers\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimCustomers\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\DimCustomers\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Output].Columns[DQP]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="16"
+                          lineageId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Output].Columns[DQP]"
+                          name="DQP"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">"Invalid customer"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">"Invalid customer"</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\DimCustomers\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -3586,6 +3750,215 @@ WHERE [CustomerID] = ? AND [ExpiredDate] IS NULL</property>
                           refId="Package\Sequence Container\DimCustomers\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Sequence Container\DimCustomers\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DimCustomers\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[CustomersDQP]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                      connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                          cachedDataType="i4"
+                          cachedName="CustomerID"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CreatedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PersonType]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PersonType"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PersonType]"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[PersonType]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Title]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Title"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[Title]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MiddleName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MiddleName"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[MiddleName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DQP]"
+                          cachedDataType="wstr"
+                          cachedLength="16"
+                          cachedName="DQP"
+                          externalMetadataColumnId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DQP]"
+                          lineageId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Output].Columns[DQP]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          dataType="i4"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PersonType]"
+                          dataType="wstr"
+                          length="20"
+                          name="PersonType" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                          dataType="wstr"
+                          length="8"
+                          name="Title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MiddleName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ModifiedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DQP]"
+                          dataType="wstr"
+                          length="100"
+                          name="DQP" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimCustomers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DimCustomers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DimCustomers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -4555,10 +4928,20 @@ WHERE [CustomerID] = ? AND [ExpiredDate] IS NULL</property>
                   name="Derived Column Output"
                   startId="Package\Sequence Container\DimCustomers\Set New Record Effective Date.Outputs[Derived Column Output]" />
                 <path
+                  refId="Package\Sequence Container\DimCustomers.Paths[Derived Column Output2]"
+                  endId="Package\Sequence Container\DimCustomers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\DimCustomers\Derived Column.Outputs[Derived Column Output]" />
+                <path
                   refId="Package\Sequence Container\DimCustomers.Paths[Historical Attribute Inserts Output]"
                   endId="Package\Sequence Container\DimCustomers\Set Old Record Expired Date.Inputs[Derived Column Input]"
                   name="Historical Attribute Inserts Output"
                   startId="Package\Sequence Container\DimCustomers\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+                <path
+                  refId="Package\Sequence Container\DimCustomers.Paths[Invalid]"
+                  endId="Package\Sequence Container\DimCustomers\Derived Column.Inputs[Derived Column Input]"
+                  name="Invalid"
+                  startId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Invalid]" />
                 <path
                   refId="Package\Sequence Container\DimCustomers.Paths[New Output]"
                   endId="Package\Sequence Container\DimCustomers\Union All.Inputs[Union All Input 1]"
@@ -4571,7 +4954,7 @@ WHERE [CustomerID] = ? AND [ExpiredDate] IS NULL</property>
                   startId="Package\Sequence Container\DimCustomers\OLE DB Command.Outputs[OLE DB Command Output]" />
                 <path
                   refId="Package\Sequence Container\DimCustomers.Paths[OLE DB Source Output]"
-                  endId="Package\Sequence Container\DimCustomers\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  endId="Package\Sequence Container\DimCustomers\Conditional Split.Inputs[Conditional Split Input]"
                   name="OLE DB Source Output"
                   startId="Package\Sequence Container\DimCustomers\Customers.Outputs[OLE DB Source Output]" />
                 <path
@@ -4579,6 +4962,11 @@ WHERE [CustomerID] = ? AND [ExpiredDate] IS NULL</property>
                   endId="Package\Sequence Container\DimCustomers\Set New Record Effective Date.Inputs[Derived Column Input]"
                   name="Union All Output 1"
                   startId="Package\Sequence Container\DimCustomers\Union All.Outputs[Union All Output 1]" />
+                <path
+                  refId="Package\Sequence Container\DimCustomers.Paths[Valid]"
+                  endId="Package\Sequence Container\DimCustomers\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Valid"
+                  startId="Package\Sequence Container\DimCustomers\Conditional Split.Outputs[Valid]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -16770,42 +17158,42 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
     design-time-name="Package\Sequence Container\DimCustomers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="209,42"
           Id="Package\Sequence Container\DimCustomers\Slowly Changing Dimension"
-          TopLeft="397,150.5" />
+          TopLeft="387,246.5" />
         <NodeLayout
           Size="166,42"
           Id="Package\Sequence Container\DimCustomers\OLE DB Command"
-          TopLeft="274.5,354.5" />
+          TopLeft="264.5,450.5" />
         <NodeLayout
           Size="223,42"
           Id="Package\Sequence Container\DimCustomers\Set New Record Effective Date"
-          TopLeft="620,400.5" />
+          TopLeft="610,496.5" />
         <NodeLayout
           Size="179,42"
           Id="Package\Sequence Container\DimCustomers\Update DimCustomer"
-          TopLeft="563,252.5" />
+          TopLeft="553,348.5" />
         <NodeLayout
           Size="121,42"
           Id="Package\Sequence Container\DimCustomers\Union All"
-          TopLeft="471,398.5" />
+          TopLeft="461,494.5" />
         <NodeLayout
           Size="174,42"
           Id="Package\Sequence Container\DimCustomers\Insert DimCustomer"
-          TopLeft="626,319.5" />
+          TopLeft="616,415.5" />
         <NodeLayout
           Size="213,42"
           Id="Package\Sequence Container\DimCustomers\Set Old Record Expired Date"
-          TopLeft="286.5,252.5" />
+          TopLeft="276.5,348.5" />
         <NodeLayout
           Size="129,42"
           Id="Package\Sequence Container\DimCustomers\Customers"
           TopLeft="437,48.5" />
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[Historical Attribute Inserts Output]"
-          TopLeft="451.25,192.5">
+          TopLeft="441.25,288.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16841,7 +17229,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[Derived Column Output1]"
-          TopLeft="731.5,400.5">
+          TopLeft="721.5,496.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16870,14 +17258,12 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[Derived Column Output]"
-          TopLeft="393,294.5">
+          TopLeft="383,390.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16906,14 +17292,12 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[Changing Attribute Updates Output]"
-          TopLeft="551.75,192.5">
+          TopLeft="541.75,288.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16949,7 +17333,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[Union All Output 1]"
-          TopLeft="592,420.5">
+          TopLeft="582,516.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -16966,38 +17350,12 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\DimCustomers.Paths[OLE DB Source Output]"
-          TopLeft="501.5,90.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[OLE DB Command Output]"
-          TopLeft="440.5,375.5">
+          TopLeft="430.5,471.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17026,14 +17384,12 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DimCustomers.Paths[New Output]"
-          TopLeft="501.5,192.5">
+          TopLeft="491.5,288.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -17065,6 +17421,134 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             <mssgm:EdgeLabel
               BoundingBox="-12.09138671875,108,54.1827734375,11.43359375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Sequence Container\DimCustomers\Conditional Split"
+          TopLeft="424,141" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[OLE DB Source Output]"
+          TopLeft="501.5,90.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.5"
+              Start="0,0"
+              End="0,43">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[Valid]"
+          TopLeft="501.5,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10,63.5"
+              Start="0,0"
+              End="-10,56">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.75"
+                    Point2="0,31.75"
+                    Point3="-4,31.75" />
+                  <mssgle:LineSegment
+                    End="-6,31.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6,31.75"
+                    Point2="-10,31.75"
+                    Point3="-10,35.75" />
+                  <mssgle:LineSegment
+                    End="-10,56" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.351171875,36.75,22.70234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Sequence Container\DimCustomers\Derived Column"
+          TopLeft="697,148" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[Invalid]"
+          TopLeft="579,165.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118,0"
+              Start="0,0"
+              End="110.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="110.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="39.98541015625,5,30.5291796875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\DimCustomers\OLE DB Destination"
+          TopLeft="839,239" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DimCustomers.Paths[Derived Column Output2]"
+          TopLeft="774,190">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150.5,49"
+              Start="0,0"
+              End="150.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="146.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="146.5,24.5"
+                    Point2="150.5,24.5"
+                    Point3="150.5,28.5" />
+                  <mssgle:LineSegment
+                    End="150.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17917,9 +18401,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17953,9 +18435,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17989,9 +18469,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18025,9 +18503,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18241,9 +18717,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18277,9 +18751,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18313,9 +18785,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18349,9 +18819,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18385,9 +18853,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18409,9 +18875,7 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19477,6 +19941,19 @@ WHERE [ShipMethodID] = ? AND [ExpiredDate] IS NULL</property>
   &lt;DateVariable&gt;System::ContainerStartTime&lt;/DateVariable&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DimCustomers\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
