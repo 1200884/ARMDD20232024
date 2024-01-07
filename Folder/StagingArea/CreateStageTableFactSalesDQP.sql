@@ -1,6 +1,6 @@
 IF NOT EXISTS (SELECT name from sys.tables WHERE name = 'FactSalesDQP')
 	CREATE TABLE [dbo].[FactSalesDQP](
-		[ProductNumber] [nvarchar](25)
+		[ProductNumber] [nvarchar](25),
 		[OrderDate] [date] NULL,
 		[CustomerID] [int] NULL,
 		[DueDate] [date] NULL,
