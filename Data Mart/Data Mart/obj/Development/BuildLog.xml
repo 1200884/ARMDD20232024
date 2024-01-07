@@ -2,38 +2,38 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Data Mart</Name>
-    <LastWriteTime>2024-01-06T03:50:16.0361196Z</LastWriteTime>
+    <LastWriteTime>2024-01-07T04:45:28.6937284Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Data Mart ETL Package.dtsx</Name>
-      <LastWriteTime>2024-01-06T16:20:42.8460956Z</LastWriteTime>
+      <LastWriteTime>2024-01-07T18:01:57.5676567Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StagingAreaScripts.dtsx</Name>
-      <LastWriteTime>2024-01-05T16:27:39.2733389Z</LastWriteTime>
+      <LastWriteTime>2024-01-07T18:01:53.8244946Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DataMartScripts.dtsx</Name>
-      <LastWriteTime>2024-01-03T21:17:18.90536Z</LastWriteTime>
+      <LastWriteTime>2024-01-07T17:54:01.343688Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load FactSales.dtsx</Name>
-      <LastWriteTime>2024-01-07T03:40:15.3037297Z</LastWriteTime>
+      <LastWriteTime>2024-01-07T17:24:24.1589609Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load FactCurrencyRates.dtsx</Name>
-      <LastWriteTime>2024-01-07T00:57:42.0578189Z</LastWriteTime>
+      <LastWriteTime>2024-01-07T17:24:24.1529617Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Load BusinessDimensions.dtsx</Name>
-      <LastWriteTime>2024-01-07T00:28:22.8001335Z</LastWriteTime>
+      <LastWriteTime>2024-01-07T17:00:58.6440689Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

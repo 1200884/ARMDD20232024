@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Data Mart ETL Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{9D52DAD2-C438-4A36-AE90-80970C4F12A0}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{C3906771-5A24-4CB5-9A13-F0E365F717D6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -62,6 +62,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E841A9B9-11D0-46AD-A1CE-E1AA7353954A}"
+          SQLTask:BypassPrepare="False"
           SQLTask:SqlStatementSource="CREATE DATABASE BikesAndBikes_DataMart" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -79,6 +80,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E841A9B9-11D0-46AD-A1CE-E1AA7353954A}"
+          SQLTask:BypassPrepare="False"
           SQLTask:SqlStatementSource="CREATE DATABASE BikesAndBikes_StagingArea" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -252,51 +254,51 @@
       DTS:To="Package\Load FactSales" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
-<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
-<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="192.8,41.6"
+          Size="193,42"
           Id="Package\Create Data Mart Tables"
           TopLeft="584,210" />
         <NodeLayout
-          Size="203.2,41.6"
+          Size="203,42"
           Id="Package\Create DataMart Database"
           TopLeft="583,92" />
         <NodeLayout
-          Size="220,41.6"
+          Size="220,42"
           Id="Package\Create Staging Area Database"
           TopLeft="265,101" />
         <NodeLayout
-          Size="207.2,41.6"
+          Size="207,42"
           Id="Package\Create Staging Area Tables"
           TopLeft="279,204" />
         <NodeLayout
-          Size="177.6,41.6"
+          Size="178,42"
           Id="Package\Load Bikes and Bikes"
           TopLeft="270,306" />
         <NodeLayout
-          Size="203.2,41.6"
+          Size="203,42"
           Id="Package\Load Business Dimensions"
           TopLeft="374,409" />
         <NodeLayout
-          Size="145.6,41.6"
+          Size="146,42"
           Id="Package\Load DimDate"
           TopLeft="595,322" />
         <NodeLayout
-          Size="192.8,41.6"
+          Size="193,42"
           Id="Package\Load FactCurrencyRates"
           TopLeft="372.000000255449,479.117647099041" />
         <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\Load FactSales"
           TopLeft="391.28571398617,557.576470580192" />
         <EdgeLayout

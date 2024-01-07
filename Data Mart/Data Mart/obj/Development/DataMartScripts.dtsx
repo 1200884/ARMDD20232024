@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{1D58B7D6-2B94-4C99-86BE-16345E4A0378}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{7BD5E16D-7240-4E02-BEB1-20D3FA6BFAD3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -65,6 +65,8 @@
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
         DTS:DTSID="{BC74BDB0-D9C7-4900-95DD-CBC9A68A632E}"
         DTS:ObjectName="{BC74BDB0-D9C7-4900-95DD-CBC9A68A632E}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::PackagePath] + "\\ARMDDSCRIPTSTP"</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
@@ -102,8 +104,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{15928E83-93B1-45ED-8021-78763B76AA9A}"
-          DTS:ObjectName="{15928E83-93B1-45ED-8021-78763B76AA9A}"
+          DTS:DTSID="{7142D9D6-4E2A-40B0-ACAD-6313F6EE83EE}"
+          DTS:ObjectName="{7142D9D6-4E2A-40B0-ACAD-6313F6EE83EE}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::DMScriptFilename" />
       </DTS:ForEachVariableMappings>

@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{EB7CC8D0-A34F-4841-8943-EE055341A1A1}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{6C484EB9-A335-4DBC-8BBD-071FB7B203D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -551,6 +551,352 @@ LEFT JOIN Currencies AS ToCurrency ON ToCurrency.CurrencyCode = CurrencyRates.To
                       refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactCurrencyRates\Fact Already Exists?"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Fact Already Exists?"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[FactCurrencyRates]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[FactCurrencyRates]) [refTable]
+where [refTable].[FromCurrencyKey] = ? and [refTable].[DateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FromCurrencyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AverageRate" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndOfDayRate" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output].Columns[CurrencyKey]};#{Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Match Output].Columns[DateKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactCurrencyRates\Fact Already Exists?.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactCurrencyRates\Fact Already Exists?.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Already Exists?.Inputs[Lookup Input].Columns[CurrencyKey]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyKey"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output].Columns[CurrencyKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">FromCurrencyKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Already Exists?.Inputs[Lookup Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Match Output].Columns[DateKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Fact Already Exists?.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Fact Already Exists?.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Fact Already Exists?.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactCurrencyRates\Fact Equal?"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Fact Equal?"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[FactCurrencyRates]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[FactCurrencyRates]) [refTable]
+where [refTable].[AverageRate] = ? and [refTable].[EndOfDayRate] = ? and [refTable].[FromCurrencyKey] = ? and [refTable].[DateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FromCurrencyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AverageRate" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndOfDayRate" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]};#{Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[EndOfDayRate]};#{Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output].Columns[CurrencyKey]};#{Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Match Output].Columns[DateKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactCurrencyRates\Fact Equal?.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Match Output].Columns[DateKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input].Columns[CurrencyKey]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyKey"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output].Columns[CurrencyKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">FromCurrencyKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input].Columns[AverageRate]"
+                      cachedDataType="cy"
+                      cachedName="AverageRate"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AverageRate</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input].Columns[EndOfDayRate]"
+                      cachedDataType="cy"
+                      cachedName="EndOfDayRate"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[EndOfDayRate]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">EndOfDayRate</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1503,6 +1849,158 @@ where [refTable].[FullDate] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Load FactCurrencyRates\Update FactCurrencyRates"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update FactCurrencyRates"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactCurrencyRates]
+   SET [AverageRate] = ?,
+		[EndOfDayRate] =?
+ WHERE [DateKey] = ? AND
+	   [FromCurrencyKey] = ?
+
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].Columns[AverageRate]"
+                      cachedDataType="cy"
+                      cachedName="AverageRate"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].Columns[EndOfDayRate]"
+                      cachedDataType="cy"
+                      cachedName="EndOfDayRate"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[EndOfDayRate]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Match Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].Columns[CurrencyKey]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyKey"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output].Columns[CurrencyKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="cy"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="cy"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -1527,14 +2025,29 @@ where [refTable].[FullDate] = ?</property>
               startId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Error Output]" />
             <path
               refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output]"
-              endId="Package\Load FactCurrencyRates\FactCurrencyRates.Inputs[OLE DB Destination Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
               endId="Package\Load FactCurrencyRates\Lookup Date.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
+              endId="Package\Load FactCurrencyRates\Fact Already Exists?.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output2]"
+              endId="Package\Load FactCurrencyRates\Fact Equal?.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output3]"
+              endId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Lookup No Match Output]"
+              endId="Package\Load FactCurrencyRates\FactCurrencyRates.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load FactCurrencyRates.Paths[OLE DB Source Output]"
               endId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Inputs[Lookup Input]"
@@ -1569,27 +2082,27 @@ where [refTable].[FullDate] = ?</property>
       DTS:To="Package\Load FactCurrencyRates" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="196,42"
+          Size="196,41.6"
           Id="Package\Create FK-PK Constraints"
           TopLeft="257.142857690247,224.823529214698" />
         <NodeLayout
-          Size="188,42"
+          Size="188,41.6"
           Id="Package\Drop FK-PK Constraints"
           TopLeft="262.142857700891,70.3529411148035" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Load FactCurrencyRates"
           TopLeft="265.000000564115,139.941176347924" />
         <EdgeLayout
@@ -1643,235 +2156,37 @@ where [refTable].[FullDate] = ?</property>
     design-time-name="Package\Load FactCurrencyRates">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="182,42"
-          Id="Package\Load FactCurrencyRates\Lookup CurrencyCode"
-          TopLeft="237.714282184231,107.999998572995" />
-        <NodeLayout
-          Size="146,42"
-          Id="Package\Load FactCurrencyRates\CurrencyRates"
-          TopLeft="251.999996244907,26.9999995976686" />
-        <NodeLayout
-          Size="138,42"
+          Size="137.6,41.6"
           Id="Package\Load FactCurrencyRates\Lookup Date"
           TopLeft="262.999996140599,227.694113719907" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\Load FactCurrencyRates\FactCurrencyRates"
-          TopLeft="250.428567825532,339.352935916052" />
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
-          TopLeft="330.357139162415,149.999998572995">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,77.694115146912"
-              Start="0,0"
-              End="0,70.194115146912">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,70.194115146912" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,29.292370073456,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output]"
-          TopLeft="332.714281983066,269.694113719907">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,69.658822196145"
-              Start="0,0"
-              End="0,62.158822196145">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.158822196145" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,25.2747235980725,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[OLE DB Source Output]"
-          TopLeft="326.857139214569,68.5999995976686">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.3999989753261"
-              Start="0,0"
-              End="0,31.8999989753261">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.8999989753261" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="259.714282131013,431.341171149173" />
         <NodeLayout
-          Size="180,42"
-          Id="Package\Load FactCurrencyRates\Lookup DateKey DQP"
-          TopLeft="509,211" />
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Lookup Error Output]"
-          TopLeft="400.999996140599,248.694113719907">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="108.000003859401,-16.694113719907"
-              Start="0,0"
-              End="100.500003859401,-16.694113719907">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="50.0000019297005,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="50.0000019297005,0"
-                    Point2="54.0000019297005,0"
-                    Point3="54.0000019297005,-4" />
-                  <mssgle:LineSegment
-                    End="54.0000019297005,-12.694113719907" />
-                  <mssgle:CubicBezierSegment
-                    Point1="54.0000019297005,-12.694113719907"
-                    Point2="54.0000019297005,-16.694113719907"
-                    Point3="58.0000019297005,-16.694113719907" />
-                  <mssgle:LineSegment
-                    End="100.500003859401,-16.694113719907" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="8.13361521095048,1,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="199,42"
+          Size="199.2,41.6"
           Id="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP"
           TopLeft="509,108" />
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Lookup Error Output1]"
-          TopLeft="419.714282184231,128.999999286497">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="89.285717815769,0"
-              Start="0,0"
-              End="81.785717815769,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="81.785717815769,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-4.97352781086552,5,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Load FactCurrencyRates\Union All"
           TopLeft="806,185" />
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Derived Column Output]"
-          TopLeft="608.5,150">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="258,35"
-              Start="0,0"
-              End="258,27.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.5"
-                    Point2="0,17.5"
-                    Point3="4,17.5" />
-                  <mssgle:LineSegment
-                    End="254,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="254,17.5"
-                    Point2="258,17.5"
-                    Point3="258,21.5" />
-                  <mssgle:LineSegment
-                    End="258,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Derived Column Output1]"
-          TopLeft="689,232">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="117,-26"
-              Start="0,0"
-              End="109.5,-26">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="54.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="54.5,0"
-                    Point2="58.5,0"
-                    Point3="58.5,-4" />
-                  <mssgle:LineSegment
-                    End="58.5,-22" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58.5,-22"
-                    Point2="58.5,-26"
-                    Point3="62.5,-26" />
-                  <mssgle:LineSegment
-                    End="109.5,-26" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="168,42"
+          Size="182.4,41.6"
+          Id="Package\Load FactCurrencyRates\Lookup CurrencyCode"
+          TopLeft="237.714282184231,107.999998572995" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Load FactCurrencyRates\Lookup DateKey DQP"
+          TopLeft="509,211" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Load FactCurrencyRates\CurrencyRates"
+          TopLeft="251.999996244907,26.9999995976686" />
+        <NodeLayout
+          Size="168,41.6"
           Id="Package\Load FactCurrencyRates\CurrencyRatesDQP"
           TopLeft="777,62" />
         <EdgeLayout
@@ -1908,40 +2223,327 @@ where [refTable].[FullDate] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[OLE DB Source Output]"
+          TopLeft="326.857139214569,68.5999995976686">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.3999989753261"
+              Start="0,0"
+              End="0,31.8999989753261">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8999989753261" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output]"
+          TopLeft="330.357139162415,149.999998572995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.694115146912"
+              Start="0,0"
+              End="0,70.194115146912">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.194115146912" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,29.292370073456,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Error Output1]"
+          TopLeft="419.714282184231,128.999999286497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89.285717815769,0"
+              Start="0,0"
+              End="81.785717815769,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81.785717815769,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-4.97352781086552,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Error Output]"
+          TopLeft="400.999996140599,248.694113719907">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.000003859401,-16.694113719907"
+              Start="0,0"
+              End="100.500003859401,-16.694113719907">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.0000019297005,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.0000019297005,0"
+                    Point2="54.0000019297005,0"
+                    Point3="54.0000019297005,-4" />
+                  <mssgle:LineSegment
+                    End="54.0000019297005,-12.694113719907" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.0000019297005,-12.694113719907"
+                    Point2="54.0000019297005,-16.694113719907"
+                    Point3="58.0000019297005,-16.694113719907" />
+                  <mssgle:LineSegment
+                    End="100.500003859401,-16.694113719907" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.13361521095048,1,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Derived Column Output1]"
+          TopLeft="689,232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117,-26"
+              Start="0,0"
+              End="109.5,-26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.5,0"
+                    Point2="58.5,0"
+                    Point3="58.5,-4" />
+                  <mssgle:LineSegment
+                    End="58.5,-22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.5,-22"
+                    Point2="58.5,-26"
+                    Point3="62.5,-26" />
+                  <mssgle:LineSegment
+                    End="109.5,-26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Derived Column Output]"
+          TopLeft="608.5,150">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="258,35"
+              Start="0,0"
+              End="258,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="254,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="254,17.5"
+                    Point2="258,17.5"
+                    Point3="258,21.5" />
+                  <mssgle:LineSegment
+                    End="258,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Load FactCurrencyRates\Fact Already Exists?"
+          TopLeft="261.914286077692,337.647058657296" />
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
+          TopLeft="331.799996140599,269.294113719907">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.1142899370927,68.3529449373894"
+              Start="0,0"
+              End="16.1142899370927,60.8529449373894">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.1764724686947" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.1764724686947"
+                    Point2="0,34.1764724686947"
+                    Point3="4,34.1764724686947" />
+                  <mssgle:LineSegment
+                    End="12.1142899370927,34.1764724686947" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.1142899370927,34.1764724686947"
+                    Point2="16.1142899370927,34.1764724686947"
+                    Point3="16.1142899370927,38.1764724686947" />
+                  <mssgle:LineSegment
+                    End="16.1142899370927,60.8529449373894" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-40.1342417502037,39.1764724686947,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup No Match Output]"
+          TopLeft="345.414284104352,379.247058657296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.0941124918764"
+              Start="0,0"
+              End="0,44.5941124918764">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5941124918764" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,16.4923687459382,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\Load FactCurrencyRates\Fact Equal?"
+          TopLeft="592.371429175078,416.117646893931" />
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output2]"
+          TopLeft="375.247619411025,379.247058657296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="283.123809764053,36.8705882366347"
+              Start="0,0"
+              End="283.123809764053,29.3705882366347">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.952127948497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.952127948497"
+                    Point2="0,14.952127948497"
+                    Point3="4,14.952127948497" />
+                  <mssgle:LineSegment
+                    End="279.123809764053,14.952127948497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="279.123809764053,14.952127948497"
+                    Point2="283.123809764053,14.952127948497"
+                    Point3="283.123809764053,18.952127948497" />
+                  <mssgle:LineSegment
+                    End="283.123809764053,29.3705882366347" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="93.3705181632764,19.952127948497,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\Load FactCurrencyRates\Update FactCurrencyRates"
+          TopLeft="589.91428633314,514.611764482004" />
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output3]"
+          TopLeft="658.371429175078,457.717646893931">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.1428571580624,56.8941175880728"
+              Start="0,0"
+              End="33.1428571580624,49.3941175880728">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4470587940364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4470587940364"
+                    Point2="0,28.4470587940364"
+                    Point3="4,28.4470587940364" />
+                  <mssgle:LineSegment
+                    End="29.1428571580624,28.4470587940364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.1428571580624,28.4470587940364"
+                    Point2="33.1428571580624,28.4470587940364"
+                    Point3="33.1428571580624,32.4470587940364" />
+                  <mssgle:LineSegment
+                    End="33.1428571580624,49.3941175880728" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-31.6199581397188,33.4470587940364,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactCurrencyRates\Lookup CurrencyCode">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load FactCurrencyRates\CurrencyRates">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load FactCurrencyRates\Lookup Date">
     <Properties>
@@ -1979,6 +2581,37 @@ where [refTable].[FullDate] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load FactCurrencyRates\Lookup CurrencyCode">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactCurrencyRates\CurrencyRates">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load FactCurrencyRates\CurrencyRatesDQP">
     <Properties>
       <Property>
@@ -1988,6 +2621,52 @@ where [refTable].[FullDate] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactCurrencyRates\Fact Already Exists?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[FactCurrencyRates]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactCurrencyRates\Fact Equal?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[FactCurrencyRates]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
