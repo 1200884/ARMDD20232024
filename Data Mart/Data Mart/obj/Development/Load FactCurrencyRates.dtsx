@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{4F26EA38-32A0-448A-A6FA-DC4A35F6201A}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{EB7CC8D0-A34F-4841-8943-EE055341A1A1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -137,6 +137,40 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create FK-PK Constraints"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{84C86500-41DC-45A6-99D7-A3C7DF497A1F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create FK-PK Constraints"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{206D4470-69D9-4682-9505-F09DAF578A6E}"
+          SQLTask:SqlStatementSource="ALTER TABLE [dbo].[FactCurrencyRates]  WITH CHECK ADD  CONSTRAINT [FK_FactCurrencyRates_DimDate] FOREIGN KEY([DateKey])&#xA;REFERENCES [dbo].[DimDate] ([DateKey])&#xA;ALTER TABLE [dbo].[FactCurrencyRates] CHECK CONSTRAINT [FK_FactCurrencyRates_DimDate]&#xA;&#xA;ALTER TABLE [dbo].[FactCurrencyRates]  WITH CHECK ADD  CONSTRAINT [FK_FactCurrencyRates_DimCurrency] FOREIGN KEY([FromCurrencyKey])&#xA;REFERENCES [dbo].[DimCurrency] ([CurrencyKey])&#xA;ALTER TABLE [dbo].[FactCurrencyRates] CHECK CONSTRAINT [FK_FactCurrencyRates_DimCurrency]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Drop FK-PK Constraints"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{6A45F475-09B9-4797-9DCE-0CE781E5F828}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop FK-PK Constraints"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{206D4470-69D9-4682-9505-F09DAF578A6E}"
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactCurrencyRates_DimDate')&#xA;ALTER TABLE [dbo].[FactCurrencyRates]  DROP CONSTRAINT [FK_FactCurrencyRates_DimDate]&#xA;IF EXISTS (SELECT name FROM sys.foreign_keys WHERE name = 'FK_FactCurrencyRates_DimCurrency')&#xA;ALTER TABLE [dbo].[FactCurrencyRates]  DROP CONSTRAINT [FK_FactCurrencyRates_DimCurrency]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Load FactCurrencyRates"
       DTS:CreationName="Microsoft.Pipeline"
@@ -359,6 +393,164 @@ LEFT JOIN Currencies AS ToCurrency ON ToCurrency.CurrencyCode = CurrencyRates.To
                       refId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactCurrencyRates\CurrencyRatesDQP"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CurrencyRatesDQP"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactCurrencyDQP]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                  connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_StagingArea]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].Columns[CurrencyRateDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CurrencyRateDate"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyRateDate]"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateDate]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].Columns[AverageRate]"
+                      cachedDataType="cy"
+                      cachedName="AverageRate"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[AverageRate]"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[AverageRate]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].Columns[EndOfDayRate]"
+                      cachedDataType="cy"
+                      cachedName="EndOfDayRate"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[EndOfDayRate]"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[EndOfDayRate]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].Columns[DQP]"
+                      cachedDataType="wstr"
+                      cachedLength="28"
+                      cachedName="DQP"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[DQP]"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[DQP]" />
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].Columns[FromCurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FromCurrencyName"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[FromCurrencyKey]"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[FromCurrencyName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyRateDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="CurrencyRateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[FromCurrencyKey]"
+                      dataType="i4"
+                      name="FromCurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[AverageRate]"
+                      dataType="cy"
+                      name="AverageRate" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[EndOfDayRate]"
+                      dataType="cy"
+                      name="EndOfDayRate" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input].ExternalColumns[DQP]"
+                      dataType="wstr"
+                      length="100"
+                      name="DQP" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -618,7 +810,7 @@ where [refTable].[Name] = ?</property>
                 <output
                   refId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Inputs[Lookup Input]">
@@ -665,6 +857,80 @@ where [refTable].[Name] = ?</property>
                       refId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Lookup CurrencyKey DQP"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Output].Columns[DQP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="28"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Output].Columns[DQP]"
+                      name="DQP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Failed lookup on DimCurrency"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Failed lookup on DimCurrency"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -831,8 +1097,434 @@ where [refTable].[FullDate] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Load FactCurrencyRates\Lookup DateKey DQP"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Lookup DateKey DQP"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Output].Columns[DQP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="24"
+                      lineageId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Output].Columns[DQP]"
+                      name="DQP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Failed lookup on DimDate"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Failed lookup on DimDate"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactCurrencyRates\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[CurrencyRateID]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyRateID"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyRateID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[CurrencyRateDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CurrencyRateDate"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyRateDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[AverageRate]"
+                      cachedDataType="cy"
+                      cachedName="AverageRate"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[AverageRate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[EndOfDayRate]"
+                      cachedDataType="cy"
+                      cachedName="EndOfDayRate"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[EndOfDayRate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[EndOfDayRate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[FromCurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FromCurrencyName"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[FromCurrencyName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[FromCurrencyName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[ToCurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ToCurrencyName"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[ToCurrencyName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ToCurrencyName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1].Columns[DQP]"
+                      cachedDataType="wstr"
+                      cachedLength="28"
+                      cachedName="DQP"
+                      lineageId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Output].Columns[DQP]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[DQP]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[CurrencyRateID]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyRateID"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyRateID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[CurrencyRateDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CurrencyRateDate"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[CurrencyRateDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[AverageRate]"
+                      cachedDataType="cy"
+                      cachedName="AverageRate"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[AverageRate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[EndOfDayRate]"
+                      cachedDataType="cy"
+                      cachedName="EndOfDayRate"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[EndOfDayRate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[EndOfDayRate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[FromCurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FromCurrencyName"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[FromCurrencyName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[FromCurrencyName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[ToCurrencyName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ToCurrencyName"
+                      lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[ToCurrencyName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ToCurrencyName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2].Columns[DQP]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="DQP"
+                      lineageId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Output].Columns[DQP]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[DQP]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateID]"
+                      name="CurrencyRateID" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[CurrencyRateDate]"
+                      name="CurrencyRateDate" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[AverageRate]"
+                      dataType="cy"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[AverageRate]"
+                      name="AverageRate" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[EndOfDayRate]"
+                      dataType="cy"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[EndOfDayRate]"
+                      name="EndOfDayRate" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[FromCurrencyName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[FromCurrencyName]"
+                      name="FromCurrencyName" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ToCurrencyName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ToCurrencyName]"
+                      name="ToCurrencyName" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                    <outputColumn
+                      refId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[DQP]"
+                      dataType="wstr"
+                      length="28"
+                      lineageId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1].Columns[DQP]"
+                      name="DQP" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Derived Column Output]"
+              endId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Derived Column Output1]"
+              endId="Package\Load FactCurrencyRates\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Lookup Error Output]"
+              endId="Package\Load FactCurrencyRates\Lookup DateKey DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Lookup Error Output1]"
+              endId="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Error Output]" />
             <path
               refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output]"
               endId="Package\Load FactCurrencyRates\FactCurrencyRates.Inputs[OLE DB Destination Input]"
@@ -848,11 +1540,34 @@ where [refTable].[FullDate] = ?</property>
               endId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load FactCurrencyRates.Paths[Union All Output 1]"
+              endId="Package\Load FactCurrencyRates\CurrencyRatesDQP.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Load FactCurrencyRates\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição]"
+      DTS:CreationName=""
+      DTS:DTSID="{F3D1107A-025C-4DEC-996F-C354E28A2D71}"
+      DTS:From="Package\Load FactCurrencyRates"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição"
+      DTS:To="Package\Create FK-PK Constraints" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FD484FEF-72B6-443D-8F24-D52C5968D0B4}"
+      DTS:From="Package\Drop FK-PK Constraints"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 1"
+      DTS:To="Package\Load FactCurrencyRates" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -864,11 +1579,63 @@ where [refTable].[FullDate] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Create FK-PK Constraints"
+          TopLeft="257.142857690247,224.823529214698" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Drop FK-PK Constraints"
+          TopLeft="262.142857700891,70.3529411148035" />
         <NodeLayout
           Size="193,42"
           Id="Package\Load FactCurrencyRates"
-          TopLeft="134.285714571573,79.5294116949953" />
+          TopLeft="265.000000564115,139.941176347924" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição]"
+          TopLeft="358.271429127181,181.541176347924">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.2823528667737"
+              Start="0,0"
+              End="0,35.7823528667737">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7823528667737" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 1]"
+          TopLeft="358.771429132503,111.952941114803">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.9882352331209"
+              Start="0,0"
+              End="0,20.4882352331209">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4882352331209" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -876,7 +1643,7 @@ where [refTable].[FullDate] = ?</property>
     design-time-name="Package\Load FactCurrencyRates">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182,42"
           Id="Package\Load FactCurrencyRates\Lookup CurrencyCode"
@@ -893,6 +1660,30 @@ where [refTable].[FullDate] = ?</property>
           Size="166,42"
           Id="Package\Load FactCurrencyRates\FactCurrencyRates"
           TopLeft="250.428567825532,339.352935916052" />
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
+          TopLeft="330.357139162415,149.999998572995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.694115146912"
+              Start="0,0"
+              End="0,70.194115146912">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.194115146912" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,29.292370073456,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output]"
           TopLeft="332.714281983066,269.694113719907">
@@ -939,28 +1730,182 @@ where [refTable].[FullDate] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Load FactCurrencyRates\Lookup DateKey DQP"
+          TopLeft="509,211" />
         <EdgeLayout
-          Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output1]"
-          TopLeft="330.357139162415,149.999998572995">
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Error Output]"
+          TopLeft="400.999996140599,248.694113719907">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.694115146912"
+              EndConnector="108.000003859401,-16.694113719907"
               Start="0,0"
-              End="0,70.194115146912">
+              End="100.500003859401,-16.694113719907">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.194115146912" />
+                    End="50.0000019297005,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.0000019297005,0"
+                    Point2="54.0000019297005,0"
+                    Point3="54.0000019297005,-4" />
+                  <mssgle:LineSegment
+                    End="54.0000019297005,-12.694113719907" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.0000019297005,-12.694113719907"
+                    Point2="54.0000019297005,-16.694113719907"
+                    Point3="58.0000019297005,-16.694113719907" />
+                  <mssgle:LineSegment
+                    End="100.500003859401,-16.694113719907" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,29.292370073456,96.3827734375,11.609375"
+              BoundingBox="8.13361521095048,1,91.7327734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Load FactCurrencyRates\Lookup CurrencyKey DQP"
+          TopLeft="509,108" />
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Lookup Error Output1]"
+          TopLeft="419.714282184231,128.999999286497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89.285717815769,0"
+              Start="0,0"
+              End="81.785717815769,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81.785717815769,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-4.97352781086552,5,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Load FactCurrencyRates\Union All"
+          TopLeft="806,185" />
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Derived Column Output]"
+          TopLeft="608.5,150">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="258,35"
+              Start="0,0"
+              End="258,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="254,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="254,17.5"
+                    Point2="258,17.5"
+                    Point3="258,21.5" />
+                  <mssgle:LineSegment
+                    End="258,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Derived Column Output1]"
+          TopLeft="689,232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117,-26"
+              Start="0,0"
+              End="109.5,-26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.5,0"
+                    Point2="58.5,0"
+                    Point3="58.5,-4" />
+                  <mssgle:LineSegment
+                    End="58.5,-22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.5,-22"
+                    Point2="58.5,-26"
+                    Point3="62.5,-26" />
+                  <mssgle:LineSegment
+                    End="109.5,-26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Load FactCurrencyRates\CurrencyRatesDQP"
+          TopLeft="777,62" />
+        <EdgeLayout
+          Id="Package\Load FactCurrencyRates.Paths[Union All Output 1]"
+          TopLeft="885.333333333333,185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.3333333333334,-81"
+              Start="0,0"
+              End="-24.3333333333334,-73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-29.0342577487765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-29.0342577487765"
+                    Point2="0,-33.0342577487765"
+                    Point3="-4,-33.0342577487765" />
+                  <mssgle:LineSegment
+                    End="-20.3333333333334,-33.0342577487765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.3333333333334,-33.0342577487765"
+                    Point2="-24.3333333333334,-33.0342577487765"
+                    Point3="-24.3333333333334,-37.0342577487765" />
+                  <mssgle:LineSegment
+                    End="-24.3333333333334,-73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -982,7 +1927,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1003,7 +1948,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1013,7 +1958,7 @@ where [refTable].[FullDate] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1022,6 +1967,19 @@ where [refTable].[FullDate] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load FactCurrencyRates\FactCurrencyRates">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactCurrencyRates\CurrencyRatesDQP">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
