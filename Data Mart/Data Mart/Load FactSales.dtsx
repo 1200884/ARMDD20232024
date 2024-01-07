@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{C8263C55-882F-49F0-8863-CAFA7FAB746F}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{EF17DF5D-4E84-4D8C-B531-62F7DAC3129D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4665,79 +4665,79 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
               startId="Package\Load FactSales\Lookup DateKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactSales.Paths[Lookup Match Output13]"
-              endId="Package\Load FactSales\Lookup ShipToAddress.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup BillToAddress.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output12]"
-              endId="Package\Load FactSales\Lookup ShipDate.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup DueDate.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output11]"
-              endId="Package\Load FactSales\Lookup CustomerKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup ShipDate.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output10]"
-              endId="Package\Load FactSales\Lookup SalesPersonKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup CustomerKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output9]"
-              endId="Package\Load FactSales\Lookup TerritoryKey.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup SalesPersonKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output7]"
-              endId="Package\Load FactSales\Lookup CurrencyCode.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup ShipMethod.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output8]"
-              endId="Package\Load FactSales\Lookup BillToAddress.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup TerritoryKey.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output5]"
-              endId="Package\Load FactSales\Fact Equal?.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Fact Already Exists?.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output4]"
-              endId="Package\Load FactSales\Lookup ProductNumber.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup CurrencyCode.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output3]"
-              endId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup ProductNumber.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output2]"
-              endId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output1]"
-              endId="Package\Load FactSales\Fact Already Exists?.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load FactSales.Paths[Lookup Match Output6]"
               endId="Package\Load FactSales\Lookup ShipMethod.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load FactSales\Lookup ShipToAddress.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load FactSales.Paths[Lookup No Match Output1]"
-              endId="Package\Load FactSales\Update FactSales.Inputs[OLE DB Command Input]"
-              name="Lookup No Match Output"
-              startId="Package\Load FactSales\Fact Equal?.Outputs[Lookup No Match Output]" />
+              refId="Package\Load FactSales.Paths[Lookup Match Output12]"
+              endId="Package\Load FactSales\Fact Already Exists?.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup UnitPriceStandard.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load FactSales.Paths[Lookup No Match Output]"
+              refId="Package\Load FactSales.Paths[Lookup Match Output11]"
+              endId="Package\Load FactSales\Lookup UnitPriceStandard.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup FreightPerLine.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output10]"
+              endId="Package\Load FactSales\Lookup FreightPerLine.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup ProductNumber.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output9]"
+              endId="Package\Load FactSales\Lookup ProductNumber.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup CurrencyCode.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output7]"
+              endId="Package\Load FactSales\Lookup BillToAddress.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup TerritoryKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output8]"
+              endId="Package\Load FactSales\Fact Equal?.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Fact Already Exists?.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output5]"
+              endId="Package\Load FactSales\Lookup TerritoryKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup SalesPersonKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output4]"
+              endId="Package\Load FactSales\Lookup SalesPersonKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup CustomerKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output3]"
+              endId="Package\Load FactSales\Lookup CustomerKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup ShipDate.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output2]"
+              endId="Package\Load FactSales\Lookup ShipDate.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup DueDate.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output1]"
+              endId="Package\Load FactSales\Lookup ShipToAddress.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup BillToAddress.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup Match Output6]"
+              endId="Package\Load FactSales\Lookup CurrencyCode.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load FactSales\Lookup ShipMethod.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup No Match Output1]"
               endId="Package\Load FactSales\FactSales.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Load FactSales\Fact Already Exists?.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Load FactSales.Paths[Lookup No Match Output]"
+              endId="Package\Load FactSales\Update FactSales.Inputs[OLE DB Command Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load FactSales\Fact Equal?.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load FactSales.Paths[OLE DB Source Output]"
               endId="Package\Load FactSales\Lookup DateKey.Inputs[Lookup Input]"
@@ -4767,27 +4767,27 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
       DTS:To="Package\Load FactSales" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="243,42"
+          Size="243.2,41.6"
           Id="Package\Create FactSales PK-FK Constraints"
           TopLeft="114.285714528999,220.235293924602" />
         <NodeLayout
-          Size="236,42"
+          Size="236,41.6"
           Id="Package\Drop FactSales PK-FK Constraints"
           TopLeft="125.000000266092,54.2941175994679" />
         <NodeLayout
-          Size="148,42"
+          Size="148,41.6"
           Id="Package\Load FactSales"
           TopLeft="168.571428930272,136.882352821194" />
         <EdgeLayout
@@ -4925,7 +4925,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output2]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output11]"
           TopLeft="373.657143448628,1047.16470574495">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4949,7 +4949,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output3]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output10]"
           TopLeft="373.714286311853,976.611764459214">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4973,7 +4973,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output4]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output9]"
           TopLeft="374.028569643473,892.505876778412">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4997,7 +4997,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output7]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output6]"
           TopLeft="369.414281536031,811.199994635582">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5021,7 +5021,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output6]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output13]"
           TopLeft="367.499995850027,729.999994724989">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5045,7 +5045,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output13]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output1]"
           TopLeft="369.299995850027,654.799994665384">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5069,7 +5069,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output8]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output7]"
           TopLeft="368.999995812774,577.399994650483">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5093,7 +5093,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output9]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output5]"
           TopLeft="365.599995902181,496.799995350838">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5117,7 +5117,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output10]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output4]"
           TopLeft="362.599995961785,415.599995142222">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5141,7 +5141,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output11]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output3]"
           TopLeft="359.999995887279,337.599995589256">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5165,7 +5165,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output12]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output2]"
           TopLeft="355.299995879829,251.599996870756">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5217,7 +5217,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           Id="Package\Load FactSales\Fact Already Exists?"
           TopLeft="292.857143480559,1159.37647027253" />
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output1]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output12]"
           TopLeft="377.285714890884,1129.10588229798">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5241,7 +5241,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup No Match Output]"
+          Id="Package\Load FactSales.Paths[Lookup No Match Output1]"
           TopLeft="379.471429222974,1200.97647027253">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5269,7 +5269,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           Id="Package\Load FactSales\Fact Equal?"
           TopLeft="490.028572017015,1237.79999962396" />
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup Match Output5]"
+          Id="Package\Load FactSales.Paths[Lookup Match Output8]"
           TopLeft="406.190476813892,1200.97647027253">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5309,7 +5309,7 @@ GROUP BY SalesOrderHeaders.OrderDate, SalesOrderHeaders.DueDate, SalesOrderHeade
           Id="Package\Load FactSales\Update FactSales"
           TopLeft="483.057143597639,1341.8117642541" />
         <EdgeLayout
-          Id="Package\Load FactSales.Paths[Lookup No Match Output1]"
+          Id="Package\Load FactSales.Paths[Lookup No Match Output]"
           TopLeft="559.342857807327,1279.39999962396">
           <EdgeLayout.Curve>
             <mssgle:Curve

@@ -2,7 +2,7 @@
   <Database>
     <DataSources>
       <DataSource>
-        <ID>Bikes And Bikes Data Mart</ID>
+        <ID>BikesNBikes Data Mart</ID>
         <ConnectionString>Provider=SQLOLEDB.1;Data Source=(local);Integrated Security=SSPI;Initial Catalog=BikesAndBikes_DataMart</ConnectionString>
         <ImpersonationInfo>
           <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>
@@ -38,13 +38,21 @@
     </Dimensions>
     <Cubes>
       <Cube>
-        <ID>Bikes Bikes Data Mart Final Version</ID>
+        <ID>BikesNBikes Data Mart</ID>
         <MeasureGroups>
           <MeasureGroup>
             <ID>Fact Sales</ID>
             <Partitions>
               <Partition>
                 <ID>Fact Sales</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Fact Currency Rates</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Currency Rates</ID>
               </Partition>
             </Partitions>
           </MeasureGroup>

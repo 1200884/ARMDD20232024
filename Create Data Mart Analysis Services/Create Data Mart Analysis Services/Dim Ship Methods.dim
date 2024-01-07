@@ -1,0 +1,277 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="25a5b42b-7ce1-4c8f-a4d7-f0c6ef2b3d17" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Ship Methods</ID>
+  <Name>Dim Ship Methods</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-584" scrolltop="-3260" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="4382" y="10986" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimShipMethods" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3175" height="4466" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000670c000072110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DimShipMethods" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-584</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3260</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="83c5f0aa-31a7-485b-836e-2815ca984086">
+    <DataSourceViewID>BikesNBikes Data Mart</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="c46131a0-24a9-4b22-9422-f00512e7bb78">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="bf92ac29-3b1c-4434-9b95-38f8bed20a80">
+      <ID>Ship Method Key</ID>
+      <Name>Ship Method Key</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2c8ae13e-315f-46aa-bd3c-ba6cfa8c4b90">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d61813b0-c377-4b9e-be8e-35bcd4c94802">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>ShipMethodKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="48bb3471-a57d-4829-8f00-16650f360dee">
+          <AttributeID>Ship Method ID</AttributeID>
+          <Name>Ship Method ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c973fde8-2339-4a6a-8087-a5566059116b">
+          <AttributeID>Name</AttributeID>
+          <Name>Name_</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="39da4506-6d8b-4263-b1a0-2432d063dca2">
+          <AttributeID>Ship Base</AttributeID>
+          <Name>Ship Base</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cc7edd60-f7fb-4cd3-addf-14ae8bf95d88">
+          <AttributeID>Ship Rate</AttributeID>
+          <Name>Ship Rate</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="469599cd-0278-4f75-af6c-ab68e2106ba2">
+          <AttributeID>Created Date</AttributeID>
+          <Name>Created Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cf0717ed-a403-4c56-8d61-071ebcfce603">
+          <AttributeID>Modified Date</AttributeID>
+          <Name>Modified Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ebbc6cd2-93a4-44b4-8bc0-768fc0e6c341">
+          <AttributeID>Effective Date</AttributeID>
+          <Name>Effective Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="84f403f6-4790-4150-927f-b1a57769917a">
+          <AttributeID>Expired Date</AttributeID>
+          <Name>Expired Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c83a0afb-8611-4ddc-8dcc-e670d7b5b7c1">
+          <AttributeID>Is Current</AttributeID>
+          <Name>Is Current</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ec7c81e3-2d72-4ef4-b24b-e87030676e67">
+      <ID>Ship Method ID</ID>
+      <Name>Ship Method ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0c9aed81-336a-49cf-b505-210aa1b97a9a">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5910f7ed-07be-4f92-b744-22a54404537b">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>ShipMethodID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e13a3b18-46b3-4f27-af46-fd53abe07eef">
+      <ID>Name</ID>
+      <Name>Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d16ca8b2-f1e0-409e-9466-c7f4cce0d319">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="34069ae7-7765-41d3-a321-1ad1d9e20015">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>Name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e2166057-d08f-4d1f-a89e-b154b9f13b63">
+      <ID>Ship Base</ID>
+      <Name>Ship Base</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="428afa88-b814-40fb-b591-b19011f32fc2">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fcf1da2f-7a3d-4c98-b852-4cb759064415">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>ShipBase</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7b8d3d8f-04cb-43de-8409-f0f2e864c0a9">
+      <ID>Ship Rate</ID>
+      <Name>Ship Rate</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="82795b7a-8c20-4b5b-9e43-35f61abff869">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5873ea68-cd33-4b8e-a9e7-4804629f8e53">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>ShipRate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a34a20b9-406e-4508-b382-6cdafaba096c">
+      <ID>Created Date</ID>
+      <Name>Created Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1123cce6-5124-42e6-be05-dc247a4022a3">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9e45c15b-4d9d-45ec-a144-7e14175a3703">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>CreatedDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2dae8abb-ba49-4f02-8b9d-c44134fe2ea6">
+      <ID>Modified Date</ID>
+      <Name>Modified Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="95a1302f-8a8e-41d1-9736-0f5c873deb2b">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="da726b69-e25b-45e2-862a-3f8c237539d9">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>ModifiedDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e8c14a18-2a5f-4348-8969-9187c4c45da4">
+      <ID>Effective Date</ID>
+      <Name>Effective Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="45f77d0d-3428-4f44-a87a-78fe854dc884">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="60efbc6b-e600-406d-8ae9-4ee0d8f069f6">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>EffectiveDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a9aa5b15-0627-4114-9487-01a39f5db0ab">
+      <ID>Expired Date</ID>
+      <Name>Expired Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e5417e24-e4f2-4390-8ff3-90c1077c5b55">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9fb16ae0-9a59-411b-9c47-3e19bda11ae2">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>ExpiredDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f9a3ebd1-65a4-477a-9af4-e6187a72147c">
+      <ID>Is Current</ID>
+      <Name>Is Current</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5d3393e0-5dfe-4495-afb9-e11ed050ed1b">
+          <DataType>WChar</DataType>
+          <DataSize>3</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2cc3f3a0-1e7a-43ef-b727-112bc925e536">
+            <TableID>dbo_DimShipMethods</TableID>
+            <ColumnID>Is_Current</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -6,10 +6,83 @@
     <Name>Create Data Mart Analysis Services.database</Name>
     <FullPath>Create Data Mart Analysis Services.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>BikesNBikes Data Mart.cube</Name>
+      <FullPath>BikesNBikes Data Mart.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>BikesNBikes Data Mart.partitions</Name>
+          <FullPath>BikesNBikes Data Mart.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Dim Sales Persons.dim</Name>
+      <FullPath>Dim Sales Persons.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Ship Methods.dim</Name>
+      <FullPath>Dim Ship Methods.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Date.dim</Name>
+      <FullPath>Dim Date.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Products 1.dim</Name>
+      <FullPath>Dim Products 1.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Customers 1.dim</Name>
+      <FullPath>Dim Customers 1.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Currency.dim</Name>
+      <FullPath>Dim Currency.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Addresses.dim</Name>
+      <FullPath>Dim Addresses.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Sales Territories.dim</Name>
+      <FullPath>Dim Sales Territories.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>BikesNBikes Data Mart.ds</Name>
+      <FullPath>BikesNBikes Data Mart.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>BikesNBikes Data Mart.dsv</Name>
+      <FullPath>BikesNBikes Data Mart.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options />
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>BikesNBikes Data Mart</Id>
+            <Name>BikesNBikes Data Mart</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=(local);Integrated Security=SSPI;Initial Catalog=BikesAndBikes_DataMart</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>BikesNBikes Data Mart</Id>
+            <Name>BikesNBikes Data Mart</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
     </Configuration>
   </Configurations>
 </Project>

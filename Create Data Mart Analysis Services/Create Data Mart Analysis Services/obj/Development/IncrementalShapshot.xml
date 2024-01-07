@@ -19,79 +19,79 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>hy2EnvPPpC520gwZJjCBrLilQyQ=06/01/2024 17:48:0606/01/2024 17:48:05</TimeStamp>
+        <TimeStamp>vRINwceLnPA57GkuCqXhft17S7k=06/01/2024 22:19:1506/01/2024 22:19:15</TimeStamp>
         <ID>
-          <String>Bikes And Bikes Data Mart</String>
+          <String>BikesNBikes Data Mart</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>1Vn7mFYa+HuUzIEKqSviTH3YQ5I=06/01/2024 17:48:4106/01/2024 17:48:40</TimeStamp>
+        <TimeStamp>KE3Weo/9vTdlsSK5tasdN7kPxcA=06/01/2024 22:21:0106/01/2024 22:21:01</TimeStamp>
         <ID>
-          <String>Bikes And Bikes Data Mart</String>
+          <String>BikesNBikes Data Mart</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>Em1+mcwX7QKWgjOGr1+OJE1QFcY=06/01/2024 18:05:1106/01/2024 17:50:05</TimeStamp>
+        <TimeStamp>GJvaJMyJrCeQdAWyFkTV8PG1dQI=06/01/2024 22:25:1006/01/2024 22:22:38</TimeStamp>
         <ID>
           <String>Dim Sales Persons</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>KY4ZqYvqslLu+8uD9YQPrkT7uYY=06/01/2024 18:05:1106/01/2024 17:50:05</TimeStamp>
+        <TimeStamp>0dPWIOjmyzwycjis43sOb6ju22Y=06/01/2024 22:25:1006/01/2024 22:22:38</TimeStamp>
         <ID>
           <String>Dim Ship Methods</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>LOrPiMomLEu8kcRm9BZl8gSG41M=06/01/2024 18:05:1106/01/2024 17:50:05</TimeStamp>
+        <TimeStamp>Bgk8+2mSyKt17WzoC5dz3JBGkp8=06/01/2024 22:25:1006/01/2024 22:22:38</TimeStamp>
         <ID>
           <String>Dim Date</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>NGxY3zgSv1PrONqRzd66UebVbDo=06/01/2024 18:05:1106/01/2024 17:50:22</TimeStamp>
+        <TimeStamp>wLWNiRyTqnfPzZpEag13VhW6Ghg=06/01/2024 22:25:1006/01/2024 22:22:38</TimeStamp>
         <ID>
           <String>Dim Products</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>hqAbLER7QwsY3HB2bzSYjF9Z+9s=06/01/2024 18:05:1106/01/2024 17:50:43</TimeStamp>
+        <TimeStamp>1IBxsYAqLdAih8Kw4M1euopN1xA=06/01/2024 22:25:1006/01/2024 22:22:38</TimeStamp>
         <ID>
           <String>Dim Customers</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>oPqxB8+7tmqLbn2ts4n9k8evHtY=06/01/2024 18:05:1106/01/2024 17:50:43</TimeStamp>
+        <TimeStamp>1UvaKslkomNoOXukB1PTsk7ObT8=06/01/2024 22:25:1006/01/2024 22:22:38</TimeStamp>
         <ID>
           <String>Dim Currency</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>JTopOQmv36FRbYEc6pDwo0Ac6aQ=06/01/2024 18:05:1106/01/2024 17:50:43</TimeStamp>
+        <TimeStamp>W+6mTPXH2braaoW3MC23lVbp414=06/01/2024 22:25:1006/01/2024 22:22:38</TimeStamp>
         <ID>
           <String>Dim Addresses</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>EKntEPH1dUb4ZQ1HRCiS018d7+I=06/01/2024 18:05:1106/01/2024 17:50:43</TimeStamp>
+        <TimeStamp>fG5CgbNagq2Ea942vK2xEXxBM4o=06/01/2024 22:25:1006/01/2024 22:22:38</TimeStamp>
         <ID>
           <String>Dim Sales Territories</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>aUryUdMKBBKASReJ/X2V5jUAfuA=06/01/2024 18:05:1106/01/2024 17:50:43qQOvGnLRXLznTAWRfQcPf7ghatg=06/01/2024 17:50:4306/01/2024 17:50:43</TimeStamp>
+        <TimeStamp>yZgQJeq1HC3WM5NFanD4xdWwobE=06/01/2024 23:45:3306/01/2024 22:22:38zYw+1iTQKHMBslLpV8cnAk0x13I=06/01/2024 23:45:3306/01/2024 22:22:38</TimeStamp>
         <ID>
-          <String>Bikes Bikes Data Mart Final Version</String>
+          <String>BikesNBikes Data Mart</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
@@ -106,5 +106,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2024-01-06T18:05:38.226667Z</LastDeployed>
+  <LastDeployed>2024-01-06T23:45:41.146667Z</LastDeployed>
 </DeploymentSnapshot>
