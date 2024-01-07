@@ -4309,6 +4309,17 @@
                 </Source>
               </Source>
             </Measure>
+            <Measure>
+              <ID>Tax Amount Local</ID>
+              <Name>Tax Amount Local</Name>
+              <Source>
+                <DataType>Double</DataType>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>dbo_FactSales</TableID>
+                  <ColumnID>TaxAmountLocal</ColumnID>
+                </Source>
+              </Source>
+            </Measure>
           </Measures>
           <StorageMode>Molap</StorageMode>
           <ProcessingMode>Regular</ProcessingMode>

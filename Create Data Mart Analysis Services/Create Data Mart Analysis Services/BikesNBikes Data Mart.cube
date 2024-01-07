@@ -1189,6 +1189,17 @@
             </Source>
           </Source>
         </Measure>
+        <Measure dwd:design-time-name="f847d7df-d802-4cda-9c66-5f1ef190cfed">
+          <ID>Tax Amount Local</ID>
+          <Name>Tax Amount Local</Name>
+          <Source dwd:design-time-name="0af3de69-4520-486c-8fd0-94e6d9d5bf6b">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="9b7cb356-cc74-48e7-83ef-60ff53e2bdc7">
+              <TableID>dbo_FactSales</TableID>
+              <ColumnID>TaxAmountLocal</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
       </Measures>
       <StorageMode>Molap</StorageMode>
       <ProcessingMode>Regular</ProcessingMode>
