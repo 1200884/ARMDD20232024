@@ -11,8 +11,8 @@
   DTS:LocaleID="2070"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{84E4586B-A4A5-4D9F-A7C4-22A76A223FC3}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{6C484EB9-A335-4DBC-8BBD-071FB7B203D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1850,11 +1850,11 @@ where [refTable].[FullDate] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load FactCurrencyRates\Update FactSales"
+              refId="Package\Load FactCurrencyRates\Update FactCurrencyRates"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="Update FactSales"
+              name="Update FactCurrencyRates"
               usesDispositions="true"
               version="2">
               <properties>
@@ -1881,7 +1881,7 @@ where [refTable].[FullDate] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load FactCurrencyRates\Update FactSales.Connections[OleDbConnection]"
+                  refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
                   connectionManagerRefId="Package.ConnectionManagers[(local).BikesAndBikes_DataMart]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1889,41 +1889,41 @@ where [refTable].[FullDate] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input]"
+                  refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].Columns[AverageRate]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].Columns[AverageRate]"
                       cachedDataType="cy"
                       cachedName="AverageRate"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[AverageRate]" />
                     <inputColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].Columns[EndOfDayRate]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].Columns[EndOfDayRate]"
                       cachedDataType="cy"
                       cachedName="EndOfDayRate"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Load FactCurrencyRates\CurrencyRates.Outputs[OLE DB Source Output].Columns[EndOfDayRate]" />
                     <inputColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].Columns[DateKey]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].Columns[DateKey]"
                       cachedDataType="i4"
                       cachedName="DateKey"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\Load FactCurrencyRates\Lookup Date.Outputs[Lookup Match Output].Columns[DateKey]" />
                     <inputColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].Columns[CurrencyKey]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].Columns[CurrencyKey]"
                       cachedDataType="i4"
                       cachedName="CurrencyKey"
-                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Load FactCurrencyRates\Lookup CurrencyCode.Outputs[Lookup Match Output].Columns[CurrencyKey]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       dataType="cy"
                       name="Param_0">
                       <properties>
@@ -1934,7 +1934,7 @@ where [refTable].[FullDate] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="cy"
                       name="Param_1">
                       <properties>
@@ -1945,7 +1945,7 @@ where [refTable].[FullDate] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       dataType="i4"
                       name="Param_2">
                       <properties>
@@ -1956,7 +1956,7 @@ where [refTable].[FullDate] = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       dataType="i4"
                       name="Param_3">
                       <properties>
@@ -1971,29 +1971,29 @@ where [refTable].[FullDate] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load FactCurrencyRates\Update FactSales.Outputs[OLE DB Command Output]"
+                  refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load FactCurrencyRates\Update FactSales.Outputs[OLE DB Command Error Output]"
+                  refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load FactCurrencyRates\Update FactSales.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load FactCurrencyRates\Update FactSales.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load FactCurrencyRates\Update FactSales.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2040,7 +2040,7 @@ where [refTable].[FullDate] = ?</property>
               startId="Package\Load FactCurrencyRates\Fact Already Exists?.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load FactCurrencyRates.Paths[Lookup Match Output3]"
-              endId="Package\Load FactCurrencyRates\Update FactSales.Inputs[OLE DB Command Input]"
+              endId="Package\Load FactCurrencyRates\Update FactCurrencyRates.Inputs[OLE DB Command Input]"
               name="Lookup Match Output"
               startId="Package\Load FactCurrencyRates\Fact Equal?.Outputs[Lookup Match Output]" />
             <path
@@ -2502,8 +2502,8 @@ where [refTable].[FullDate] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Load FactCurrencyRates\Update FactSales"
+          Size="203.2,41.6"
+          Id="Package\Load FactCurrencyRates\Update FactCurrencyRates"
           TopLeft="589.91428633314,514.611764482004" />
         <EdgeLayout
           Id="Package\Load FactCurrencyRates.Paths[Lookup Match Output3]"
@@ -2511,9 +2511,9 @@ where [refTable].[FullDate] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.1428571580624,56.8941175880728"
+              EndConnector="33.1428571580624,56.8941175880728"
               Start="0,0"
-              End="11.1428571580624,49.3941175880728">
+              End="33.1428571580624,49.3941175880728">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2524,20 +2524,20 @@ where [refTable].[FullDate] = ?</property>
                     Point2="0,28.4470587940364"
                     Point3="4,28.4470587940364" />
                   <mssgle:LineSegment
-                    End="7.14285715806238,28.4470587940364" />
+                    End="29.1428571580624,28.4470587940364" />
                   <mssgle:CubicBezierSegment
-                    Point1="7.14285715806238,28.4470587940364"
-                    Point2="11.1428571580624,28.4470587940364"
-                    Point3="11.1428571580624,32.4470587940364" />
+                    Point1="29.1428571580624,28.4470587940364"
+                    Point2="33.1428571580624,28.4470587940364"
+                    Point3="33.1428571580624,32.4470587940364" />
                   <mssgle:LineSegment
-                    End="11.1428571580624,49.3941175880728" />
+                    End="33.1428571580624,49.3941175880728" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-42.6199581397188,33.4470587940364,96.3827734375,11.609375"
+              BoundingBox="-31.6199581397188,33.4470587940364,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
